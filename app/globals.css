@@ -12,15 +12,139 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  font-family: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@property --metal-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes metal-travel {
+  0%   { --metal-angle: 0deg; }
+  100% { --metal-angle: 360deg; }
+}
+
+@keyframes bgBlob1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  100% { transform: translate(55px, 45px) scale(1.07); }
+}
+@keyframes bgBlob2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  100% { transform: translate(-50px, -55px) scale(1.06); }
+}
+@keyframes bgBlob3 {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-38%, -62%) scale(1.09); }
+}
+
+.metal-ring-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+.metal-ring {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 9px;
+  background: conic-gradient(
+    from var(--metal-angle),
+    transparent 0deg,
+    transparent 75deg,
+    rgba(200,190,180,0.15) 85deg,
+    rgba(230,220,210,0.4) 90deg,
+    rgba(255,248,240,0.85) 93deg,
+    rgba(240,230,220,0.5) 96deg,
+    rgba(210,200,190,0.2) 102deg,
+    transparent 112deg,
+    transparent 360deg
+  );
+  animation: metal-travel 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1.5px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.metal-ring-wrapper > a,
+.metal-ring-wrapper > button {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes liquidSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.liquid-glass-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* The ring sits 3px outside the button on all sides */
+.liquid-glass-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 11px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  /* Rich copper-gold base, opaque enough to read on any background */
+  background: rgba(200, 152, 44, 0.90);
+}
+
+/* Rotating highlight arc */
+.liquid-glass-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(
+    from 0deg,
+    transparent         0deg,
+    transparent       100deg,
+    rgba(255,225,100,0.22) 124deg,
+    rgba(255,240,140,0.78) 150deg,
+    rgba(255,248,170,1.00) 170deg,
+    rgba(255,240,140,0.78) 190deg,
+    rgba(255,225,100,0.22) 216deg,
+    transparent       240deg,
+    transparent       360deg
+  );
+  animation: liquidSpin 7s linear infinite;
+}
+
+/* Solid fill that hides the gradient in the button centre */
+.liquid-glass-ring::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 8px;
+  background: #C4622D;
+}
+
+.liquid-glass-wrapper > a,
+.liquid-glass-wrapper > button {
+  position: relative;
+  z-index: 1;
 }
