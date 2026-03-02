@@ -2161,7 +2161,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-      <FAQSection lang={lang} fadeRef={faq.ref} visible={faq.visible} fadeStyle={fadeStyle} />
+      <FAQSection lang={lang} fadeRef={faq.ref as React.RefObject<HTMLDivElement>} visible={faq.visible} fadeStyle={fadeStyle} />
 
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
       <footer style={{ background: "#2C1810", padding: "60px 0 0" }}>
