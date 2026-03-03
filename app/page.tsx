@@ -940,7 +940,7 @@ function AIDemoSection({ lang }: { lang: Lang }) {
             background: "rgba(255,255,255,0.65)",
             backdropFilter: "blur(24px) saturate(180%)",
             WebkitBackdropFilter: "blur(24px) saturate(180%)",
-            border: "1px solid rgba(139,89,60,0.20)",
+            border: "1px solid rgba(139,89,60,0.18)",
             borderRadius: "24px",
             padding: "32px",
             boxShadow:
@@ -1115,8 +1115,8 @@ function AIDemoSection({ lang }: { lang: Lang }) {
                   <button
                     key={chip}
                     style={{
-                      background: "rgba(255,255,255,0.8)",
-                      border: "1px solid rgba(44,24,16,0.08)",
+                      background: "rgba(255,255,255,0.7)",
+                      border: "1px solid rgba(139,89,60,0.10)",
                       borderRadius: "20px",
                       padding: "6px 14px",
                       fontSize: "13px",
@@ -1132,9 +1132,9 @@ function AIDemoSection({ lang }: { lang: Lang }) {
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLButtonElement).style.background =
-                        "rgba(255,255,255,0.8)";
+                        "rgba(255,255,255,0.7)";
                       (e.currentTarget as HTMLButtonElement).style.borderColor =
-                        "rgba(44,24,16,0.08)";
+                        "rgba(139,89,60,0.10)";
                     }}
                   >
                     {chip}
