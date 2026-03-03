@@ -20,9 +20,29 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Screndo – Ditt team. I perfekt harmoni.",
-  description:
-    "Screndo ger dina managers en levande bild av vad teamet jobbar på, vad som blockerar dem, och vem som behöver stöd – på 60 sekunder om dagen.",
+  title: 'Screndo – People Intelligence Platform',
+  description: 'Screndo ger managers en levande bild av sitt team varje dag. OKR-tracking, pulsmätningar och AI-assistenter för svenska bolag med 50–200 anställda.',
+  keywords: 'people intelligence, HR platform, OKR tracking, pulsmätningar, svensk arbetsrätt, HR-verktyg Sverige',
+  openGraph: {
+    title: 'Screndo – People Intelligence, Built for Humans',
+    description: 'People intelligence för växande europeiska bolag. Kom igång på 20 minuter.',
+    url: 'https://screndo.com',
+    siteName: 'Screndo',
+    locale: 'sv_SE',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Screndo – People Intelligence Platform',
+    description: 'People intelligence för växande europeiska bolag.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: 'https://screndo.com',
+  }
 };
 
 export default function RootLayout({
@@ -35,6 +55,40 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Screndo",
+              "applicationCategory": "BusinessApplication",
+              "description": "People intelligence platform för svenska och europeiska bolag med 50-200 anställda. OKR-tracking, pulsmätningar och AI-assistenter baserade på svensk arbetsrätt.",
+              "url": "https://screndo.com",
+              "offers": {
+                "@type": "Offer",
+                "price": "89",
+                "priceCurrency": "SEK",
+                "priceSpecification": "per anställd per månad"
+              },
+              "operatingSystem": "Web",
+              "inLanguage": ["sv", "en"],
+              "areaServed": ["SE", "NO", "DK", "EU"],
+              "founder": {
+                "@type": "Person",
+                "name": "Benjamin Palm"
+              },
+              "location": {
+                "@type": "Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Stockholm",
+                  "addressCountry": "SE"
+                }
+              }
+            })
+          }}
+        />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
