@@ -42,7 +42,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://screndo.com',
-  }
+  },
+  icons: {
+    icon: '/screndo favikon.PNG',
+    apple: '/screndo favikon.PNG',
+  },
 };
 
 export default function RootLayout({
