@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     canonical: 'https://screndo.com',
   },
   icons: {
-    icon: '/screndo favikon.PNG',
-    apple: '/screndo favikon.PNG',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
