@@ -1549,113 +1549,17 @@ export default function Home() {
               ...fadeStyle(hero.visible, 0.5, 0.6),
             }}
           >
-            <div
+            <img
+              src="/Simulator Screenshot - iPhone 17 Pro - 2026-03-12 at 19.55.45.png"
+              alt="Screndo app"
               style={{
-                background: "rgba(255,255,255,0.75)",
-                backdropFilter: "blur(24px) saturate(180%)",
-                WebkitBackdropFilter: "blur(24px) saturate(180%)",
-                border: "1px solid rgba(255,255,255,0.85)",
-                borderRadius: "24px",
-                padding: "28px",
-                boxShadow: "0 24px 64px rgba(44,24,16,0.14), 0 2px 4px rgba(44,24,16,0.06)",
-                width: "100%",
-                maxWidth: "400px",
+                width: "260px",
+                borderRadius: "36px",
+                boxShadow: "0 32px 80px rgba(44,24,16,0.22), 0 4px 16px rgba(44,24,16,0.10)",
+                display: "block",
                 animation: hero.visible ? "float 4s ease-in-out infinite" : "none",
               }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  marginBottom: "20px",
-                }}
-              >
-                <span style={{ fontSize: "14px" }}>📊</span>
-                <span style={{ color: "#2C1810", fontSize: "14px", fontWeight: 600 }}>
-                  Team Dashboard
-                </span>
-                <span
-                  style={{
-                    marginLeft: "auto",
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    background: "#4CAF50",
-                    display: "block",
-                  }}
-                />
-              </div>
-
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr 1fr",
-                  gap: "10px",
-                  marginBottom: "20px",
-                }}
-              >
-                {t.heroDashStats.map((s) => (
-                  <div
-                    key={s.label}
-                    style={{
-                      background: "#FAF7F2",
-                      borderRadius: "12px",
-                      padding: "12px 6px",
-                      textAlign: "center",
-                    }}
-                  >
-                    <div style={{ color: "#2C1810", fontSize: "16px", fontWeight: 700 }}>
-                      {s.val}
-                    </div>
-                    <div
-                      style={{
-                        color: "rgba(44,24,16,0.5)",
-                        fontSize: "10px",
-                        marginTop: "3px",
-                      }}
-                    >
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {t.heroDashTeams.map((row) => (
-                <div key={row.team} style={{ marginBottom: "10px" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      marginBottom: "4px",
-                    }}
-                  >
-                    <span style={{ color: "#2C1810", fontSize: "12px" }}>{row.team}</span>
-                    <span style={{ color: "rgba(44,24,16,0.45)", fontSize: "11px" }}>
-                      {row.pct}%
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      background: "#E8DDD0",
-                      borderRadius: "4px",
-                      height: "6px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <div
-                      style={{
-                        background:
-                          row.pct >= 80 ? "rgba(76,175,80,0.8)" : "rgba(255,193,7,0.8)",
-                        width: `${row.pct}%`,
-                        height: "100%",
-                        borderRadius: "4px",
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+            />
           </div>
         </div>
 
