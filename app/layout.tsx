@@ -30,11 +30,17 @@ export const metadata: Metadata = {
     siteName: 'Screndo',
     locale: 'sv_SE',
     type: 'website',
+    images: [{ url: 'https://screndo.com/app-screenshot.png' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Screndo – People Intelligence Platform',
     description: 'People intelligence för växande europeiska bolag.',
+    images: ['https://screndo.com/app-screenshot.png'],
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
   },
   robots: {
     index: true,
