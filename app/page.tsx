@@ -1550,11 +1550,13 @@ export default function Home() {
             }}
           >
             <img
-              src="/Simulator Screenshot - iPhone 17 Pro - 2026-03-12 at 19.55.45.png"
+              src="/app-screenshot.png"
               alt="Screndo app"
               style={{
-                width: "260px",
+                width: "300px",
                 borderRadius: "36px",
+                outline: "4px solid #000",
+                outlineOffset: "0px",
                 boxShadow: "0 32px 80px rgba(44,24,16,0.22), 0 4px 16px rgba(44,24,16,0.10)",
                 display: "block",
                 animation: hero.visible ? "float 4s ease-in-out infinite" : "none",
