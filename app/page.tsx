@@ -1550,7 +1550,7 @@ export default function Home() {
             }}
           >
             <img
-              src="/app-screenshot.png"
+              src="/plattformpreview.png"
               alt="Screndo app"
               style={{
                 width: "300px",
@@ -1592,7 +1592,63 @@ export default function Home() {
 
         <style>{`
           @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr !important; }
+            /* Hero */
+            .hero-grid {
+              grid-template-columns: 1fr !important;
+              padding: 100px 20px 48px !important;
+              gap: 32px !important;
+            }
+            .hero-grid h1 {
+              font-size: 34px !important;
+              line-height: 1.2 !important;
+            }
+            .hero-grid p {
+              font-size: 15px !important;
+            }
+            .hero-grid img {
+              width: 100% !important;
+              max-width: 320px !important;
+              margin: 0 auto !important;
+            }
+            .hero-grid > div:last-child {
+              justify-content: center !important;
+            }
+            /* Buttons */
+            .liquid-glass-wrapper {
+              width: 100% !important;
+              display: block !important;
+            }
+            .liquid-glass-wrapper a {
+              display: block !important;
+              min-height: 48px !important;
+              box-sizing: border-box !important;
+              text-align: center !important;
+              padding-left: 20px !important;
+              padding-right: 20px !important;
+            }
+            /* Sections */
+            section {
+              padding-left: 20px !important;
+              padding-right: 20px !important;
+              padding-top: 64px !important;
+              padding-bottom: 64px !important;
+            }
+            section h2 {
+              font-size: clamp(26px, 7vw, 36px) !important;
+            }
+            section p {
+              font-size: 15px !important;
+            }
+            /* Footer */
+            .footer-grid {
+              grid-template-columns: 1fr 1fr !important;
+              gap: 32px !important;
+            }
+          }
+          @media (max-width: 480px) {
+            .footer-grid {
+              grid-template-columns: 1fr !important;
+            }
           }
           @keyframes float {
             0%, 100% { transform: translateY(0px); }
