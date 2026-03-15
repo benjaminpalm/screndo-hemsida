@@ -4,8 +4,7 @@ import Link from "next/link";
 
 const PLATFORM_LINKS = [
   { label: "Screndo Reflect", href: "/platform#produkter" },
-  { label: "Screndo AI Agent", href: "/platform#produkter" },
-  { label: "Prissättning", href: "/pricing" },
+  { label: "Screndo AI", href: "/platform#produkter" },
 ];
 
 const COMPANY_LINKS = [

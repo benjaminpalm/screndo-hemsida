@@ -46,7 +46,7 @@ const T = {
     // Products section
     productsLabel: "Två AI-komponenter. En plattform.",
     productsH2: "Välj inte mellan dem. Få båda.",
-    productsSub: "Screndo Reflect och Screndo AI Agent är inte separata produkter – de är två delar av samma intelligenta system som arbetar tillsammans.",
+    productsSub: "Screndo Reflect och Screndo AI är inte separata produkter – de är två delar av samma intelligenta system som arbetar tillsammans.",
     reflectDesc: "Momentum-loggning, OKR-tracking och people analytics i realtid.",
     reflectFeatures: [
       "Daglig momentum-loggning",
@@ -112,8 +112,7 @@ const T = {
     footerColLegal: "Juridiskt",
     footerPlatformLinks: [
       { label: "Screndo Reflect", href: "/platform#produkter" },
-      { label: "Screndo AI Agent", href: "/platform#produkter" },
-      { label: "Prissättning", href: "/#prissattning" },
+      { label: "Screndo AI", href: "/platform#produkter" },
       { label: "Integrationer", href: "#" },
     ],
     footerCompanyLinks: ["Om Screndo", "Varför Screndo", "Kontakt", "Karriär"],
@@ -141,7 +140,7 @@ const T = {
     // Products section
     productsLabel: "Two AI components. One platform.",
     productsH2: "Don't choose between them. Get both.",
-    productsSub: "Screndo Reflect and Screndo AI Agent are not separate products – they are two parts of the same intelligent system working together.",
+    productsSub: "Screndo Reflect and Screndo AI are not separate products – they are two parts of the same intelligent system working together.",
     reflectDesc: "Momentum logging, OKR tracking and people analytics in real-time.",
     reflectFeatures: [
       "Daily momentum logging",
@@ -207,8 +206,7 @@ const T = {
     footerColLegal: "Legal",
     footerPlatformLinks: [
       { label: "Screndo Reflect", href: "/platform#produkter" },
-      { label: "Screndo AI Agent", href: "/platform#produkter" },
-      { label: "Pricing", href: "/#prissattning" },
+      { label: "Screndo AI", href: "/platform#produkter" },
       { label: "Integrations", href: "#" },
     ],
     footerCompanyLinks: ["About Screndo", "Why Screndo", "Contact", "Careers"],
@@ -789,7 +787,7 @@ export default function PlatformPage() {
               slideFrom="left"
             />
             <ProductCard
-              title="Screndo AI Agent"
+              title="Screndo AI"
               description={t.aiDesc}
               features={t.aiFeatures}
               slideFrom="right"
@@ -942,7 +940,7 @@ export default function PlatformPage() {
                 marginBottom: "16px",
               }}
             >
-              Screndo AI Agent
+              Screndo AI
             </div>
             <h2
               style={{

@@ -126,12 +126,12 @@ const TRANSLATIONS = {
       {
         pill: "Mest populär",
         recommended: true,
-        name: "Reflect + AI Agent",
+        name: "Reflect + Screndo AI",
         price: "89 kr",
         period: "/anställd/mån",
         aboveLabel: "Allt i Reflect, plus:",
         features: [
-          "Screndo AI Agent",
+          "Screndo AI",
           "HR-frågor baserade på svensk lag",
           "Träning på era egna dokument",
           "Manager coaching-stöd",
@@ -147,7 +147,7 @@ const TRANSLATIONS = {
         name: "Enterprise",
         price: "129 kr",
         period: "/anställd/mån",
-        aboveLabel: "Allt i Reflect + AI Agent, plus:",
+        aboveLabel: "Allt i Reflect + Screndo AI, plus:",
         features: [
           "Dedikerad onboarding",
           "Slack-integration",
@@ -401,12 +401,12 @@ const TRANSLATIONS = {
       {
         pill: "Most popular",
         recommended: true,
-        name: "Reflect + AI Agent",
+        name: "Reflect + Screndo AI",
         price: "€8",
         period: "/employee/mo",
         aboveLabel: "Everything in Reflect, plus:",
         features: [
-          "Screndo AI Agent",
+          "Screndo AI",
           "HR questions based on Swedish law",
           "Training on your own documents",
           "Manager coaching support",
@@ -422,7 +422,7 @@ const TRANSLATIONS = {
         name: "Enterprise",
         price: "€12",
         period: "/employee/mo",
-        aboveLabel: "Everything in Reflect + AI Agent, plus:",
+        aboveLabel: "Everything in Reflect + Screndo AI, plus:",
         features: [
           "Dedicated onboarding",
           "Slack integration",
