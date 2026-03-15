@@ -348,7 +348,7 @@ export default function Navbar() {
             {[
               { label: t.navPlatform, href: "/platform" },
               { label: t.navWhy, href: "/why-screndo" },
-              { label: t.navAbout, href: "mailto:info@screndo.com" },
+              { label: t.navAbout, href: "/contact" },
             ].map(({ label, href }) => (
               <a
                 key={label}
