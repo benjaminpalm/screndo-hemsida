@@ -1391,6 +1391,7 @@ export default function Home() {
         `}</style>
 
       <section
+        className="hero-section"
         style={{
           background: "transparent",
           height: "100vh",
@@ -1592,62 +1593,49 @@ export default function Home() {
 
         <style>{`
           @media (max-width: 768px) {
-            /* Hero */
+            /* Hero section: disable 100vh centering so stacked content starts at top */
+            .hero-section {
+              height: auto !important;
+              min-height: 0 !important;
+              display: block !important;
+              padding-top: 72px !important;
+              padding-bottom: 48px !important;
+            }
+            /* Hero grid: single column, headline first, image last */
             .hero-grid {
               grid-template-columns: 1fr !important;
-              padding: 100px 20px 48px !important;
-              gap: 32px !important;
+              padding: 20px 20px 0 !important;
+              gap: 36px !important;
+              max-width: 100% !important;
             }
             .hero-grid h1 {
-              font-size: 34px !important;
+              font-size: 30px !important;
               line-height: 1.2 !important;
             }
             .hero-grid p {
               font-size: 15px !important;
+              max-width: 100% !important;
             }
+            /* Phone image: full width, centered, below text */
             .hero-grid img {
               width: 100% !important;
-              max-width: 320px !important;
+              max-width: 280px !important;
               margin: 0 auto !important;
             }
             .hero-grid > div:last-child {
               justify-content: center !important;
+              padding-top: 0 !important;
             }
-            /* Buttons */
-            .liquid-glass-wrapper {
+            /* Hero CTA buttons: full width */
+            .hero-grid .liquid-glass-wrapper {
               width: 100% !important;
               display: block !important;
             }
-            .liquid-glass-wrapper a {
+            .hero-grid .liquid-glass-wrapper a {
               display: block !important;
               min-height: 48px !important;
               box-sizing: border-box !important;
               text-align: center !important;
-              padding-left: 20px !important;
-              padding-right: 20px !important;
-            }
-            /* Sections */
-            section {
-              padding-left: 20px !important;
-              padding-right: 20px !important;
-              padding-top: 64px !important;
-              padding-bottom: 64px !important;
-            }
-            section h2 {
-              font-size: clamp(26px, 7vw, 36px) !important;
-            }
-            section p {
-              font-size: 15px !important;
-            }
-            /* Footer */
-            .footer-grid {
-              grid-template-columns: 1fr 1fr !important;
-              gap: 32px !important;
-            }
-          }
-          @media (max-width: 480px) {
-            .footer-grid {
-              grid-template-columns: 1fr !important;
             }
           }
           @keyframes float {
