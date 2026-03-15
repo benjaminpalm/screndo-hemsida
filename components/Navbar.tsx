@@ -345,9 +345,27 @@ export default function Navbar() {
             style={{ display: "flex", alignItems: "center", gap: "44px" }}
             className="nav-center-links"
           >
-            <NavDropdown label={t.navPlatform} items={t.platformItems} header={t.platformHeader} />
-            <NavDropdown label={t.navWhy} items={t.whyItems} header={t.whyHeader} />
-            <NavDropdown label={t.navAbout} items={t.aboutItems} header={t.aboutHeader} />
+            {[
+              { label: t.navPlatform, href: "/platform" },
+              { label: t.navWhy, href: "/why-screndo" },
+              { label: t.navAbout, href: "mailto:info@screndo.com" },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                style={{
+                  color: "#FAF7F2",
+                  fontSize: "15px",
+                  fontWeight: 400,
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#C4622D")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "#FAF7F2")}
+              >
+                {label}
+              </a>
+            ))}
           </div>
 
           {/* Right buttons */}
