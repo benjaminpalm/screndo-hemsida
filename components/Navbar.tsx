@@ -16,7 +16,6 @@ const NAV_T = {
     platformHeader: { title: "Plattform", subtitle: "Lär dig mer om hur Screndo fungerar." },
     platformItems: [
       { label: "Utforska vår plattform", href: "/platform" },
-      { label: "Prissättning", href: "/pricing" },
     ],
     whyHeader: { title: "Varför Screndo", subtitle: "Förstå varför vi byggt Screndo och vad som driver oss." },
     whyItems: [
@@ -38,7 +37,6 @@ const NAV_T = {
     platformHeader: { title: "Platform", subtitle: "Learn more about how Screndo works." },
     platformItems: [
       { label: "Explore our platform", href: "/platform" },
-      { label: "Pricing", href: "/pricing" },
     ],
     whyHeader: { title: "Why Screndo", subtitle: "Understand why we built Screndo and what drives us." },
     whyItems: [

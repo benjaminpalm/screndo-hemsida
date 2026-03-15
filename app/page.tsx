@@ -33,25 +33,24 @@ const TRANSLATIONS = {
     reflectDescFull:
       "Löpande feedback, OKR-tracking och people analytics – automatiskt genererat från ditt teams dagliga bidrag.",
     reflectFeatList: [
-      "Daglig momentum-loggning",
-      "OKR-progress i realtid",
+      "Daglig reflektion på 60 sekunder – skriv eller tala in din dag",
       "Anonyma pulsmätningar",
-      "Performance review-underlag",
-      "Karriärvägar och löneinformation",
+      "AI-genererade insikter inför 1-on-1",
+      "Automatiskt underlag för performance reviews",
+      "People analytics för chefer i realtid",
     ],
     reflectCta: "Utforska Reflect →",
     aiPill: "AI-drivet",
-    aiProductNameFull: "AI Agent",
+    aiProductNameFull: "Screndo AI",
     aiDescFull:
       "Omedelbara svar på alla HR-frågor – baserade på svensk arbetsrätt och ditt företags egna policys.",
     aiFeatList: [
-      "Svar baserade på svensk arbetsrätt",
-      "Tränad på era egna HR-dokument",
-      "Stöd för managers i svåra samtal",
-      "Performance summaries automatiskt",
-      "Integreras med Reflect-datan",
+      "HR-assistent baserad på svensk arbetsrätt",
+      "Företags-AI tränad på era egna dokument",
+      "Onboardingstöd för nya anställda",
+      "Svar på interna policys och processer direkt i appen",
     ],
-    aiCta: "Utforska AI Agent →",
+    aiCta: "Utforska Screndo AI →",
     // Why Screndo section
     whyLabel: "Varför Screndo",
     whyHeadline: "Byggd för er. Inte för de stora.",
@@ -99,7 +98,6 @@ const TRANSLATIONS = {
     costCards: [
       { stat: "50–200%", desc: "av årslönen kostar det att ersätta en anställd – beroende på roll och senioritet.", source: "Källa: Gallup" },
       { stat: "51%", desc: "av de som slutade säger att ingen frågade om deras trivsel de tre sista månaderna.", source: "Källa: Gallup" },
-      { stat: "89 kr", desc: "per anställd och månad. Det är vad Screndo kostar. Räkna ut vad en uppsägning kostar er." },
     ],
     // Pricing section
     pricingLabel: "Prissättning",
@@ -180,8 +178,7 @@ const TRANSLATIONS = {
     footerColLegal: "Juridiskt",
     footerPlatformLinks: [
       { label: "Screndo Reflect", href: "/platform#produkter" },
-      { label: "Screndo AI Agent", href: "/platform#produkter" },
-      { label: "Prissättning", href: "/pricing" },
+      { label: "Screndo AI", href: "/platform#produkter" },
     ],
     footerCompanyLinks: ["Om Screndo", "Varför Screndo", "Kontakt"],
     footerLegalLinks: [
@@ -222,7 +219,7 @@ const TRANSLATIONS = {
       { team: "Produktteamet", pct: 60 },
       { team: "Supportteamet", pct: 100 },
     ],
-    aiDemoLabel: "Screndo AI Agent",
+    aiDemoLabel: "Screndo AI",
     aiDemoHeadlineWords: ["HR-svar", "på"],
     aiDemoHeadlineEm: "sekunder.",
     aiDemoCompanyHeadlineWords: ["Företagssvar", "på"],
@@ -312,25 +309,24 @@ const TRANSLATIONS = {
     reflectDescFull:
       "Ongoing feedback, OKR tracking and people analytics – automatically generated from your team's daily contributions.",
     reflectFeatList: [
-      "Daily momentum logging",
-      "OKR progress in real-time",
+      "Daily reflection in 60 seconds – write or speak your day",
       "Anonymous pulse surveys",
-      "Performance review materials",
-      "Career paths and compensation info",
+      "AI-generated insights before 1-on-1s",
+      "Automatic materials for performance reviews",
+      "People analytics for managers in real time",
     ],
     reflectCta: "Explore Reflect →",
     aiPill: "AI-powered",
-    aiProductNameFull: "AI Agent",
+    aiProductNameFull: "Screndo AI",
     aiDescFull:
       "Instant answers to all HR questions – based on Swedish labor law and your company's own policies.",
     aiFeatList: [
-      "Answers based on Swedish labor law",
-      "Trained on your own HR documents",
-      "Support for managers in difficult conversations",
-      "Performance summaries automatically",
-      "Integrates with Reflect data",
+      "HR assistant based on Swedish labor law",
+      "Company AI trained on your own documents",
+      "Onboarding support for new employees",
+      "Answers to internal policies and processes directly in the app",
     ],
-    aiCta: "Explore AI Agent →",
+    aiCta: "Explore Screndo AI →",
     // Why Screndo section
     whyLabel: "Why Screndo",
     whyHeadline: "Built for you. Not for enterprise.",
@@ -378,7 +374,6 @@ const TRANSLATIONS = {
     costCards: [
       { stat: "50–200%", desc: "of annual salary is the cost to replace an employee – depending on role and seniority.", source: "Source: Gallup" },
       { stat: "51%", desc: "of those who left say no one asked about their wellbeing in the last three months.", source: "Source: Gallup" },
-      { stat: "€8", desc: "per employee per month. That's what Screndo costs. Calculate what one resignation costs you." },
     ],
     // Pricing section
     pricingLabel: "Pricing",
@@ -458,8 +453,7 @@ const TRANSLATIONS = {
     footerColLegal: "Legal",
     footerPlatformLinks: [
       { label: "Screndo Reflect", href: "/platform#produkter" },
-      { label: "Screndo AI Agent", href: "/platform#produkter" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "Screndo AI", href: "/platform#produkter" },
     ],
     footerCompanyLinks: ["About Screndo", "Why Screndo", "Contact"],
     footerLegalLinks: [
@@ -500,7 +494,7 @@ const TRANSLATIONS = {
       { team: "Product team", pct: 60 },
       { team: "Support team", pct: 100 },
     ],
-    aiDemoLabel: "Screndo AI Agent",
+    aiDemoLabel: "Screndo AI",
     aiDemoHeadlineWords: ["HR answers,", "in"],
     aiDemoHeadlineEm: "seconds.",
     aiDemoCompanyHeadlineWords: ["Company answers,", "in"],
@@ -1217,9 +1211,8 @@ const FAQ_T = {
       { q: "Är Screndo GDPR-kompatibelt?", a: "Ja. All data lagras inom EU, vi använder krypterad kommunikation och varje anställd äger sin egen data. Anonyma pulssvar är alltid anonyma – inte ens ni som arbetsgivare kan se vem som svarat vad." },
       { q: "Vad skiljer Screndo från en vanlig enkätlösning?", a: "Enkätverktyg ger er data en gång i kvartalet med låg svarsfrekvens. Screndo ger er löpande insikter varje dag, kopplade till era OKRs och mål. AI:n analyserar mönster automatiskt och flaggar blockeringar och risker innan de eskalerar." },
       { q: "Kan anställda se varandras svar?", a: "Nej. Anställda ser bara sin egen data. Managers ser aggregerade insikter om teamet men aldrig individuella momentum-loggar ordagrant. Pulsmätningar är alltid helt anonyma." },
-      { q: "Vad kostar Screndo?", a: "89 kr per anställd och månad. Allt ingår – Screndo Reflect, Screndo AI Agent och chefdashboard. Inga startavgifter, inga årskontrakt och inga dolda avgifter. Minst 20 anställda." },
       { q: "Kan Screndo hjälpa oss minska personalomsättningen?", a: "Ja, det är ett av plattformens kärnvärden. Screndo fångar tidiga signaler – lågt pulssnitt, minskad aktivitet, blockeringar som inte löses – och presenterar dem i manager-dashboarden innan de eskalerar till en uppsägning. De flesta anställda som slutar har visat tydliga tecken i 3 månader eller mer. Screndo hjälper chefer att agera i rätt tid." },
-      { q: "Fungerar Screndo AI Agent på svenska?", a: "Ja, fullt ut. Screndo innehåller två AI-assistenter. HR-assistenten svarar på frågor om svensk arbetsrätt och era HR-policys. Företags-AI:n är tränad på era egna dokument – vision, värderingar, onboardingmaterial och interna processer – så att nya och befintliga anställda alltid kan få svar direkt utan att behöva fråga en kollega." },
+      { q: "Fungerar Screndo AI på svenska?", a: "Ja, fullt ut. Screndo innehåller två AI-assistenter. HR-assistenten svarar på frågor om svensk arbetsrätt och era HR-policys. Företags-AI:n är tränad på era egna dokument – vision, värderingar, onboardingmaterial och interna processer – så att nya och befintliga anställda alltid kan få svar direkt utan att behöva fråga en kollega." },
     ],
   },
   en: {
@@ -1232,9 +1225,8 @@ const FAQ_T = {
       { q: "Is Screndo GDPR compliant?", a: "Yes. All data is stored within the EU, we use encrypted communication and every employee owns their own data. Anonymous pulse responses are always anonymous – not even you as an employer can see who responded what." },
       { q: "What sets Screndo apart from a regular survey tool?", a: "Survey tools give you data once a quarter with low response rates. Screndo gives you continuous insights every day, linked to your OKRs and goals. The AI automatically analyses patterns and flags blockers and risks before they escalate." },
       { q: "Can employees see each other's responses?", a: "No. Employees only see their own data. Managers see aggregated insights about the team but never individual momentum logs verbatim. Pulse surveys are always completely anonymous." },
-      { q: "What does Screndo cost?", a: "89 SEK per employee per month. Everything included – Screndo Reflect, Screndo AI Agent and manager dashboard. No setup fees, no annual contracts and no hidden fees. Minimum 20 employees." },
       { q: "Can Screndo help us reduce employee turnover?", a: "Yes, that's one of the platform's core purposes. Screndo captures early signals – low pulse averages, reduced activity, unresolved blockers – and surfaces them in the manager dashboard before they escalate to a resignation. Most employees who leave have shown clear signs for 3 months or more. Screndo helps managers act at the right time." },
-      { q: "Does Screndo AI Agent work in Swedish?", a: "Yes, fully. Screndo includes two AI assistants. The HR assistant answers questions about Swedish labour law and your HR policies. The Company AI is trained on your own documents – vision, values, onboarding materials and internal processes – so that new and existing employees can always get answers directly without having to ask a colleague." },
+      { q: "Does Screndo AI work in Swedish?", a: "Yes, fully. Screndo includes two AI assistants. The HR assistant answers questions about Swedish labour law and your HR policies. The Company AI is trained on your own documents – vision, values, onboarding materials and internal processes – so that new and existing employees can always get answers directly without having to ask a colleague." },
     ],
   },
 };
