@@ -4,10 +4,18 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import SiteFooter from "@/components/SiteFooter";
 import BlobBackground from "@/components/BlobBackground";
+import { useLanguage } from "@/components/LanguageContext";
 
 const EMAIL = "info@screndo.com";
 
+const T = {
+  sv: { label: "Kontakt", send: "Skicka mail", copy: "Kopiera", copied: "Kopierat ✓" },
+  en: { label: "Contact",  send: "Send email",  copy: "Copy",     copied: "Copied ✓"   },
+};
+
 export default function ContactPage() {
+  const { lang } = useLanguage();
+  const t = T[lang];
   const [copied, setCopied] = useState(false);
 
   function copyEmail() {
@@ -52,7 +60,7 @@ export default function ContactPage() {
               margin: "0 0 32px",
             }}
           >
-            Kontakt
+            {t.label}
           </p>
 
           <div
@@ -85,7 +93,7 @@ export default function ContactPage() {
               onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "0.85")}
               onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "1")}
             >
-              Skicka mail
+              {t.send}
             </a>
 
             <button
@@ -113,7 +121,7 @@ export default function ContactPage() {
                 el.style.color = "#2C1810";
               }}
             >
-              {copied ? "Kopierat ✓" : "Kopiera"}
+              {copied ? t.copied : t.copy}
             </button>
           </div>
         </div>
