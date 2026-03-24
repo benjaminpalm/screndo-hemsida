@@ -931,14 +931,13 @@ function AIDemoSection({ lang }: { lang: Lang }) {
           style={{
             maxWidth: "680px",
             margin: "24px auto 0",
-            background: "rgba(255,255,255,0.65)",
-            backdropFilter: "blur(24px) saturate(180%)",
-            WebkitBackdropFilter: "blur(24px) saturate(180%)",
-            border: "1px solid rgba(139,89,60,0.18)",
+            background: "rgba(255,255,255,0.6)",
+            backdropFilter: "blur(20px) saturate(180%)",
+            WebkitBackdropFilter: "blur(20px) saturate(180%)",
+            border: "1px solid rgba(255,255,255,0.9)",
             borderRadius: "24px",
             padding: "32px",
-            boxShadow:
-              "0 8px 40px rgba(44,24,16,0.08), 0 1px 2px rgba(44,24,16,0.04), inset 0 1px 0 rgba(255,255,255,0.9)",
+            boxShadow: "0 4px 24px rgba(44,24,16,0.06), inset 0 1px 0 rgba(255,255,255,0.8)",
             textAlign: "left",
             opacity: sectionVisible ? 1 : 0,
             transform: sectionVisible ? "translateY(0)" : "translateY(20px)",
@@ -948,8 +947,7 @@ function AIDemoSection({ lang }: { lang: Lang }) {
           {/* Input bar */}
           <div
             style={{
-              background: "rgba(245,242,238,0.8)",
-              border: "1px solid rgba(139,89,60,0.10)",
+              background: "#F5F5F5",
               borderRadius: "50px",
               padding: "16px 24px",
               display: "flex",
