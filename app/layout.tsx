@@ -20,7 +20,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Screndo – People Intelligence Platform',
+  title: {
+    default: 'People Intelligence Platform | Screndo',
+    template: '%s | Screndo',
+  },
   description: 'Screndo ger managers en levande bild av sitt team varje dag. OKR-tracking, pulsmätningar och AI-assistenter för svenska bolag med 50–200 anställda.',
   keywords: 'people intelligence, HR platform, OKR tracking, pulsmätningar, svensk arbetsrätt, HR-verktyg Sverige',
   openGraph: {
