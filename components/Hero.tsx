@@ -1,0 +1,131 @@
+export default function Hero() {
+  return (
+    <>
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          paddingTop: "96px",
+          paddingBottom: "64px",
+          paddingLeft: "24px",
+          paddingRight: "24px",
+        }}
+      >
+        <div style={{ maxWidth: "860px", width: "100%" }}>
+          <p
+            style={{
+              color: "#04D8B5",
+              textTransform: "uppercase",
+              letterSpacing: "1.5px",
+              fontSize: "13px",
+              fontWeight: 600,
+              marginBottom: "24px",
+            }}
+          >
+            People Intelligence
+          </p>
+
+          <h1 className="hero-h1">
+            Continuous{" "}
+            <span style={{ fontWeight: 300, fontStyle: "italic" }}>people</span>{" "}
+            intelligence.
+          </h1>
+
+          <p
+            style={{
+              color: "#6B6B6B",
+              fontSize: "18px",
+              margin: "0 0 40px 0",
+              lineHeight: 1.5,
+            }}
+          >
+            Your organization speaks. We translate.
+          </p>
+
+          <div className="hero-buttons">
+            <a
+              href="#"
+              style={{
+                background: "#04D8B5",
+                color: "#000",
+                textDecoration: "none",
+                fontSize: "15px",
+                fontWeight: 600,
+                borderRadius: "100px",
+                padding: "12px 24px",
+                display: "inline-block",
+              }}
+            >
+              Get started →
+            </a>
+            <a
+              href="#"
+              style={{
+                background: "transparent",
+                color: "#000",
+                textDecoration: "none",
+                fontSize: "15px",
+                fontWeight: 500,
+                borderRadius: "100px",
+                padding: "12px 24px",
+                border: "1px solid #000",
+                display: "inline-block",
+              }}
+            >
+              See how it works
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+        <img
+          src="/hero.jpg"
+          alt="Hero"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            display: "block",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 50%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div className="hero-overlay">
+          <p
+            style={{
+              color: "#fff",
+              fontSize: "36px",
+              fontWeight: 300,
+              fontStyle: "italic",
+              margin: "0 0 10px 0",
+              lineHeight: 1.2,
+            }}
+          >
+            A system that listens.
+          </p>
+          <p
+            style={{
+              color: "#fff",
+              fontSize: "16px",
+              opacity: 0.75,
+              margin: 0,
+              lineHeight: 1.5,
+            }}
+          >
+            Screndo translates your organization in real time.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
