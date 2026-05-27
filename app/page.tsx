@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhatWeDo from "@/components/WhatWeDo";
+import PhoneMockups from "@/components/PhoneMockups";
 import HowItWorks from "@/components/HowItWorks";
 import Vision from "@/components/Vision";
 import CTA from "@/components/CTA";
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhatWeDo />
+      <PhoneMockups />
       <HowItWorks />
       <Vision />
       <CTA />
