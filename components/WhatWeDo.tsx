@@ -5,19 +5,6 @@ export default function WhatWeDo() {
       style={{ background: "#fff", display: "flex", justifyContent: "center" }}
     >
       <div style={{ maxWidth: "860px", width: "100%" }}>
-        <p
-          style={{
-            color: "#04D8B5",
-            textTransform: "uppercase",
-            letterSpacing: "1.5px",
-            fontSize: "13px",
-            fontWeight: 600,
-            marginBottom: "24px",
-          }}
-        >
-          What we do
-        </p>
-
         <h2
           style={{
             fontSize: "44px",
