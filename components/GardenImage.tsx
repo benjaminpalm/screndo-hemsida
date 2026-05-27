@@ -1,6 +1,6 @@
 export default function GardenImage() {
   return (
-    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+    <div className="garden-wrap" style={{ position: "relative", width: "100%", height: "100vh" }}>
       <img
         src="/garden.jpg"
         alt=""
@@ -22,6 +22,7 @@ export default function GardenImage() {
         }}
       />
       <div
+        className="garden-text-container"
         style={{
           position: "absolute",
           top: 0,
@@ -31,6 +32,7 @@ export default function GardenImage() {
         }}
       >
         <p
+          className="garden-text"
           style={{
             color: "#fff",
             fontSize: "32px",

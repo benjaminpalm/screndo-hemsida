@@ -69,48 +69,84 @@ html {
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  /* Navbar */
   .navbar {
     padding: 0 20px;
   }
-
-  .hero-h1 {
-    font-size: 40px;
-    letter-spacing: -1.5px;
+  .navbar-logo {
+    height: 28px !important;
   }
 
+  /* Hero text section */
+  .hero-section {
+    padding-top: 64px !important;
+  }
+  .hero-h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+    white-space: normal;
+  }
   .hero-buttons {
     flex-direction: column;
     align-items: stretch;
   }
-
   .hero-buttons a {
     text-align: center;
   }
 
+  /* Hero image */
+  .hero-image-wrap {
+    height: 70vh !important;
+  }
   .hero-overlay {
     padding: 24px;
   }
 
+  /* Most organizations */
+  .what-we-do-section {
+    padding: 48px 24px !important;
+  }
+  .what-we-do-h2 {
+    font-size: 28px !important;
+  }
+
+  /* Phone mockups */
+  .phone-side {
+    display: none;
+  }
+  .phone-center-wrap {
+    transform: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .phone-center-wrap img {
+    max-height: 500px !important;
+  }
+
+  /* Garden image */
+  .garden-wrap {
+    height: 60vh !important;
+  }
+  .garden-text-container {
+    padding: 24px !important;
+  }
+  .garden-text {
+    font-size: 22px !important;
+  }
+
+  /* CTA */
   .section-pad {
     padding: 64px 24px;
   }
-
-  .vision-pad {
-    padding: 40px 32px;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-
   .cta-h2 {
-    font-size: 36px;
+    font-size: 32px;
     letter-spacing: -1px;
   }
 
+  /* Footer */
   .footer-bar {
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     text-align: center;
     padding: 32px 24px;
   }

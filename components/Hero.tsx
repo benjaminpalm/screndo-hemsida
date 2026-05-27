@@ -2,6 +2,7 @@ export default function Hero() {
   return (
     <>
       <section
+        className="hero-section"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -66,7 +67,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+      <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "100vh" }}>
         <img
           src="/hero.jpg"
           alt="Hero"

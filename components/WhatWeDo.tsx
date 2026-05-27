@@ -1,11 +1,12 @@
 export default function WhatWeDo() {
   return (
     <section
-      className="section-pad"
+      className="section-pad what-we-do-section"
       style={{ background: "#fff", display: "flex", justifyContent: "center" }}
     >
       <div style={{ maxWidth: "860px", width: "100%" }}>
         <h2
+          className="what-we-do-h2"
           style={{
             fontSize: "44px",
             fontWeight: 800,

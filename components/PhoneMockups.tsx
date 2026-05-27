@@ -23,6 +23,7 @@ export default function PhoneMockups() {
       >
         {/* Left phone */}
         <div
+          className="phone-side"
           style={{
             transform: "rotate(-8deg) translateY(40px)",
             zIndex: 1,
@@ -47,6 +48,7 @@ export default function PhoneMockups() {
 
         {/* Center phone */}
         <div
+          className="phone-center-wrap"
           style={{
             transform: "scale(1.05)",
             zIndex: 3,
@@ -73,6 +75,7 @@ export default function PhoneMockups() {
 
         {/* Right phone */}
         <div
+          className="phone-side"
           style={{
             transform: "rotate(8deg) translateY(40px)",
             zIndex: 1,
