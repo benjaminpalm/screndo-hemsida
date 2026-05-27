@@ -34,7 +34,7 @@ export default function Navbar() {
             display: "inline-block",
           }}
         >
-          Book a demo →
+          Book an intro
         </a>
       </div>
     </nav>

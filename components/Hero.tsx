@@ -14,29 +14,15 @@ export default function Hero() {
         }}
       >
         <div style={{ maxWidth: "860px", width: "100%" }}>
-          <p
-            style={{
-              color: "#04D8B5",
-              textTransform: "uppercase",
-              letterSpacing: "1.5px",
-              fontSize: "13px",
-              fontWeight: 600,
-              marginBottom: "24px",
-            }}
-          >
-            People Intelligence
-          </p>
-
           <h1 className="hero-h1">
-            Continuous{" "}
-            <span style={{ fontWeight: 300, fontStyle: "italic" }}>people</span>{" "}
-            intelligence.
+            Continuous people intelligence
           </h1>
 
           <p
             style={{
-              color: "#6B6B6B",
+              color: "#1A1A1A",
               fontSize: "18px",
+              fontWeight: 500,
               margin: "0 0 40px 0",
               lineHeight: 1.5,
             }}
@@ -58,7 +44,7 @@ export default function Hero() {
                 display: "inline-block",
               }}
             >
-              Get started →
+              Get started
             </a>
             <a
               href="#"
