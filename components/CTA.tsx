@@ -11,21 +11,8 @@ export default function CTA() {
       }}
     >
       <h2 className="cta-h2">
-        Ready to{" "}
-        <span style={{ fontWeight: 300, fontStyle: "italic" }}>listen</span>{" "}
-        differently?
+        See the whole picture. Not just the survey results.
       </h2>
-
-      <p
-        style={{
-          color: "#6B6B6B",
-          fontSize: "18px",
-          lineHeight: 1.5,
-          margin: "0 0 40px 0",
-        }}
-      >
-        See what your organization is telling you — starting today.
-      </p>
 
       <a
         href="#"
