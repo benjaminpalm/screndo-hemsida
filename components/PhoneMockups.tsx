@@ -38,7 +38,7 @@ export default function PhoneMockups() {
               maxHeight: "600px",
               width: "auto",
               borderRadius: "36px",
-              border: "1.5px solid black",
+              border: "5px solid black",
               boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
               display: "block",
             }}
@@ -64,7 +64,7 @@ export default function PhoneMockups() {
               maxHeight: "600px",
               width: "auto",
               borderRadius: "36px",
-              border: "1.5px solid black",
+              border: "5px solid black",
               boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
               display: "block",
             }}
@@ -88,7 +88,7 @@ export default function PhoneMockups() {
               maxHeight: "600px",
               width: "auto",
               borderRadius: "36px",
-              border: "1.5px solid black",
+              border: "5px solid black",
               boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
               display: "block",
             }}
