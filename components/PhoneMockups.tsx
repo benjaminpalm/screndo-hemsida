@@ -5,7 +5,8 @@ export default function PhoneMockups() {
     <section
       style={{
         background: "#fff",
-        padding: "96px 48px",
+        padding: "96px 48px 120px",
+        marginBottom: "60px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
