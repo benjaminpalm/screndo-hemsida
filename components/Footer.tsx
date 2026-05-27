@@ -3,7 +3,7 @@ const links = ["Product", "About", "Careers", "Privacy"];
 export default function Footer() {
   return (
     <footer className="footer-bar">
-      <span style={{ fontWeight: 700, fontSize: "16px" }}>Screndo</span>
+      <img src="/logo.png" alt="Screndo" style={{ height: "28px", width: "auto" }} />
 
       <nav style={{ display: "flex", gap: "32px", flexWrap: "wrap", justifyContent: "center" }}>
         {links.map((link) => (
