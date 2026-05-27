@@ -40,7 +40,7 @@ export default function CTA() {
           display: "inline-block",
         }}
       >
-        Book a demo →
+        Book an intro
       </a>
     </section>
   );
