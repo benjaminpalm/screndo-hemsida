@@ -14,7 +14,7 @@ export default function Navbar() {
         justifyContent: "space-between",
       }}
     >
-      <span style={{ fontWeight: 700, fontSize: "18px" }}>Screndo</span>
+      <img src="/logo.png" alt="Screndo" style={{ height: "28px", width: "auto" }} />
       <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
         <a
           href="#"
