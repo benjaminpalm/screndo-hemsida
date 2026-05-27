@@ -20,9 +20,9 @@ export default function Hero() {
 
           <p
             style={{
-              color: "#1A1A1A",
+              color: "#6B6B6B",
               fontSize: "18px",
-              fontWeight: 500,
+              fontWeight: 400,
               margin: "0 0 40px 0",
               lineHeight: 1.5,
             }}
