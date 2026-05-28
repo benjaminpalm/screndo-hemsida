@@ -15,7 +15,7 @@ export default function CTA() {
       </h2>
 
       <a
-        href="#"
+        href="/book-intro"
         style={{
           background: "#04D8B5",
           color: "#000",

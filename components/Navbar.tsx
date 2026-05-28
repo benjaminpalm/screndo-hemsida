@@ -23,7 +23,7 @@ export default function Navbar() {
           Log in
         </a>
         <a
-          href="#"
+          href="/book-intro"
           style={{
             background: "#000",
             color: "#fff",

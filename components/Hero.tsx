@@ -33,7 +33,7 @@ export default function Hero() {
 
           <div className="hero-buttons">
             <a
-              href="#"
+              href="/book-intro"
               style={{
                 background: "#04D8B5",
                 color: "#000",
