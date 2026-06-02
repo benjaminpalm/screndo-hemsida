@@ -18,7 +18,7 @@ const inputStyle: React.CSSProperties = {
 const textareaStyle: React.CSSProperties = {
   ...inputStyle,
   borderRadius: "16px",
-  resize: "vertical",
+  resize: "none",
 };
 
 const labelStyle: React.CSSProperties = {
