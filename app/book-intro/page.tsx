@@ -236,17 +236,46 @@ export default function BookIntro() {
                 <label style={labelStyle}>
                   Company size <span style={{ color: "#FF6B5C" }}>*</span>
                 </label>
-                <select
-                  value={fields.companySize}
-                  onChange={(e) => set("companySize", e.target.value)}
-                  style={{ ...inputStyle, appearance: "auto" }}
-                >
-                  <option value="">Select…</option>
-                  <option value="1-50">1–50 employees</option>
-                  <option value="51-200">51–200 employees</option>
-                  <option value="201-500">201–500 employees</option>
-                  <option value="500+">500+ employees</option>
-                </select>
+                <div style={{ position: "relative" }}>
+                  <select
+                    value={fields.companySize}
+                    onChange={(e) => set("companySize", e.target.value)}
+                    style={{
+                      ...inputStyle,
+                      appearance: "none",
+                      paddingRight: "44px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <option value="">Select…</option>
+                    <option value="1-50">1–50 employees</option>
+                    <option value="51-200">51–200 employees</option>
+                    <option value="201-500">201–500 employees</option>
+                    <option value="500+">500+ employees</option>
+                  </select>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      position: "absolute",
+                      right: "16px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="#6B6B6B"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
                 {errors.companySize && (
                   <span style={errorStyle}>{errors.companySize}</span>
                 )}
