@@ -15,11 +15,11 @@ const sections = [
   },
   {
     title: "Your rights",
-    text: "Under GDPR, you have the right to access, correct, or delete your personal data. To exercise these rights, contact us at hello@screndo.com.",
+    text: "Under GDPR, you have the right to access, correct, or delete your personal data. To exercise these rights, contact us at screndocom@gmail.com.",
   },
   {
     title: "Contact",
-    text: "Screndo, hello@screndo.com",
+    text: "Screndo, screndocom@gmail.com",
   },
 ]
 
