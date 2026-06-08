@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Screndo",
   description:
     "Screndo is an AI platform that collects and analyzes people data to give HR and leadership continuous insight into their organization.",
+  icons: { icon: "/favicon.png" },
   openGraph: {
     title: "Screndo",
     description:
