@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Screndo is an AI platform that collects and analyzes people data to give HR and leadership continuous insight into their organization.",
   icons: { icon: "/nyfavicon.png" },
+  robots: { googleBot: { noimageindex: true } },
   openGraph: {
     title: "Screndo",
     description:
