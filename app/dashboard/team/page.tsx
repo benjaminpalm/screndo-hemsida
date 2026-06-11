@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 const employees = [
-  { id: '1', initials: 'JL', name: 'Jonas Lindqvist', signal: 'Nämner ökad stress kring deadline och otydliga prioriteringar. Energin har fallit tre dagar i rad.', time: '3 min sedan', logCount: 14 },
-  { id: '2', initials: 'MS', name: 'Mia Svensson', signal: 'Har inte loggat på 4 dagar. Senaste signal visade låg energi kopplad till en intern konflikt.', time: '4 dagar sedan', logCount: 8 },
+  { id: '1', initials: 'JL', name: 'Jonas Lindqvist', signal: 'Nämner ökad stress kring deadline och otydliga prioriteringar. Energin har fallit tre dagar i rad.', time: '3 min sedan', logCount: 14, isNew: true },
+  { id: '2', initials: 'MS', name: 'Mia Svensson', signal: 'Har inte loggat på 4 dagar. Senaste signal visade låg energi kopplad till en intern konflikt.', time: '4 dagar sedan', logCount: 8, isNew: true },
   { id: '3', initials: 'AK', name: 'Alex Karlsson', signal: 'Positiv ton i senaste loggen. Rapporterar fokus och känsla av framsteg i sitt projekt.', time: '1 tim sedan', logCount: 18 },
   { id: '4', initials: 'SB', name: 'Sara Berg', signal: 'Lyfter fram gott samarbete med kollegor. Stabil energinivå utan större variationer den här veckan.', time: '2 tim sedan', logCount: 15 },
   { id: '5', initials: 'EH', name: 'Erik Hansson', signal: 'Nämner viss oro kring pågående rollförändringar men känner sig stöttad av närmaste chef.', time: 'Igår', logCount: 6 },
@@ -23,8 +23,11 @@ export default function TeamPage() {
           <Link
             key={e.id}
             href={`/dashboard/team/${e.id}`}
-            style={{ textDecoration: 'none', display: 'block', background: '#161616', borderRadius: '12px', padding: '16px' }}
+            style={{ textDecoration: 'none', display: 'block', background: '#161616', borderRadius: '12px', padding: '16px', position: 'relative' }}
           >
+            {e.isNew && (
+              <span style={{ position: 'absolute', top: '10px', right: '10px', width: '6px', height: '6px', borderRadius: '50%', background: '#04D8B5', display: 'block' }} />
+            )}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
               <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 400, color: 'rgba(255,255,255,0.4)', flexShrink: 0 }}>
                 {e.initials}
