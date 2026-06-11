@@ -112,7 +112,7 @@ const pillStyle = (active: boolean): React.CSSProperties => ({
 })
 
 const statusPill: Record<string, React.CSSProperties> = {
-  'Tillräcklig data': { background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)', border: '0.5px solid rgba(255,255,255,0.12)' },
+  'Tillräcklig data': { background: '#04D8B5', color: '#0A0A0A', border: 'none' },
   'För lite data ännu': { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '0.5px solid rgba(255,255,255,0.08)' },
 }
 
