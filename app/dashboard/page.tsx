@@ -32,7 +32,7 @@ export default function DashboardPage() {
   return (
     <div style={{ width: '100%', maxWidth: '1100px', padding: '48px 48px' }}>
       <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 6px 0' }}>
-        Hello, Benjamin
+        Hello, Johan
       </h1>
       <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.3)', margin: '0 0 48px 0' }}>
         How can I help you today?
