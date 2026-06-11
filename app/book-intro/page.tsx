@@ -299,8 +299,8 @@ export default function BookIntro() {
                 type="submit"
                 style={{
                   width: "100%",
-                  background: "#04D8B5",
-                  color: "#0A0A0A",
+                  background: "#0A0A0A",
+                  color: "#fff",
                   fontWeight: 600,
                   fontSize: "16px",
                   padding: "16px",

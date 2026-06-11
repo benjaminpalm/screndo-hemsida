@@ -207,7 +207,7 @@ export default function TeamMemberPage() {
           {dirty && (
             <button
               onClick={save}
-              style={{ border: '0.5px solid rgba(4,216,181,0.2)', background: 'transparent', color: 'rgba(4,216,181,0.7)', fontSize: '12px', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 400 }}
+              style={{ border: '0.5px solid rgba(255,255,255,0.1)', background: 'transparent', color: 'rgba(255,255,255,0.35)', fontSize: '12px', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 400 }}
             >
               Spara
             </button>
