@@ -43,7 +43,7 @@ export default function DashboardPage() {
         <p style={sectionLabel}>Behöver uppmärksamhet</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {attention.map((e) => (
-            <div key={e.name} style={{ background: '#161616', borderRadius: '12px', padding: '16px' }}>
+            <div key={e.name} style={{ background: '#1a1a1a', border: '0.5px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                 <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#222', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   {e.initials}
