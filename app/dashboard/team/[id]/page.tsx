@@ -3,15 +3,25 @@
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 
-const logs = [
-  { date: 'Måndag 2 jun', text: 'Kände mig ganska pressad idag. Vi har en deadline på fredag och jag är osäker på om vi hinner. Saknar tydlighet kring vad som faktiskt är prioriterat just nu.' },
-  { date: 'Fredag 30 maj', text: 'Bra möte med teamet på förmiddagen men eftermiddagen spårade ur med tre parallella akutärenden. Svårt att fokusera och lämna jobbet mentalt när jag stänger datorn.' },
-  { date: 'Torsdag 29 maj', text: 'En av de bättre dagarna den här veckan. Fick äntligen tid att jobba ostört med analysen. Känner mig nöjd med det jag levererade.' },
-  { date: 'Onsdag 28 maj', text: 'Mycket svårt att hitta energi idag. Ytterligare omorganisering diskuterades i ett möte — det skapar en otrygghet som påverkar hela teamet, inte bara mig.' },
-  { date: 'Tisdag 27 maj', text: 'Mittenmöte med kunden gick bra men tog mer energi än väntat. Kvällen spenderades med att komma ikapp mejl som hann hopas under dagen.' },
-  { date: 'Måndag 26 maj', text: 'Bra start på veckan. Tydlig agenda och kände att jag bidrog på rätt sätt i planeringsmötet. Positiv till den kommande sprinten.' },
-  { date: 'Fredag 23 maj', text: 'Avslutade veckan starkt. Levererade det vi hade planerat och hade ett genuint bra samtal med Sara om ett gemensamt initiativ vi vill driva framåt.' },
-]
+const energyData = [42, 45, 43, 38, 35, 33, 36, 40, 44, 46, 43, 40, 38, 35, 32, 30, 33, 36, 38, 40, 42, 44, 46, 48, 45, 43, 40, 38, 36, 35]
+
+function buildSparklinePath(data: number[], width: number, height: number): string {
+  const min = Math.min(...data)
+  const max = Math.max(...data)
+  const range = max - min || 1
+  const pad = 2
+  const h = height - pad * 2
+  const points = data.map((v, i) => ({
+    x: (i / (data.length - 1)) * width,
+    y: pad + (1 - (v - min) / range) * h,
+  }))
+  return points.reduce((acc, p, i) => {
+    if (i === 0) return `M ${p.x.toFixed(2)},${p.y.toFixed(2)}`
+    const prev = points[i - 1]
+    const cpX = ((prev.x + p.x) / 2).toFixed(2)
+    return `${acc} C ${cpX},${prev.y.toFixed(2)} ${cpX},${p.y.toFixed(2)} ${p.x.toFixed(2)},${p.y.toFixed(2)}`
+  }, '')
+}
 
 const initialExpectations = [
   'Ta tydligare ägarskap över klientleveranser och kommunicera status proaktivt utan att behöva påminnas.',
@@ -19,12 +29,40 @@ const initialExpectations = [
   'Prioritera och avgränsa sitt arbete för att säkra en hållbar prestation över tid.',
 ]
 
-const gapAnalysis = [
-  'Jonas loggar återkommande stress kopplad till otydliga prioriteringar och parallella arbetsuppgifter — något som direkt motverkar förväntningen om proaktivt ägarskap och tydlig kommunikation. Det finns ett gap mellan den förväntade självständigheten och den upplevda bristen på struktur i den dagliga arbetsmiljön.',
-  'Förväntningen om strategiska initiativ verkar svår att infria när Jonas kämpar med att hålla sig flytande i det operativa. Rekommendation: Prioritera nästa 1-on-1 till att klargöra rollens gränser och gemensamt identifiera vad Jonas kan lägga åt sidan. Det finns engagemang och kapacitet — men utrymmet saknas just nu.',
+const synthesisSections = [
+  {
+    label: 'Fokus och riktning',
+    text: 'Jonas har de senaste veckorna fokuserat på att driva klientleveranser mot en stram deadline, parallellt med löpande operativa ärenden. Planeringen inför kommande sprint är i gång men upplever viss osäkerhet kring vad som faktiskt ska prioriteras. Engagemanget för arbetet är tydligt men koncentreras just nu mer på att hålla tempot än att navigera riktningen.',
+    basis: 'Baserat på 14 loggar senaste 30 dagarna',
+  },
+  {
+    label: 'Energi och arbetsbelastning',
+    text: 'Energinivån har varierat tydligt under perioden och är nära kopplad till graden av klarhet i arbetet. Dagar med ostört fokus och tydlig agenda genererar märkbart högre arbetskapacitet. Det är ett konsekvent mönster: när arbetsbelastningen är ostrukturerad eller innehåller många parallella ärenden påverkas förmågan att avsluta dagen mentalt.',
+    sparkline: true,
+    basis: 'Baserat på 14 loggar senaste 30 dagarna',
+  },
+  {
+    label: 'Gap mot förväntningar',
+    text: 'Jonas loggar återkommande stress kopplad till otydliga prioriteringar och parallella arbetsuppgifter — något som direkt motverkar förväntningen om proaktivt ägarskap och tydlig kommunikation. Det finns ett gap mellan den förväntade självständigheten och den upplevda bristen på struktur i den dagliga arbetsmiljön.\n\nFörväntningen om strategiska initiativ verkar svår att infria när Jonas kämpar med att hålla sig flytande i det operativa. Det finns engagemang och kapacitet — men utrymmet saknas just nu.',
+    basis: 'Baserat på 14 loggar och 3 satta förväntningar',
+  },
+  {
+    label: 'Utveckling och ambition',
+    text: 'Jonas har signalerat intresse för att ta mer strategiskt ansvar och driva gemensamma initiativ framåt. Rörelsen i den riktningen är påbörjad men bromsar upp av det operativa trycket. Om utrymmet skapas finns förutsättningarna för att han ska kunna bidra på en mer senior nivå under andra halvåret.',
+    basis: 'Baserat på 14 loggar senaste 30 dagarna',
+  },
 ]
 
-const labelStyle: React.CSSProperties = {
+const sectionLabelStyle: React.CSSProperties = {
+  fontSize: '10px',
+  color: 'rgba(255,255,255,0.25)',
+  textTransform: 'uppercase',
+  letterSpacing: '0.12em',
+  fontWeight: 400,
+  margin: '0 0 10px 0',
+}
+
+const expectationsLabelStyle: React.CSSProperties = {
   fontSize: '11px',
   color: 'rgba(255,255,255,0.25)',
   textTransform: 'uppercase',
@@ -101,22 +139,47 @@ export default function TeamMemberPage() {
         Jonas Lindqvist
       </h1>
 
-      {/* Logghistorik */}
-      <div style={{ marginBottom: '32px' }}>
-        <p style={labelStyle}>Logghistorik</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          {logs.map((log, i) => (
-            <div key={i} style={{ background: '#161616', borderRadius: '12px', padding: '16px' }}>
-              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', fontWeight: 400, margin: '0 0 6px 0' }}>{log.date}</p>
-              <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, fontWeight: 400, margin: 0 }}>{log.text}</p>
-            </div>
-          ))}
-        </div>
+      {/* AI synthesis sections */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
+        {synthesisSections.map((s) => (
+          <div key={s.label} style={{ background: '#161616', borderRadius: '12px', padding: '20px' }}>
+            <p style={sectionLabelStyle}>{s.label}</p>
+            {'sparkline' in s && s.sparkline && (
+              <>
+              <svg
+                viewBox="0 0 300 40"
+                preserveAspectRatio="none"
+                style={{ width: '100%', height: '40px', display: 'block' }}
+              >
+                <path
+                  d={buildSparklinePath(energyData, 300, 40)}
+                  stroke="rgba(255,255,255,0.2)"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+              <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.2)', textAlign: 'right', margin: '2px 0 14px 0', fontWeight: 400 }}>30 dagar</p>
+              </>
+            )}
+            {s.text.split('\n\n').map((para, i) => (
+              <p key={i} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, fontWeight: 400, margin: i > 0 ? '12px 0 0 0' : '0' }}>
+                {para}
+              </p>
+            ))}
+            {'basis' in s && (
+              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', fontWeight: 400, margin: '10px 0 0 0' }}>
+                {s.basis}
+              </p>
+            )}
+          </div>
+        ))}
       </div>
 
       {/* Förväntningar */}
-      <div style={{ marginBottom: '32px' }}>
-        <p style={labelStyle}>Förväntningar</p>
+      <div>
+        <p style={expectationsLabelStyle}>Förväntningar</p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '14px' }}>
           {expectations.map((e, i) => (
@@ -149,18 +212,6 @@ export default function TeamMemberPage() {
               Spara
             </button>
           )}
-        </div>
-      </div>
-
-      {/* Gap-analys */}
-      <div>
-        <p style={labelStyle}>Gap-analys</p>
-        <div style={{ background: '#161616', borderRadius: '12px', padding: '20px' }}>
-          {gapAnalysis.map((para, i) => (
-            <p key={i} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, fontWeight: 400, margin: i > 0 ? '12px 0 0 0' : '0' }}>
-              {para}
-            </p>
-          ))}
         </div>
       </div>
     </div>

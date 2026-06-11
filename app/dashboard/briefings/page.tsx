@@ -16,6 +16,7 @@ type Employee = {
   status: string
   lopande: BriefingContent | null
   medarbetarsamtal: BriefingContent | null
+  previousNote?: string
 }
 
 const employees: Employee[] = [
@@ -23,15 +24,16 @@ const employees: Employee[] = [
     initials: 'JL',
     name: 'Jonas Lindqvist',
     meeting: 'Idag 14:00',
-    status: 'Klar',
+    status: 'Tillräcklig data',
+    previousNote: 'Förra mötet bestämde ni att avlasta Jonas från två akutärenden. Loggarna sedan dess visar viss förbättring i energi.',
     lopande: {
       fokus: 'Jonas har de senaste veckorna arbetat med klientleveranser under tidspress och hanterat flera parallella akutärenden. Han har levererat det som krävts, men utan det strategiska utrymme han egentligen behöver för att göra sitt bästa arbete.',
       energi: 'Energikurvan pekar tydligt nedåt sedan förra veckan. I loggen från onsdag 28 maj beskriver han en känsla av otrygghet kopplad till omorganiseringsdiskussioner — något som återkommer i flera på varandra följande loggar och indikerar att detta inte är en tillfällig dipp.',
       gap: 'Förväntningen om proaktivt ägarskap och tydlig statuskommunikation är svår att infria när Jonas upplever att han saknar struktur och klarhet i prioriteringarna. Han tar inte initiativ till strategiska förbättringar just nu — inte för att viljan saknas, utan för att kapaciteten är uppbunden operativt.',
       fragor: [
-        'Vad tar mest energi just nu, och finns det något vi kan ta bort eller delegera?',
-        'Hur tydlig känns din roll i den pågående omorganiseringen?',
-        'Vad behöver du från mig för att känna dig trygg i prioriteringarna de närmaste två veckorna?',
+        'Vad tar mest energi just nu?',
+        'Vad känns otydligt med prioriteringarna?',
+        'Vad behöver du mer av från mig?',
       ],
     },
     medarbetarsamtal: {
@@ -39,9 +41,9 @@ const employees: Employee[] = [
       energi: 'Energinivån har varierat under perioden, med en mer uttalad nedgång de senaste fyra veckorna. Loggdata visar ett mönster där yttre faktorer — otydliga prioriteringar och organisatorisk osäkerhet — påverkar välmåendet mer än arbetsuppgifterna i sig. Trenden bör adresseras nu innan den befästs.',
       gap: 'Mot bakgrund av hela anställningsperioden har Jonas i hög grad motsvarat förväntningarna på leveransförmåga och kundhantering. Det återstående gapet handlar om strategiska initiativ — han har potential att bidra på en högre nivå men har inte fått eller tagit de tillfällena fullt ut.',
       fragor: [
-        'Hur ser du på din egen utveckling det senaste halvåret jämfört med vad du hoppades på?',
-        'Finns det ansvar eller projekt du vill ta mer ägarskap över framåt?',
-        'Vad är det viktigaste du behöver från organisationen för att trivas och prestera de kommande sex månaderna?',
+        'Hur känner du för din roll just nu?',
+        'Vad vill du ta mer ansvar för framåt?',
+        'Vad behöver du för att trivas det nästa halvåret?',
       ],
     },
   },
@@ -49,15 +51,15 @@ const employees: Employee[] = [
     initials: 'AK',
     name: 'Alex Karlsson',
     meeting: 'Mån 09:00',
-    status: 'Klar',
+    status: 'Tillräcklig data',
     lopande: {
       fokus: 'Alex har den senaste månaden arbetat fokuserat med sin pågående analys och bidragit aktivt i teamets planeringsmöten. Han levererar konsekvent utan att behöva påminnelser och fungerar som en stabil punkt i gruppen.',
       energi: 'Energinivån är hög och stabil. Loggarna från den senaste perioden visar inga oroande signaler — tvärtom beskriver Alex flera tillfällen av flow och känsla av meningsfull prestation. Det är en medarbetare som mår bra och vet om det.',
       gap: 'Alex uppfyller förväntningarna med god marginal. Det enda potentiella gapet är att han ännu inte tagit de strategiska initiativ som förväntningarna pekar på — men det kan lika gärna bero på att han inte fått tydliga inbjudningar att göra det som på brist på ambition.',
       fragor: [
-        'Känner du att du får använda din fulla kapacitet i din nuvarande roll?',
-        'Finns det något ansvar eller initiativ du vill ta men inte haft utrymme för?',
-        'Vad skulle göra nästa månad riktigt bra för dig?',
+        'Känner du att du får använda din fulla kapacitet?',
+        'Finns det något du vill ta tag i men inte haft tid för?',
+        'Vad skulle göra nästa månad riktigt bra?',
       ],
     },
     medarbetarsamtal: {
@@ -65,9 +67,9 @@ const employees: Employee[] = [
       energi: 'Energidata över tid visar en stabil och positiv trend med enstaka kortvariga dippar som alla återhämtat sig snabbt. Det finns inget som tyder på strukturell trötthet eller otrivsel — Alex verkar genuint trivas med sitt arbete och sin miljö.',
       gap: 'Mot helheten av förväntningarna presterar Alex starkt. Det som återstår är att han tar ett mer synligt ledarskapsinitiativ — inte för att det förväntas av honom formellt, utan för att han har förutsättningarna och signalerna från teamet är tydliga.',
       fragor: [
-        'Hur ser du på din roll i teamet om ett år — vad vill du att den ska innehålla?',
-        'Är det något från det senaste året som du önskar hade gått annorlunda?',
-        'Vad motiverar dig mest just nu, och hur kan vi se till att det fortsätter?',
+        'Hur vill du att din roll ser ut om ett år?',
+        'Finns det något från det senaste året du önskat gick annorlunda?',
+        'Vad motiverar dig mest just nu?',
       ],
     },
   },
@@ -75,7 +77,7 @@ const employees: Employee[] = [
     initials: 'MS',
     name: 'Mia Svensson',
     meeting: 'Fre 10:00',
-    status: 'Väntar',
+    status: 'Tillräcklig data',
     lopande: null,
     medarbetarsamtal: null,
   },
@@ -83,7 +85,7 @@ const employees: Employee[] = [
     initials: 'SB',
     name: 'Sara Berg',
     meeting: 'Tor 13:00',
-    status: 'Väntar',
+    status: 'För lite data ännu',
     lopande: null,
     medarbetarsamtal: null,
   },
@@ -91,7 +93,7 @@ const employees: Employee[] = [
     initials: 'EH',
     name: 'Erik Hansson',
     meeting: 'Tis 11:00',
-    status: 'För lite data',
+    status: 'För lite data ännu',
     lopande: null,
     medarbetarsamtal: null,
   },
@@ -110,9 +112,8 @@ const pillStyle = (active: boolean): React.CSSProperties => ({
 })
 
 const statusPill: Record<string, React.CSSProperties> = {
-  'Klar': { background: 'rgba(4,216,181,0.08)', color: '#04D8B5', border: '0.5px solid rgba(4,216,181,0.2)' },
-  'Väntar': { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '0.5px solid rgba(255,255,255,0.08)' },
-  'För lite data': { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '0.5px solid rgba(255,255,255,0.08)' },
+  'Tillräcklig data': { background: 'rgba(4,216,181,0.08)', color: '#04D8B5', border: '0.5px solid rgba(4,216,181,0.2)' },
+  'För lite data ännu': { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '0.5px solid rgba(255,255,255,0.08)' },
 }
 
 const sectionLabelStyle: React.CSSProperties = {
@@ -127,9 +128,11 @@ const sectionLabelStyle: React.CSSProperties = {
 export default function BriefingsPage() {
   const [open, setOpen] = useState<string | null>(null)
   const [meetingType, setMeetingType] = useState<Record<string, 'lopande' | 'medarbetarsamtal'>>({})
+  const [notes, setNotes] = useState<Record<string, string>>({})
+  const [saved, setSaved] = useState<Record<string, string>>({})
 
   function toggle(name: string, status: string) {
-    if (status !== 'Klar') return
+    if (status !== 'Tillräcklig data') return
     setOpen((prev) => (prev === name ? null : name))
   }
 
@@ -141,6 +144,10 @@ export default function BriefingsPage() {
     setMeetingType((prev) => ({ ...prev, [name]: type }))
   }
 
+  function saveNote(name: string) {
+    setSaved((prev) => ({ ...prev, [name]: notes[name] ?? '' }))
+  }
+
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
       <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 32px 0' }}>
@@ -150,9 +157,11 @@ export default function BriefingsPage() {
       <div>
         {employees.map((e) => {
           const isOpen = open === e.name
-          const isClickable = e.status === 'Klar'
+          const isClickable = e.status === 'Tillräcklig data'
           const type = getType(e.name)
           const content = type === 'lopande' ? e.lopande : e.medarbetarsamtal
+          const note = notes[e.name] ?? ''
+          const savedNote = saved[e.name]
 
           return (
             <div key={e.name} style={{ marginBottom: '8px' }}>
@@ -182,6 +191,15 @@ export default function BriefingsPage() {
               {/* Accordion */}
               {isOpen && content && (
                 <div style={{ background: '#111', borderRadius: '0 0 12px 12px', padding: '20px' }}>
+
+                  {/* Previous note callout */}
+                  {e.previousNote && (
+                    <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '10px', padding: '12px 14px', marginBottom: '16px' }}>
+                      <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 400, margin: '0 0 6px 0' }}>Sedan förra mötet</p>
+                      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, fontWeight: 400, margin: 0 }}>{e.previousNote}</p>
+                    </div>
+                  )}
+
                   {/* Type selector */}
                   <div style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
                     <button onClick={() => setType(e.name, 'lopande')} style={pillStyle(type === 'lopande')}>
@@ -218,6 +236,49 @@ export default function BriefingsPage() {
                           </p>
                         ))}
                       </div>
+                    </div>
+
+                    {/* Efter mötet */}
+                    <div>
+                      <p style={sectionLabelStyle}>Efter mötet</p>
+                      <textarea
+                        value={note}
+                        onChange={(ev) => setNotes((prev) => ({ ...prev, [e.name]: ev.target.value }))}
+                        placeholder="Vad bestämde ni? T.ex. avlasta från två akutärenden."
+                        rows={3}
+                        style={{
+                          width: '100%',
+                          boxSizing: 'border-box',
+                          background: 'rgba(255,255,255,0.05)',
+                          border: '0.5px solid rgba(255,255,255,0.08)',
+                          borderRadius: '10px',
+                          padding: '10px 12px',
+                          fontSize: '13px',
+                          color: 'rgba(255,255,255,0.7)',
+                          resize: 'none',
+                          outline: 'none',
+                          fontFamily: 'inherit',
+                          fontWeight: 400,
+                          lineHeight: 1.6,
+                        }}
+                      />
+                      <button
+                        onClick={() => saveNote(e.name)}
+                        style={{
+                          marginTop: '8px',
+                          border: '0.5px solid rgba(255,255,255,0.1)',
+                          background: 'transparent',
+                          color: 'rgba(255,255,255,0.35)',
+                          fontSize: '12px',
+                          borderRadius: '8px',
+                          padding: '6px 14px',
+                          cursor: 'pointer',
+                          fontFamily: 'inherit',
+                          fontWeight: 400,
+                        }}
+                      >
+                        Spara anteckning
+                      </button>
                     </div>
                   </div>
                 </div>
