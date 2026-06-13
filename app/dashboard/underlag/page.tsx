@@ -151,7 +151,7 @@ export default function BriefingsPage() {
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
       <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 32px 0' }}>
-        Briefings
+        Underlag
       </h1>
 
       <div>

@@ -48,10 +48,10 @@ const IconSettings = () => (
 )
 
 const mainNavItems = [
-  { href: '/dashboard', label: 'Overview', Icon: IconOverview },
+  { href: '/dashboard', label: 'Översikt', Icon: IconOverview },
   { href: '/dashboard/team', label: 'Team', Icon: IconTeam },
-  { href: '/dashboard/briefings', label: 'Briefings', Icon: IconBriefings },
-  { href: '/dashboard/reports', label: 'Reports', Icon: IconReports },
+  { href: '/dashboard/underlag', label: 'Underlag', Icon: IconBriefings },
+  { href: '/dashboard/rapporter', label: 'Rapporter', Icon: IconReports },
 ]
 
 type Message = { role: 'user' | 'ai'; text: string }
@@ -60,11 +60,11 @@ function getSuggestions(pathname: string): string[] {
   if (pathname.includes('/team/')) {
     return ['Hur kan jag stötta den här personen?', 'Sammanfatta senaste månaden', 'Förbered mitt 1-on-1']
   }
-  if (pathname.includes('/reports')) {
+  if (pathname.includes('/rapporter')) {
     return ['Vad borde jag agera på först?', 'Sammanfatta veckans rapporter']
   }
-  if (pathname.includes('/briefings')) {
-    return ['Vilka möten är viktigast?', 'Förbered nästa briefing']
+  if (pathname.includes('/underlag')) {
+    return ['Vilka möten är viktigast?', 'Förbered nästa underlag']
   }
   return ['Vem behöver min uppmärksamhet?', 'Hur mår teamet?', 'Sammanfatta veckan']
 }
@@ -73,8 +73,8 @@ function getPlaceholderResponse(message: string, pathname: string): string {
   if (pathname.includes('/team/')) {
     return 'Baserat på Jonas synteser ser jag att energinivån har sjunkit de senaste veckorna kopplat till otydliga prioriteringar. Ett bra första steg kan vara att tydliggöra förväntningarna för nästa period.'
   }
-  if (pathname.includes('/briefings')) {
-    return 'Briefingen för Jonas är klar. Den lyfter ett gap kring kundkontakt som kan vara värt att adressera direkt i mötet.'
+  if (pathname.includes('/underlag')) {
+    return 'Underlaget för Jonas är klart. Det lyfter ett gap kring kundkontakt som kan vara värt att adressera direkt i mötet.'
   }
   return 'Jag kan hjälpa dig analysera ditt team, förbereda ett 1-on-1 eller sammanfatta signaler från senaste veckan. Vad vill du veta?'
 }
@@ -193,7 +193,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               onMouseLeave={() => setHovered(null)}
               style={navStyle('/dashboard/settings')}
             >
-              <span style={{ flex: 1 }}>Settings</span>
+              <span style={{ flex: 1 }}>Inställningar</span>
               <span style={{ color: iconColor('/dashboard/settings'), display: 'flex', alignItems: 'center' }}>
                 <IconSettings />
               </span>

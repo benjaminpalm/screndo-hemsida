@@ -31,7 +31,7 @@ export default function ReportsPage() {
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
       <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 8px 0' }}>
-        Reports
+        Rapporter
       </h1>
       <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', fontWeight: 400, margin: '0 0 8px 0' }}>
         AI sammanfattar inkomna rapporter per kategori. Inga användar-ID lagras.

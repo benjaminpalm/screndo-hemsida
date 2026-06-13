@@ -51,7 +51,7 @@ export default function SettingsPage() {
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
       <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 40px 0' }}>
-        Settings
+        Inställningar
       </h1>
 
       {/* Organisation */}
@@ -83,8 +83,8 @@ export default function SettingsPage() {
       <div>
         <p style={sectionLabel}>Konto</p>
         <div style={{ background: '#161616', borderRadius: '12px', padding: '24px' }}>
-          <p style={{ fontSize: '13px', color: '#fff', fontWeight: 400, margin: 0 }}>Benjamin Palm</p>
-          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', fontWeight: 400, margin: '4px 0 0 0' }}>benjamin@acme.se</p>
+          <p style={{ fontSize: '13px', color: '#fff', fontWeight: 400, margin: 0 }}>Sara Lindgren</p>
+          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', fontWeight: 400, margin: '4px 0 0 0' }}>sara@acmeconsulting.se</p>
           <div style={{ borderTop: '0.5px solid rgba(255,255,255,0.06)', margin: '16px 0' }} />
           <button style={actionBtn}>Logga ut</button>
         </div>
