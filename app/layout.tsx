@@ -12,14 +12,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Screndo",
   description:
-    "Screndo is an AI platform that collects and analyzes people data to give HR and leadership continuous insight into their organization.",
+    "Screndo samlar in och analyserar medarbetardata för att ge HR och ledning kontinuerlig insikt i organisationen.",
   icons: { icon: "/nyfavicon.png" },
   robots: { googleBot: { noimageindex: true } },
   verification: { google: "mjIBIF1f28mY21N6YttL9-o8HC1i2-qgGnmNgpQjRio" },
   openGraph: {
     title: "Screndo",
     description:
-      "Screndo is an AI platform that collects and analyzes people data to give HR and leadership continuous insight into their organization.",
+      "Screndo samlar in och analyserar medarbetardata för att ge HR och ledning kontinuerlig insikt i organisationen.",
     url: "https://screndo.com",
   },
 };
