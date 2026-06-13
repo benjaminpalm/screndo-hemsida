@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import { useState, FormEvent } from "react";
 
 const inputStyle: React.CSSProperties = {
@@ -62,7 +63,8 @@ const required: (keyof Fields)[] = [
   "companySize",
 ];
 
-export default function BookIntro() {
+function BookIntroForm() {
+  const { t } = useLanguage();
   const [fields, setFields] = useState<Fields>({
     email: "",
     firstName: "",
@@ -84,7 +86,7 @@ export default function BookIntro() {
     const e: Errors = {};
     for (const key of required) {
       if (!fields[key].trim()) {
-        e[key] = "Please complete this required field.";
+        e[key] = t.validationError;
       }
     }
     return e;
@@ -101,222 +103,230 @@ export default function BookIntro() {
   }
 
   return (
-    <div style={{ background: "#fff", minHeight: "100vh" }}>
-      <Navbar />
-      <div
+    <div style={{ maxWidth: "600px", width: "100%" }}>
+      <h1
         style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: "80px 24px",
+          fontWeight: 700,
+          fontSize: "36px",
+          letterSpacing: "-1px",
+          marginBottom: "8px",
+          marginTop: 0,
         }}
       >
-        <div style={{ maxWidth: "600px", width: "100%" }}>
-          <h1
+        {t.pageHeadline}
+      </h1>
+      <p
+        style={{
+          fontSize: "16px",
+          color: "#6B6B6B",
+          marginBottom: "48px",
+          marginTop: 0,
+        }}
+      >
+        {t.pageSubline}
+      </p>
+
+      {submitted ? (
+        <p style={{ fontSize: "18px", color: "#0A0A0A" }}>
+          {t.submittedMessage}
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} noValidate>
+          {/* Work email */}
+          <div style={fieldStyle}>
+            <label style={labelStyle}>
+              {t.workEmail} <span style={{ color: "#FF6B5C" }}>*</span>
+            </label>
+            <input
+              type="email"
+              value={fields.email}
+              onChange={(e) => set("email", e.target.value)}
+              style={inputStyle}
+            />
+            {errors.email && <span style={errorStyle}>{errors.email}</span>}
+          </div>
+
+          {/* First name + Last name */}
+          <div
             style={{
-              fontWeight: 700,
-              fontSize: "36px",
-              letterSpacing: "-1px",
-              marginBottom: "8px",
-              marginTop: 0,
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              marginBottom: "20px",
             }}
           >
-            Book an intro
-          </h1>
-          <p
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label style={labelStyle}>
+                {t.firstName} <span style={{ color: "#FF6B5C" }}>*</span>
+              </label>
+              <input
+                type="text"
+                value={fields.firstName}
+                onChange={(e) => set("firstName", e.target.value)}
+                style={inputStyle}
+              />
+              {errors.firstName && (
+                <span style={errorStyle}>{errors.firstName}</span>
+              )}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label style={labelStyle}>
+                {t.lastName} <span style={{ color: "#FF6B5C" }}>*</span>
+              </label>
+              <input
+                type="text"
+                value={fields.lastName}
+                onChange={(e) => set("lastName", e.target.value)}
+                style={inputStyle}
+              />
+              {errors.lastName && (
+                <span style={errorStyle}>{errors.lastName}</span>
+              )}
+            </div>
+          </div>
+
+          {/* Company name + Job title */}
+          <div
             style={{
-              fontSize: "16px",
-              color: "#6B6B6B",
-              marginBottom: "48px",
-              marginTop: 0,
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+              marginBottom: "20px",
             }}
           >
-            We will reach out within 24 hours.
-          </p>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label style={labelStyle}>
+                {t.companyName} <span style={{ color: "#FF6B5C" }}>*</span>
+              </label>
+              <input
+                type="text"
+                value={fields.company}
+                onChange={(e) => set("company", e.target.value)}
+                style={inputStyle}
+              />
+              {errors.company && (
+                <span style={errorStyle}>{errors.company}</span>
+              )}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <label style={labelStyle}>
+                {t.jobTitle} <span style={{ color: "#FF6B5C" }}>*</span>
+              </label>
+              <input
+                type="text"
+                value={fields.jobTitle}
+                onChange={(e) => set("jobTitle", e.target.value)}
+                style={inputStyle}
+              />
+              {errors.jobTitle && (
+                <span style={errorStyle}>{errors.jobTitle}</span>
+              )}
+            </div>
+          </div>
 
-          {submitted ? (
-            <p style={{ fontSize: "18px", color: "#0A0A0A" }}>
-              Thanks! We will be in touch soon.
-            </p>
-          ) : (
-            <form onSubmit={handleSubmit} noValidate>
-              {/* Work email */}
-              <div style={fieldStyle}>
-                <label style={labelStyle}>
-                  Work email <span style={{ color: "#FF6B5C" }}>*</span>
-                </label>
-                <input
-                  type="email"
-                  value={fields.email}
-                  onChange={(e) => set("email", e.target.value)}
-                  style={inputStyle}
-                />
-                {errors.email && <span style={errorStyle}>{errors.email}</span>}
-              </div>
-
-              {/* First name + Last name */}
-              <div
+          {/* Company size */}
+          <div style={fieldStyle}>
+            <label style={labelStyle}>
+              {t.companySize} <span style={{ color: "#FF6B5C" }}>*</span>
+            </label>
+            <div style={{ position: "relative" }}>
+              <select
+                value={fields.companySize}
+                onChange={(e) => set("companySize", e.target.value)}
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "16px",
-                  marginBottom: "20px",
-                }}
-              >
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={labelStyle}>
-                    First name <span style={{ color: "#FF6B5C" }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={fields.firstName}
-                    onChange={(e) => set("firstName", e.target.value)}
-                    style={inputStyle}
-                  />
-                  {errors.firstName && (
-                    <span style={errorStyle}>{errors.firstName}</span>
-                  )}
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={labelStyle}>
-                    Last name <span style={{ color: "#FF6B5C" }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={fields.lastName}
-                    onChange={(e) => set("lastName", e.target.value)}
-                    style={inputStyle}
-                  />
-                  {errors.lastName && (
-                    <span style={errorStyle}>{errors.lastName}</span>
-                  )}
-                </div>
-              </div>
-
-              {/* Company name + Job title */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "16px",
-                  marginBottom: "20px",
-                }}
-              >
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={labelStyle}>
-                    Company name <span style={{ color: "#FF6B5C" }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={fields.company}
-                    onChange={(e) => set("company", e.target.value)}
-                    style={inputStyle}
-                  />
-                  {errors.company && (
-                    <span style={errorStyle}>{errors.company}</span>
-                  )}
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={labelStyle}>
-                    Job title <span style={{ color: "#FF6B5C" }}>*</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={fields.jobTitle}
-                    onChange={(e) => set("jobTitle", e.target.value)}
-                    style={inputStyle}
-                  />
-                  {errors.jobTitle && (
-                    <span style={errorStyle}>{errors.jobTitle}</span>
-                  )}
-                </div>
-              </div>
-
-              {/* Company size */}
-              <div style={fieldStyle}>
-                <label style={labelStyle}>
-                  Company size <span style={{ color: "#FF6B5C" }}>*</span>
-                </label>
-                <div style={{ position: "relative" }}>
-                  <select
-                    value={fields.companySize}
-                    onChange={(e) => set("companySize", e.target.value)}
-                    style={{
-                      ...inputStyle,
-                      appearance: "none",
-                      paddingRight: "44px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <option value="">Select…</option>
-                    <option value="1-50">1–50 employees</option>
-                    <option value="51-200">51–200 employees</option>
-                    <option value="201-500">201–500 employees</option>
-                    <option value="500+">500+ employees</option>
-                  </select>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{
-                      position: "absolute",
-                      right: "16px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    <path
-                      d="M4 6L8 10L12 6"
-                      stroke="#6B6B6B"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                {errors.companySize && (
-                  <span style={errorStyle}>{errors.companySize}</span>
-                )}
-              </div>
-
-              {/* Message */}
-              <div style={fieldStyle}>
-                <label style={labelStyle}>
-                  Anything you want us to know before we meet?
-                </label>
-                <textarea
-                  rows={4}
-                  value={fields.message}
-                  onChange={(e) => set("message", e.target.value)}
-                  style={textareaStyle}
-                />
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                style={{
-                  width: "100%",
-                  background: "#0A0A0A",
-                  color: "#fff",
-                  fontWeight: 600,
-                  fontSize: "16px",
-                  padding: "16px",
-                  borderRadius: "100px",
-                  border: "none",
+                  ...inputStyle,
+                  appearance: "none",
+                  paddingRight: "44px",
                   cursor: "pointer",
-                  fontFamily: "inherit",
-                  marginTop: "8px",
                 }}
               >
-                Send request
-              </button>
-            </form>
-          )}
+                <option value="">{t.selectPlaceholder}</option>
+                <option value="1-50">{t.size1}</option>
+                <option value="51-200">{t.size2}</option>
+                <option value="201-500">{t.size3}</option>
+                <option value="500+">{t.size4}</option>
+              </select>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  position: "absolute",
+                  right: "16px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  pointerEvents: "none",
+                }}
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#6B6B6B"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            {errors.companySize && (
+              <span style={errorStyle}>{errors.companySize}</span>
+            )}
+          </div>
+
+          {/* Message */}
+          <div style={fieldStyle}>
+            <label style={labelStyle}>
+              {t.textareaLabel}
+            </label>
+            <textarea
+              rows={4}
+              value={fields.message}
+              onChange={(e) => set("message", e.target.value)}
+              style={textareaStyle}
+            />
+          </div>
+
+          {/* Submit */}
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              background: "#0A0A0A",
+              color: "#fff",
+              fontWeight: 600,
+              fontSize: "16px",
+              padding: "16px",
+              borderRadius: "100px",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "inherit",
+              marginTop: "8px",
+            }}
+          >
+            {t.submitButton}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
+
+export default function BookIntro() {
+  return (
+    <LanguageProvider>
+      <div style={{ background: "#fff", minHeight: "100vh" }}>
+        <Navbar />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "80px 24px",
+          }}
+        >
+          <BookIntroForm />
         </div>
       </div>
-    </div>
+    </LanguageProvider>
   );
 }
