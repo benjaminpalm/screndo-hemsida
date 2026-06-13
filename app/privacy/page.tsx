@@ -1,38 +1,28 @@
+'use client'
+
+import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 
-const sections = [
-  {
-    title: "What we collect",
-    text: "We collect the information you provide when booking an intro: name, work email, company name, job title, and company size.",
-  },
-  {
-    title: "Why we collect it",
-    text: "We use this information solely to contact you about Screndo and prepare for our introductory meeting. We do not sell or share your data with third parties.",
-  },
-  {
-    title: "How long we keep it",
-    text: "We retain your information for as long as necessary to maintain our business relationship. You can request deletion at any time.",
-  },
-  {
-    title: "Your rights",
-    text: "Under GDPR, you have the right to access, correct, or delete your personal data. To exercise these rights, contact us at screndocom@gmail.com.",
-  },
-  {
-    title: "Contact",
-    text: "Screndo, screndocom@gmail.com",
-  },
-]
+function PrivacyContent() {
+  const { t } = useLanguage()
 
-export default function PrivacyPage() {
+  const sections = [
+    { title: t.collectTitle, text: t.collectText },
+    { title: t.whyTitle, text: t.whyText },
+    { title: t.keepTitle, text: t.keepText },
+    { title: t.rightsTitle, text: t.rightsText },
+    { title: t.contactTitle, text: t.contactText },
+  ]
+
   return (
     <>
       <Navbar />
       <div style={{ background: "#fff", minHeight: "100vh" }}>
         <div style={{ maxWidth: "680px", margin: "0 auto", padding: "80px 24px" }}>
           <h1 style={{ fontSize: "36px", fontWeight: 700, letterSpacing: "-1px", margin: "0 0 8px 0", color: "#000" }}>
-            Privacy Policy
+            {t.privacyHeadline}
           </h1>
-          <p style={{ fontSize: "13px", color: "#aaa", margin: "0 0 56px 0" }}>Last updated: June 2026</p>
+          <p style={{ fontSize: "13px", color: "#aaa", margin: "0 0 56px 0" }}>{t.lastUpdated}</p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
             {sections.map((s) => (
@@ -45,5 +35,13 @@ export default function PrivacyPage() {
         </div>
       </div>
     </>
+  )
+}
+
+export default function PrivacyPage() {
+  return (
+    <LanguageProvider>
+      <PrivacyContent />
+    </LanguageProvider>
   )
 }
