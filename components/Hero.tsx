@@ -28,7 +28,7 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Your organization speaks. We translate.
+            Ärliga, dagliga signaler från dina medarbetare, omvandlade till ett tydligt underlag inför varje samtal.
           </p>
 
           <div className="hero-buttons">
