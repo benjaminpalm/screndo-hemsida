@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
+
 export default function CTA() {
+  const { t } = useLanguage()
+
   return (
     <section
       className="section-pad"
@@ -11,7 +17,7 @@ export default function CTA() {
       }}
     >
       <h2 className="cta-h2">
-        See the whole picture. Not just the survey results.
+        {t.ctaHeadline}
       </h2>
 
       <a
@@ -27,8 +33,8 @@ export default function CTA() {
           display: "inline-block",
         }}
       >
-        Book an intro
+        {t.ctaButton}
       </a>
     </section>
-  );
+  )
 }

@@ -1,11 +1,17 @@
-const links = [
-  { label: "Product", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Careers", href: "#" },
-  { label: "Privacy", href: "/privacy" },
-]
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLanguage()
+
+  const links = [
+    { label: t.product, href: "#" },
+    { label: t.about, href: "#" },
+    { label: t.careers, href: "#" },
+    { label: t.privacy, href: "/privacy" },
+  ]
+
   return (
     <footer className="footer-bar">
       <img src="/logo.png" alt="Screndo" style={{ height: "28px", width: "auto" }} />
@@ -13,7 +19,7 @@ export default function Footer() {
       <nav style={{ display: "flex", gap: "32px", flexWrap: "wrap", justifyContent: "center" }}>
         {links.map((link) => (
           <a
-            key={link.label}
+            key={link.href}
             href={link.href}
             style={{ color: "#6B6B6B", fontSize: "13px", textDecoration: "none" }}
           >
@@ -24,5 +30,5 @@ export default function Footer() {
 
       <span style={{ color: "#6B6B6B", fontSize: "13px" }}>© 2026 Screndo</span>
     </footer>
-  );
+  )
 }

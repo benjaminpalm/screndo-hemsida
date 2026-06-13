@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
+
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <>
       <section
@@ -16,7 +22,7 @@ export default function Hero() {
       >
         <div style={{ maxWidth: "860px", width: "100%" }}>
           <h1 className="hero-h1">
-            Continuous people intelligence
+            {t.headline}
           </h1>
 
           <p
@@ -28,7 +34,7 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Ärliga, dagliga signaler från dina medarbetare, omvandlade till ett tydligt underlag inför varje samtal.
+            {t.subline}
           </p>
 
           <div className="hero-buttons">
@@ -45,7 +51,7 @@ export default function Hero() {
                 display: "inline-block",
               }}
             >
-              Get started
+              {t.getStarted}
             </a>
             <a
               href="#"
@@ -61,7 +67,7 @@ export default function Hero() {
                 display: "inline-block",
               }}
             >
-              See how it works
+              {t.seeHow}
             </a>
           </div>
         </div>
@@ -98,7 +104,7 @@ export default function Hero() {
               lineHeight: 1.2,
             }}
           >
-            A system that listens.
+            {t.overlayTitle}
           </p>
           <p
             style={{
@@ -109,10 +115,10 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Screndo translates your organization in real time.
+            {t.overlaySub}
           </p>
         </div>
       </div>
     </>
-  );
+  )
 }

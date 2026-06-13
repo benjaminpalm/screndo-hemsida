@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
+
 export default function Navbar() {
+  const { t, lang, toggle } = useLanguage()
+
   return (
     <nav
       className="navbar"
@@ -16,11 +22,17 @@ export default function Navbar() {
     >
       <a href="/"><img src="/logo.png" alt="Screndo" className="navbar-logo" style={{ height: "46px", width: "auto" }} /></a>
       <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+        <button
+          onClick={toggle}
+          style={{ background: "none", border: "none", cursor: "pointer", color: "#6B6B6B", fontSize: "13px", fontFamily: "inherit", padding: 0 }}
+        >
+          {lang === 'sv' ? 'EN' : 'SV'}
+        </button>
         <a
           href="#"
           style={{ color: "#6B6B6B", textDecoration: "none", fontSize: "15px" }}
         >
-          Log in
+          {t.login}
         </a>
         <a
           href="/book-intro"
@@ -34,9 +46,9 @@ export default function Navbar() {
             display: "inline-block",
           }}
         >
-          Book an intro
+          {t.bookIntro}
         </a>
       </div>
     </nav>
-  );
+  )
 }

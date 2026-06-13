@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
+
 export default function WhatWeDo() {
+  const { t } = useLanguage()
+
   return (
     <section
       className="section-pad what-we-do-section"
@@ -15,7 +21,7 @@ export default function WhatWeDo() {
             margin: "0 0 36px 0",
           }}
         >
-          Most organizations are full of signal. Almost none of it gets heard.
+          {t.whatHeadline}
         </h2>
 
         <p
@@ -26,13 +32,13 @@ export default function WhatWeDo() {
             margin: "0 0 24px 0",
           }}
         >
-          Screndo is a continuous people intelligence platform. It listens to your organization through structured and unstructured data and translates that into clear insight for HR and leadership.
+          {t.whatPara1}
         </p>
 
         <p style={{ color: "#6B6B6B", fontSize: "18px", lineHeight: 1.8, margin: 0 }}>
-          Not another annual survey. Not a dashboard nobody opens. A system that actually works.
+          {t.whatPara2}
         </p>
       </div>
     </section>
-  );
+  )
 }

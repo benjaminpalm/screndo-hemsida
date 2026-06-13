@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/contexts/LanguageContext'
+
 export default function GardenImage() {
+  const { t } = useLanguage()
+
   return (
     <div className="garden-wrap" style={{ position: "relative", width: "100%", height: "100vh" }}>
       <img
@@ -42,9 +48,9 @@ export default function GardenImage() {
             lineHeight: 1.3,
           }}
         >
-          Organizations are living things.
+          {t.gardenText}
         </p>
       </div>
     </div>
-  );
+  )
 }
