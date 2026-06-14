@@ -362,7 +362,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               }}
             />
             <button
-              onClick={sendMessage}
+              onClick={() => sendMessage()}
               style={{
                 position: 'absolute',
                 right: '8px',
