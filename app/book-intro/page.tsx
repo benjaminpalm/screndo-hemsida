@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { LanguageProvider, useLanguage } from "@/contexts/LanguageContext";
+import { LanguageProvider, useLanguage } from "@/lib/LanguageContext";
 import { useState, FormEvent } from "react";
 
 const inputStyle: React.CSSProperties = {

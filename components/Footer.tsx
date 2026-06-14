@@ -1,6 +1,6 @@
 'use client'
 
-import { useLanguage } from '@/contexts/LanguageContext'
+import { useLanguage } from '@/lib/LanguageContext'
 
 export default function Footer() {
   const { t } = useLanguage()

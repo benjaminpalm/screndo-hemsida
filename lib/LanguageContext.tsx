@@ -15,7 +15,7 @@ const translations = {
     keepTitle: 'Hur länge vi sparar den',
     keepText: 'Vi sparar din information så länge det behövs för att upprätthålla vår affärsrelation. Du kan begära radering när som helst.',
     rightsTitle: 'Dina rättigheter',
-    rightsText: 'Enligt GDPR har du rätt att få tillgång till, korrigera eller radera dina personuppgifter. För att utöva dessa rättigheter, kontakta oss på screndocom@gmail.com.',
+    rightsText: 'Enligt GDPR har du rätt att få tillgång till, korrigera eller radera dina personuppgifter. Kontakta oss på screndocom@gmail.com.',
     contactTitle: 'Kontakt',
     contactText: 'Screndo, screndocom@gmail.com',
     pageHeadline: 'Boka intro',
@@ -64,7 +64,7 @@ const translations = {
     keepTitle: 'How long we keep it',
     keepText: 'We retain your information for as long as necessary to maintain our business relationship. You can request deletion at any time.',
     rightsTitle: 'Your rights',
-    rightsText: 'Under GDPR, you have the right to access, correct, or delete your personal data. To exercise these rights, contact us at screndocom@gmail.com.',
+    rightsText: 'Under GDPR, you have the right to access, correct, or delete your personal data. Contact us at screndocom@gmail.com.',
     contactTitle: 'Contact',
     contactText: 'Screndo, screndocom@gmail.com',
     pageHeadline: 'Book an intro',
@@ -110,18 +110,17 @@ type Translations = typeof translations.sv
 const LanguageContext = createContext<{
   lang: Lang
   t: Translations
-  toggle: () => void
+  setLanguage: (l: Lang) => void
 }>({
   lang: 'sv',
   t: translations.sv,
-  toggle: () => {},
+  setLanguage: () => {},
 })
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>('sv')
-  const toggle = () => setLang((l) => (l === 'sv' ? 'en' : 'sv'))
   return (
-    <LanguageContext.Provider value={{ lang, t: translations[lang], toggle }}>
+    <LanguageContext.Provider value={{ lang, t: translations[lang], setLanguage: setLang }}>
       {children}
     </LanguageContext.Provider>
   )
