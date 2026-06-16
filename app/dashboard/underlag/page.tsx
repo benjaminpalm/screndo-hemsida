@@ -130,6 +130,12 @@ export default function BriefingsPage() {
   const [meetingType, setMeetingType] = useState<Record<string, 'lopande' | 'medarbetarsamtal'>>({})
   const [notes, setNotes] = useState<Record<string, string>>({})
   const [saved, setSaved] = useState<Record<string, string>>({})
+  const [toast, setToast] = useState('')
+
+  function triggerToast(message: string) {
+    setToast(message)
+    setTimeout(() => setToast(''), 2000)
+  }
 
   function toggle(name: string, status: string) {
     if (status !== 'Tillräcklig data') return
@@ -208,9 +214,60 @@ export default function BriefingsPage() {
                       Medarbetarsamtal
                     </button>
                   </div>
-                  <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, margin: '0 0 24px 0' }}>
+                  <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, margin: '0 0 16px 0' }}>
                     {type === 'lopande' ? 'Baserat på 30 dagars data' : 'Baserat på all tillgänglig data sedan anställningens start'}
                   </p>
+
+                  {/* Action row */}
+                  <div style={{ display: 'flex', gap: '8px', alignSelf: 'flex-end', marginBottom: '24px' }}>
+                    {[
+                      {
+                        label: 'Ladda ner PDF',
+                        icon: (
+                          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6.5 1v8M3.5 6l3 3 3-3M1 10.5h11"/>
+                          </svg>
+                        ),
+                      },
+                      {
+                        label: 'Dela med medarbetaren',
+                        icon: (
+                          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="10.5" cy="2.5" r="1.5"/>
+                            <circle cx="10.5" cy="10.5" r="1.5"/>
+                            <circle cx="2.5" cy="6.5" r="1.5"/>
+                            <line x1="4" y1="7.3" x2="9" y2="9.7"/>
+                            <line x1="9" y1="3.3" x2="4" y2="5.7"/>
+                          </svg>
+                        ),
+                      },
+                    ].map(({ label, icon }) => (
+                      <button
+                        key={label}
+                        onClick={() => triggerToast('Kommer snart')}
+                        onMouseEnter={(ev) => { ev.currentTarget.style.color = 'var(--text-primary)'; ev.currentTarget.style.borderColor = 'var(--text-secondary)' }}
+                        onMouseLeave={(ev) => { ev.currentTarget.style.color = 'var(--text-secondary)'; ev.currentTarget.style.borderColor = 'var(--border)' }}
+                        style={{
+                          background: 'transparent',
+                          border: '0.5px solid var(--border)',
+                          color: 'var(--text-secondary)',
+                          fontSize: '12px',
+                          padding: '6px 12px',
+                          borderRadius: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          cursor: 'pointer',
+                          fontFamily: 'inherit',
+                          fontWeight: 400,
+                          transition: 'color 0.12s ease, border-color 0.12s ease',
+                        }}
+                      >
+                        {icon}
+                        {label}
+                      </button>
+                    ))}
+                  </div>
 
                   {/* Sections */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -286,6 +343,25 @@ export default function BriefingsPage() {
           )
         })}
       </div>
+
+      {toast && (
+        <div style={{
+          position: 'fixed',
+          bottom: '32px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: 'var(--card)',
+          border: '0.5px solid var(--border)',
+          color: 'var(--text-primary)',
+          fontSize: '12px',
+          padding: '8px 18px',
+          borderRadius: '100px',
+          zIndex: 100,
+          pointerEvents: 'none',
+        }}>
+          {toast}
+        </div>
+      )}
     </div>
   )
 }
