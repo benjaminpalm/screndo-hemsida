@@ -66,11 +66,40 @@ export default function DashboardPage() {
       </div>
 
       {/* Rest of team */}
-      <div>
+      <div style={{ marginBottom: '40px' }}>
         <p style={sectionLabel}>Resten av teamet</p>
         <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
           6 andra medarbetare loggar som vanligt och visar inga tydliga signaler.
         </p>
+      </div>
+
+      {/* Org themes */}
+      <div>
+        <p style={sectionLabel}>Teman i organisationen</p>
+        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: '0 0 16px 0' }}>
+          Återkommande teman den här månaden, sammanställt från teamets loggar. Inga namn, inga betyg.
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {[
+            {
+              title: 'Arbetsbelastning och prioriteringar',
+              body: 'Flera medarbetare beskriver en känsla av att uppgifter staplas på utan att något tas bort. Mönstret är inte akut men återkommer över veckorna.',
+            },
+            {
+              title: 'Otydlighet kring riktning',
+              body: 'Återkommande beskrivningar av att beslut och förändringar kommuniceras sent, vilket skapar osäkerhet kring vad som ska prioriteras.',
+            },
+            {
+              title: 'Energi kring nya initiativ',
+              body: 'Där medarbetare får äga ett eget initiativ syns tydligt högre energi och driv i loggarna.',
+            },
+          ].map((card) => (
+            <div key={card.title} style={{ background: 'var(--card)', border: '0.5px solid var(--border)', borderRadius: '12px', padding: '18px 20px' }}>
+              <p style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 400, margin: '0 0 6px 0' }}>{card.title}</p>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>{card.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
