@@ -156,9 +156,39 @@ export default function BriefingsPage() {
 
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
-      <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 32px 0' }}>
-        Underlag
-      </h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 32px 0' }}>
+        <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: 0 }}>
+          Underlag
+        </h1>
+        <button
+          onClick={() => triggerToast('Kommer snart')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            background: 'transparent',
+            border: '0.5px solid var(--border)',
+            color: 'var(--text-secondary)',
+            fontSize: '12px',
+            padding: '6px 14px',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontFamily: 'inherit',
+            fontWeight: 400,
+            transition: 'color 0.12s ease',
+          }}
+        >
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="1" y="2.5" width="11" height="10" rx="2"/>
+            <line x1="1" y1="6" x2="12" y2="6"/>
+            <line x1="4" y1="1" x2="4" y2="4"/>
+            <line x1="9" y1="1" x2="9" y2="4"/>
+          </svg>
+          Synka kalender
+        </button>
+      </div>
 
       <div>
         {employees.map((e) => {
