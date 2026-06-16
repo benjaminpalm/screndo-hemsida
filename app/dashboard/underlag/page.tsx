@@ -100,9 +100,9 @@ const employees: Employee[] = [
 ]
 
 const pillStyle = (active: boolean): React.CSSProperties => ({
-  background: active ? 'rgba(255,255,255,0.08)' : 'transparent',
-  color: active ? '#fff' : 'rgba(255,255,255,0.3)',
-  border: active ? '0.5px solid rgba(255,255,255,0.15)' : '0.5px solid rgba(255,255,255,0.06)',
+  background: active ? 'var(--nav-active-bg)' : 'transparent',
+  color: active ? 'var(--text-primary)' : 'var(--text-secondary)',
+  border: '0.5px solid var(--border)',
   borderRadius: '100px',
   fontSize: '12px',
   fontWeight: 400,
@@ -113,12 +113,12 @@ const pillStyle = (active: boolean): React.CSSProperties => ({
 
 const statusPill: Record<string, React.CSSProperties> = {
   'Tillräcklig data': { background: '#04D8B5', color: '#0A0A0A', border: 'none' },
-  'För lite data ännu': { background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.35)', border: '0.5px solid rgba(255,255,255,0.08)' },
+  'För lite data ännu': { background: 'var(--nav-hover-bg)', color: 'var(--text-secondary)', border: '0.5px solid var(--border)' },
 }
 
 const sectionLabelStyle: React.CSSProperties = {
   fontSize: '10px',
-  color: 'rgba(255,255,255,0.25)',
+  color: 'var(--text-secondary)',
   textTransform: 'uppercase',
   letterSpacing: '0.1em',
   fontWeight: 400,
@@ -150,7 +150,7 @@ export default function BriefingsPage() {
 
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
-      <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 32px 0' }}>
+      <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 32px 0' }}>
         Underlag
       </h1>
 
@@ -161,7 +161,6 @@ export default function BriefingsPage() {
           const type = getType(e.name)
           const content = type === 'lopande' ? e.lopande : e.medarbetarsamtal
           const note = notes[e.name] ?? ''
-          const savedNote = saved[e.name]
 
           return (
             <div key={e.name} style={{ marginBottom: '8px' }}>
@@ -169,7 +168,7 @@ export default function BriefingsPage() {
               <div
                 onClick={() => toggle(e.name, e.status)}
                 style={{
-                  background: '#161616',
+                  background: 'var(--card)',
                   borderRadius: isOpen ? '12px 12px 0 0' : '12px',
                   padding: '16px 20px',
                   display: 'flex',
@@ -178,11 +177,11 @@ export default function BriefingsPage() {
                   cursor: isClickable ? 'pointer' : 'default',
                 }}
               >
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 400, color: 'rgba(255,255,255,0.4)', flexShrink: 0 }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', fontWeight: 400, color: 'var(--text-secondary)', flexShrink: 0 }}>
                   {e.initials}
                 </div>
-                <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)', fontWeight: 400 }}>{e.name}</span>
-                <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', fontWeight: 400, marginLeft: 'auto' }}>{e.meeting}</span>
+                <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 400 }}>{e.name}</span>
+                <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 400, marginLeft: 'auto' }}>{e.meeting}</span>
                 <span style={{ fontSize: '11px', fontWeight: 400, padding: '3px 10px', borderRadius: '100px', marginLeft: '12px', ...statusPill[e.status] }}>
                   {e.status}
                 </span>
@@ -190,13 +189,13 @@ export default function BriefingsPage() {
 
               {/* Accordion */}
               {isOpen && content && (
-                <div style={{ background: '#111', borderRadius: '0 0 12px 12px', padding: '20px' }}>
+                <div style={{ background: 'var(--card)', borderRadius: '0 0 12px 12px', padding: '20px', borderTop: '0.5px solid var(--border)' }}>
 
                   {/* Previous note callout */}
                   {e.previousNote && (
-                    <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '10px', padding: '12px 14px', marginBottom: '16px' }}>
-                      <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 400, margin: '0 0 6px 0' }}>Sedan förra mötet</p>
-                      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, fontWeight: 400, margin: 0 }}>{e.previousNote}</p>
+                    <div style={{ background: 'var(--nav-hover-bg)', borderRadius: '10px', padding: '12px 14px', marginBottom: '16px' }}>
+                      <p style={{ fontSize: '10px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 400, margin: '0 0 6px 0' }}>Sedan förra mötet</p>
+                      <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.7, fontWeight: 400, margin: 0 }}>{e.previousNote}</p>
                     </div>
                   )}
 
@@ -209,7 +208,7 @@ export default function BriefingsPage() {
                       Medarbetarsamtal
                     </button>
                   </div>
-                  <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', fontWeight: 400, margin: '0 0 24px 0' }}>
+                  <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, margin: '0 0 24px 0' }}>
                     {type === 'lopande' ? 'Baserat på 30 dagars data' : 'Baserat på all tillgänglig data sedan anställningens start'}
                   </p>
 
@@ -217,21 +216,21 @@ export default function BriefingsPage() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     <div>
                       <p style={sectionLabelStyle}>Fokus</p>
-                      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>{content.fokus}</p>
+                      <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>{content.fokus}</p>
                     </div>
                     <div>
                       <p style={sectionLabelStyle}>Energi och trend</p>
-                      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>{content.energi}</p>
+                      <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>{content.energi}</p>
                     </div>
                     <div>
                       <p style={sectionLabelStyle}>Gap mot förväntningar</p>
-                      <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>{content.gap}</p>
+                      <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>{content.gap}</p>
                     </div>
                     <div>
                       <p style={sectionLabelStyle}>Rekommenderade frågor</p>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                         {content.fragor.map((q, i) => (
-                          <p key={i} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>
+                          <p key={i} style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>
                             {i + 1}. {q}
                           </p>
                         ))}
@@ -249,12 +248,12 @@ export default function BriefingsPage() {
                         style={{
                           width: '100%',
                           boxSizing: 'border-box',
-                          background: 'rgba(255,255,255,0.05)',
-                          border: '0.5px solid rgba(255,255,255,0.08)',
+                          background: 'var(--bg)',
+                          border: '0.5px solid var(--border)',
                           borderRadius: '10px',
                           padding: '10px 12px',
                           fontSize: '13px',
-                          color: 'rgba(255,255,255,0.7)',
+                          color: 'var(--text-secondary)',
                           resize: 'none',
                           outline: 'none',
                           fontFamily: 'inherit',
@@ -266,9 +265,9 @@ export default function BriefingsPage() {
                         onClick={() => saveNote(e.name)}
                         style={{
                           marginTop: '8px',
-                          border: '0.5px solid rgba(255,255,255,0.1)',
+                          border: '0.5px solid var(--border)',
                           background: 'transparent',
-                          color: 'rgba(255,255,255,0.35)',
+                          color: 'var(--text-secondary)',
                           fontSize: '12px',
                           borderRadius: '8px',
                           padding: '6px 14px',

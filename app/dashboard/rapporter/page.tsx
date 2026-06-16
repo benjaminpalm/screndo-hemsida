@@ -20,7 +20,7 @@ function formatCount(n: number): string {
 
 const labelStyle: React.CSSProperties = {
   fontSize: '11px',
-  color: 'rgba(255,255,255,0.5)',
+  color: 'var(--text-secondary)',
   textTransform: 'uppercase',
   letterSpacing: '0.1em',
   fontWeight: 400,
@@ -30,13 +30,13 @@ const labelStyle: React.CSSProperties = {
 export default function ReportsPage() {
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
-      <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 8px 0' }}>
+      <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 8px 0' }}>
         Rapporter
       </h1>
-      <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', fontWeight: 400, margin: '0 0 8px 0' }}>
+      <p style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 400, margin: '0 0 8px 0' }}>
         AI sammanfattar inkomna rapporter per kategori. Inga användar-ID lagras.
       </p>
-      <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', fontWeight: 400, margin: '0 0 40px 0' }}>
+      <p style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 400, margin: '0 0 40px 0' }}>
         Kategorier visas endast när tillräckligt många rapporter inkommit för att skydda anonymiteten.
       </p>
 
@@ -44,14 +44,14 @@ export default function ReportsPage() {
         {categories.map((c) => (
           <div key={c.name}>
             <p style={labelStyle}>{c.name}</p>
-            <div style={{ background: '#161616', borderRadius: '12px', padding: '24px' }}>
-              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', fontWeight: 400, margin: '0 0 12px 0' }}>
+            <div style={{ background: 'var(--card)', borderRadius: '12px', padding: '24px' }}>
+              <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, margin: '0 0 12px 0' }}>
                 {formatCount(c.rawCount)}
               </p>
-              <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.75, fontWeight: 400, margin: 0 }}>
                 {c.summary}
               </p>
-              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', fontWeight: 400, margin: '16px 0 0 0' }}>
+              <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, margin: '16px 0 0 0' }}>
                 {c.time}
               </p>
             </div>

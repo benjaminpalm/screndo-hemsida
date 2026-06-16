@@ -21,7 +21,7 @@ const attention = [
 
 const sectionLabel: React.CSSProperties = {
   fontSize: '10px',
-  color: 'rgba(255,255,255,0.25)',
+  color: 'var(--text-secondary)',
   textTransform: 'uppercase',
   letterSpacing: '0.12em',
   fontWeight: 400,
@@ -31,10 +31,10 @@ const sectionLabel: React.CSSProperties = {
 export default function DashboardPage() {
   return (
     <div style={{ width: '100%', maxWidth: '1100px', padding: '48px 48px' }}>
-      <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 6px 0' }}>
+      <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 6px 0' }}>
         Hej, Sara
       </h1>
-      <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.3)', margin: '0 0 48px 0' }}>
+      <p style={{ fontSize: '14px', color: 'var(--text-secondary)', margin: '0 0 48px 0' }}>
         Vad kan jag hjälpa dig med idag?
       </p>
 
@@ -43,21 +43,21 @@ export default function DashboardPage() {
         <p style={sectionLabel}>Behöver uppmärksamhet</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {attention.map((e) => (
-            <div key={e.name} style={{ background: '#1a1a1a', border: '0.5px solid rgba(255,255,255,0.10)', borderRadius: '12px', padding: '16px' }}>
+            <div key={e.name} style={{ background: 'var(--card)', border: '0.5px solid var(--border)', borderRadius: '12px', padding: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#222', color: 'rgba(255,255,255,0.5)', fontSize: '11px', fontWeight: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--border)', color: 'var(--text-secondary)', fontSize: '11px', fontWeight: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   {e.initials}
                 </div>
                 <div>
-                  <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.85)', fontWeight: 400, display: 'block' }}>{e.name}</span>
-                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.3)', fontWeight: 400, display: 'block', marginTop: '1px' }}>{e.role}</span>
+                  <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 400, display: 'block' }}>{e.name}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, display: 'block', marginTop: '1px' }}>{e.role}</span>
                 </div>
-                <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.18)', marginLeft: 'auto' }}>{e.time}</span>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', marginLeft: 'auto' }}>{e.time}</span>
               </div>
-              <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, margin: '0 0 8px 0' }}>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 8px 0' }}>
                 {e.signal}
               </p>
-              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', margin: 0 }}>
+              <p style={{ fontSize: '11px', color: 'var(--text-secondary)', margin: 0 }}>
                 Baserat på {e.logCount} loggar senaste 30 dagarna
               </p>
             </div>
@@ -68,7 +68,7 @@ export default function DashboardPage() {
       {/* Rest of team */}
       <div>
         <p style={sectionLabel}>Resten av teamet</p>
-        <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.6, margin: 0 }}>
+        <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
           6 andra medarbetare loggar som vanligt och visar inga tydliga signaler.
         </p>
       </div>

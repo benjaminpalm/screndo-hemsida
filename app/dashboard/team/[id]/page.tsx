@@ -55,7 +55,7 @@ const synthesisSections = [
 
 const sectionLabelStyle: React.CSSProperties = {
   fontSize: '10px',
-  color: 'rgba(255,255,255,0.25)',
+  color: 'var(--text-secondary)',
   textTransform: 'uppercase',
   letterSpacing: '0.12em',
   fontWeight: 400,
@@ -64,7 +64,7 @@ const sectionLabelStyle: React.CSSProperties = {
 
 const expectationsLabelStyle: React.CSSProperties = {
   fontSize: '11px',
-  color: 'rgba(255,255,255,0.25)',
+  color: 'var(--text-secondary)',
   textTransform: 'uppercase',
   letterSpacing: '0.1em',
   fontWeight: 400,
@@ -89,11 +89,11 @@ function AutoTextarea({ value, onChange }: { value: string; onChange: (v: string
       onChange={(e) => onChange(e.target.value)}
       style={{
         background: 'transparent',
-        border: '0.5px solid rgba(255,255,255,0.07)',
+        border: '0.5px solid var(--border)',
         borderRadius: '8px',
         padding: '10px 12px',
         fontSize: '13px',
-        color: 'rgba(255,255,255,0.7)',
+        color: 'var(--text-secondary)',
         lineHeight: 1.6,
         width: '100%',
         resize: 'none',
@@ -129,47 +129,47 @@ export default function TeamMemberPage() {
   }
 
   return (
-    <div style={{ background: '#0c0c0c', minHeight: '100%' }}>
+    <div style={{ background: 'var(--bg)', minHeight: '100%' }}>
     <div style={{ maxWidth: '720px', margin: '0 auto', padding: '48px 24px' }}>
-      <Link href="/dashboard/team" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', textDecoration: 'none', display: 'inline-block', marginBottom: '24px', fontWeight: 400 }}>
+      <Link href="/dashboard/team" style={{ fontSize: '12px', color: 'var(--text-secondary)', textDecoration: 'none', display: 'inline-block', marginBottom: '24px', fontWeight: 400 }}>
         ← Tillbaka
       </Link>
 
-      <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 40px 0' }}>
+      <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 40px 0' }}>
         Jonas Lindqvist
       </h1>
 
       {/* AI synthesis sections */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
         {synthesisSections.map((s) => (
-          <div key={s.label} style={{ background: '#161616', borderRadius: '12px', padding: '20px' }}>
+          <div key={s.label} style={{ background: 'var(--card)', borderRadius: '12px', padding: '20px' }}>
             <p style={sectionLabelStyle}>{s.label}</p>
             {'sparkline' in s && s.sparkline && (
               <>
               <svg
                 viewBox="0 0 300 40"
                 preserveAspectRatio="none"
-                style={{ width: '100%', height: '40px', display: 'block' }}
+                style={{ width: '100%', height: '40px', display: 'block', color: 'var(--border)' }}
               >
                 <path
                   d={buildSparklinePath(energyData, 300, 40)}
-                  stroke="rgba(255,255,255,0.2)"
+                  stroke="currentColor"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   fill="none"
                 />
               </svg>
-              <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.2)', textAlign: 'right', margin: '2px 0 14px 0', fontWeight: 400 }}>30 dagar</p>
+              <p style={{ fontSize: '10px', color: 'var(--text-secondary)', textAlign: 'right', margin: '2px 0 14px 0', fontWeight: 400 }}>30 dagar</p>
               </>
             )}
             {s.text.split('\n\n').map((para, i) => (
-              <p key={i} style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.75, fontWeight: 400, margin: i > 0 ? '12px 0 0 0' : '0' }}>
+              <p key={i} style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.75, fontWeight: 400, margin: i > 0 ? '12px 0 0 0' : '0' }}>
                 {para}
               </p>
             ))}
             {'basis' in s && (
-              <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', fontWeight: 400, margin: '10px 0 0 0' }}>
+              <p style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 400, margin: '10px 0 0 0' }}>
                 {s.basis}
               </p>
             )}
@@ -187,9 +187,9 @@ export default function TeamMemberPage() {
               <AutoTextarea value={e} onChange={(val) => update(i, val)} />
               <button
                 onClick={() => remove(i)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '11px', color: 'rgba(255,255,255,0.2)', fontFamily: 'inherit', fontWeight: 400, padding: '4px 0 0 0' }}
-                onMouseEnter={(ev) => (ev.currentTarget.style.color = 'rgba(255,255,255,0.4)')}
-                onMouseLeave={(ev) => (ev.currentTarget.style.color = 'rgba(255,255,255,0.2)')}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'inherit', fontWeight: 400, padding: '4px 0 0 0' }}
+                onMouseEnter={(ev) => (ev.currentTarget.style.color = 'var(--text-primary)')}
+                onMouseLeave={(ev) => (ev.currentTarget.style.color = 'var(--text-secondary)')}
               >
                 Ta bort
               </button>
@@ -200,14 +200,14 @@ export default function TeamMemberPage() {
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
             onClick={add}
-            style={{ border: '0.5px solid rgba(255,255,255,0.1)', background: 'transparent', color: 'rgba(255,255,255,0.35)', fontSize: '12px', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 400 }}
+            style={{ border: '0.5px solid var(--border)', background: 'transparent', color: 'var(--text-secondary)', fontSize: '12px', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 400 }}
           >
             + Lägg till förväntan
           </button>
           {dirty && (
             <button
               onClick={save}
-              style={{ border: '0.5px solid rgba(255,255,255,0.1)', background: 'transparent', color: 'rgba(255,255,255,0.35)', fontSize: '12px', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 400 }}
+              style={{ border: '0.5px solid var(--border)', background: 'transparent', color: 'var(--text-secondary)', fontSize: '12px', borderRadius: '8px', padding: '6px 14px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 400 }}
             >
               Spara
             </button>

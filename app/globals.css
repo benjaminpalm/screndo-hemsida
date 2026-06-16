@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #F7F6F3;
+  --sidebar: #EFEEEB;
+  --card: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --border: #E4E3DF;
+  --accent: #04D8B5;
+  --nav-active-bg: rgba(0,0,0,0.07);
+  --nav-hover-bg: rgba(0,0,0,0.04);
+}
+
+html.dark {
+  --bg: #0C0C0C;
+  --sidebar: #080808;
+  --card: #161616;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A0A0;
+  --border: #222222;
+  --accent: #04D8B5;
+  --nav-active-bg: rgba(255,255,255,0.09);
+  --nav-hover-bg: rgba(255,255,255,0.07);
+}
+
 html {
   overflow-x: hidden;
 }

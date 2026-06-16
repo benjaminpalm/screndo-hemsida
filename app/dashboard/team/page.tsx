@@ -15,7 +15,7 @@ const employees = [
 export default function TeamPage() {
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
-      <h1 style={{ fontSize: '22px', fontWeight: 400, color: '#fff', margin: '0 0 32px 0' }}>
+      <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 32px 0' }}>
         Team
       </h1>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
@@ -23,24 +23,24 @@ export default function TeamPage() {
           <Link
             key={e.id}
             href={`/dashboard/team/${e.id}`}
-            style={{ textDecoration: 'none', display: 'block', background: '#161616', borderRadius: '12px', padding: '16px', position: 'relative' }}
+            style={{ textDecoration: 'none', display: 'block', background: 'var(--card)', borderRadius: '12px', padding: '16px', position: 'relative' }}
           >
             {e.isNew && (
               <span style={{ position: 'absolute', top: '10px', right: '10px', width: '6px', height: '6px', borderRadius: '50%', background: '#04D8B5', display: 'block' }} />
             )}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 400, color: 'rgba(255,255,255,0.4)', flexShrink: 0 }}>
+              <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 400, color: 'var(--text-secondary)', flexShrink: 0 }}>
                 {e.initials}
               </div>
-              <span style={{ fontSize: '13px', color: '#fff', fontWeight: 400 }}>{e.name}</span>
+              <span style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 400 }}>{e.name}</span>
             </div>
-            <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.38)', lineHeight: 1.55, margin: '0 0 8px 0', fontWeight: 400 }}>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.55, margin: '0 0 8px 0', fontWeight: 400 }}>
               {e.signal}
             </p>
-            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', margin: '0 0 6px 0', fontWeight: 400 }}>
+            <p style={{ fontSize: '11px', color: 'var(--text-secondary)', margin: '0 0 6px 0', fontWeight: 400 }}>
               Baserat på {e.logCount} loggar senaste 30 dagarna
             </p>
-            <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.18)', margin: 0, fontWeight: 400 }}>
+            <p style={{ fontSize: '11px', color: 'var(--text-secondary)', margin: 0, fontWeight: 400 }}>
               {e.time}
             </p>
           </Link>
