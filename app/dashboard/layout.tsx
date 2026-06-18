@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useRef, useEffect } from 'react'
 import { ThemeProvider, useTheme } from '@/components/dashboard/ThemeProvider'
+import { AIPanelProvider, useAIPanel } from '@/contexts/AIPanelContext'
 
 const IconOverview = () => (
   <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -118,8 +119,8 @@ function getPlaceholderResponse(message: string, pathname: string): string {
 function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const { theme, toggle } = useTheme()
+  const { isOpen: isPanelOpen, setIsOpen: setIsPanelOpen, pendingMessage, setPendingMessage } = useAIPanel()
   const [isOpen, setIsOpen] = useState(true)
-  const [isPanelOpen, setIsPanelOpen] = useState(true)
   const [hovered, setHovered] = useState<string | null>(null)
   const [messages, setMessages] = useState<Message[]>([
     { role: 'ai', text: getInitialMessage(pathname) },
@@ -136,6 +137,15 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
       setMessages([{ role: 'ai', text: getInitialMessage(pathname) }])
     }
   }, [pathname])
+
+  useEffect(() => {
+    if (!pendingMessage) return
+    setMessages((prev) => [...prev, { role: 'user', text: pendingMessage }])
+    setTimeout(() => {
+      setMessages((prev) => [...prev, { role: 'ai', text: getPlaceholderResponse(pendingMessage, pathname) }])
+    }, 600)
+    setPendingMessage('')
+  }, [pendingMessage])
 
   function sendMessage(override?: string) {
     const text = (override ?? inputValue).trim()
@@ -308,7 +318,17 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      {/* AI panel */}
+      {/* AI PANEL — GUARDRAIL NOTE (for Claude API wiring)
+          This panel may ONLY use the following data as context:
+          - Team syntheses (not raw logs)
+          - Briefing summaries
+          - Anonymized report summaries (never attributed to individuals)
+          - Org-level themes
+          - Leadership reflection patterns (Ledarspegel)
+          - Current route/page context
+          The assistant must NEVER reveal verbatim raw logs.
+          The assistant must NEVER de-anonymize reports or attribute statements to specific people.
+          The assistant coaches and suggests — it does not judge or diagnose. */}
       <div style={{
         position: 'fixed',
         top: '16px',
@@ -497,7 +517,9 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <DashboardLayoutInner>{children}</DashboardLayoutInner>
+      <AIPanelProvider>
+        <DashboardLayoutInner>{children}</DashboardLayoutInner>
+      </AIPanelProvider>
     </ThemeProvider>
   )
 }

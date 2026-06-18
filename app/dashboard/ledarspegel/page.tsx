@@ -1,5 +1,7 @@
 'use client'
 
+import { useAIPanel } from '@/contexts/AIPanelContext'
+
 const cards = [
   {
     title: 'Otydliga prioriteringar',
@@ -21,9 +23,6 @@ const cards = [
   },
 ]
 
-function openAIPanel(message: string) {
-  console.log(message)
-}
 
 const ChatIcon = () => (
   <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -32,6 +31,8 @@ const ChatIcon = () => (
 )
 
 export default function LedarspegelnPage() {
+  const { setIsOpen, setPendingMessage } = useAIPanel()
+
   return (
     <div style={{ width: '100%', maxWidth: '720px', padding: '48px 24px' }}>
       <h1 style={{ fontSize: '22px', fontWeight: 400, color: 'var(--text-primary)', margin: '0 0 8px 0' }}>
@@ -54,7 +55,7 @@ export default function LedarspegelnPage() {
               <span style={{ color: 'var(--text-primary)' }}>Att prova:</span> {card.attProva}
             </p>
             <button
-              onClick={() => openAIPanel(card.aiMessage)}
+              onClick={() => { setIsOpen(true); setPendingMessage(card.aiMessage) }}
               style={{
                 background: 'transparent',
                 border: 'none',
