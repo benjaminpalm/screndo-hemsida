@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 const attention = [
   {
     initials: 'MS',
@@ -74,7 +76,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Org themes */}
-      <div>
+      <div style={{ marginBottom: '40px' }}>
         <p style={sectionLabel}>Teman i organisationen</p>
         <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: '0 0 16px 0' }}>
           Återkommande teman den här månaden, sammanställt från teamets loggar. Inga namn, inga betyg.
@@ -101,6 +103,16 @@ export default function DashboardPage() {
           ))}
         </div>
       </div>
+      {/* Ledarspegel entry */}
+      <Link href="/dashboard/ledarspegel" style={{ textDecoration: 'none', display: 'block' }}>
+        <div style={{ background: 'var(--card)', border: '0.5px solid var(--border)', borderRadius: '12px', padding: '16px 20px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <p style={{ fontSize: '13px', color: 'var(--text-primary)', fontWeight: 400, margin: '0 0 3px 0' }}>Ledarspegel</p>
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: 0 }}>En ny reflektion om teamets prioriteringar väntar.</p>
+          </div>
+          <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>→</span>
+        </div>
+      </Link>
     </div>
   )
 }

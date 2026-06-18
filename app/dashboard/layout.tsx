@@ -48,6 +48,14 @@ const IconSettings = () => (
   </svg>
 )
 
+const IconLedarspegel = () => (
+  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="7.5" cy="5" r="3"/>
+    <path d="M2 13c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/>
+    <line x1="7.5" y1="10" x2="7.5" y2="13"/>
+  </svg>
+)
+
 const IconMoon = () => (
   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
     <path d="M12 9A6 6 0 016 3a6 6 0 00.05 9.95A6 6 0 0012 9z"/>
@@ -66,11 +74,22 @@ const mainNavItems = [
   { href: '/dashboard/team', label: 'Team', Icon: IconTeam },
   { href: '/dashboard/underlag', label: 'Underlag', Icon: IconBriefings },
   { href: '/dashboard/rapporter', label: 'Rapporter', Icon: IconReports },
+  { href: '/dashboard/ledarspegel', label: 'Ledarspegel', Icon: IconLedarspegel },
 ]
 
 type Message = { role: 'user' | 'ai'; text: string }
 
+function getInitialMessage(pathname: string): string {
+  if (pathname.includes('/ledarspegel')) {
+    return 'Jag ser din ledarspegel och kan hjälpa dig agera på mönstren.'
+  }
+  return 'Hej! Fråga mig om vad som helst på plattformen. Jag ser sidan du är på och kan hjälpa dig förstå hur ditt team mår, förbereda inför ett samtal eller ge förslag på hur du stöttar en specifik person.'
+}
+
 function getSuggestions(pathname: string): string[] {
+  if (pathname.includes('/ledarspegel')) {
+    return ['Hjälp mig agera på ett mönster', 'Vad borde jag prioritera som ledare?', 'Hur pratar jag om detta med teamet?']
+  }
   if (pathname.includes('/team/')) {
     return ['Hur kan jag stötta den här personen?', 'Sammanfatta senaste månaden', 'Förbered mitt 1-on-1']
   }
@@ -84,6 +103,9 @@ function getSuggestions(pathname: string): string[] {
 }
 
 function getPlaceholderResponse(message: string, pathname: string): string {
+  if (pathname.includes('/ledarspegel')) {
+    return 'Mönstret kring prioriteringar är det som sticker ut mest. Ett konkret steg: avsluta nästa veckomöte med att be varje person namnge sin topp-tre för veckan. Det skapar klarhet utan att du behöver ge alla svar själv.'
+  }
   if (pathname.includes('/team/')) {
     return 'Baserat på Jonas synteser ser jag att energinivån har sjunkit de senaste veckorna kopplat till otydliga prioriteringar. Ett bra första steg kan vara att tydliggöra förväntningarna för nästa period.'
   }
@@ -100,7 +122,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
   const [isPanelOpen, setIsPanelOpen] = useState(true)
   const [hovered, setHovered] = useState<string | null>(null)
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'ai', text: 'Hej! Fråga mig om vad som helst på plattformen. Jag ser sidan du är på och kan hjälpa dig förstå hur ditt team mår, förbereda inför ett samtal eller ge förslag på hur du stöttar en specifik person.' },
+    { role: 'ai', text: getInitialMessage(pathname) },
   ])
   const [inputValue, setInputValue] = useState('')
   const chatEndRef = useRef<HTMLDivElement>(null)
@@ -108,6 +130,12 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  useEffect(() => {
+    if (messages.length === 1) {
+      setMessages([{ role: 'ai', text: getInitialMessage(pathname) }])
+    }
+  }, [pathname])
 
   function sendMessage(override?: string) {
     const text = (override ?? inputValue).trim()
