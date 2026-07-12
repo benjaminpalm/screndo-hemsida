@@ -53,13 +53,14 @@ export default function FeatureSection() {
         {/* Right column */}
         <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
           <img
-            src="/screndomac.png"
+            src="/screndoiphone.png"
             alt=""
             style={{
               width: "100%",
-              maxWidth: "380px",
+              maxWidth: "520px",
               borderRadius: "24px",
               objectFit: "contain",
+              padding: "24px",
             }}
           />
         </div>
