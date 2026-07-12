@@ -28,7 +28,7 @@ export default function Navbar() {
 
         {/* Produkter dropdown */}
         <div
-          style={{ position: "relative", paddingBottom: "8px", display: "flex", alignItems: "center", height: "100%" }}
+          style={{ position: "relative", display: "flex", alignItems: "center" }}
           onMouseEnter={() => setDropOpen(true)}
           onMouseLeave={() => setDropOpen(false)}
         >
@@ -70,6 +70,17 @@ export default function Navbar() {
               style={{
                 position: "absolute",
                 top: "100%",
+                left: 0,
+                right: 0,
+                height: "8px",
+              }}
+            />
+          )}
+          {dropOpen && (
+            <div
+              style={{
+                position: "absolute",
+                top: "calc(100% + 8px)",
                 left: 0,
                 background: "#fff",
                 border: "1px solid #ECECEC",
