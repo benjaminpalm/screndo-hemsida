@@ -47,7 +47,7 @@ const translations = {
     whatPara1: 'Screndo är en plattform för kontinuerlig people intelligence. Den lyssnar på din organisation genom strukturerad och ostrukturerad data och översätter det till tydlig insikt för HR och ledning.',
     whatPara2: 'Inte ännu en årlig undersökning. Inte en dashboard som ingen öppnar. Ett system som faktiskt fungerar.',
     gardenText: 'Organisationer är levande.',
-    ctaHeadline: 'Se hela bilden. Inte bara enkätsvaren.',
+    ctaHeadline: 'Hör vad din organisation faktiskt säger.',
     ctaButton: 'Boka intro',
     product: 'Produkt',
     about: 'Om oss',
