@@ -1,8 +1,7 @@
 import { LanguageProvider } from "@/lib/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import WhatWeDo from "@/components/WhatWeDo";
-import PhoneMockups from "@/components/PhoneMockups";
+import FeatureSection from "@/components/FeatureSection";
 import GardenImage from "@/components/GardenImage";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -13,8 +12,7 @@ export default function Home() {
       <div style={{ background: "#fff", minHeight: "100vh" }}>
         <Navbar />
         <Hero />
-        <WhatWeDo />
-        <PhoneMockups />
+        <FeatureSection />
         <GardenImage />
         <CTA />
         <Footer />
