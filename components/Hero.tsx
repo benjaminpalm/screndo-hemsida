@@ -85,39 +85,6 @@ export default function Hero() {
             display: "block",
           }}
         />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 50%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div className="hero-overlay">
-          <p
-            style={{
-              color: "#fff",
-              fontSize: "36px",
-              fontWeight: 300,
-              fontStyle: "italic",
-              margin: "0 0 10px 0",
-              lineHeight: 1.2,
-            }}
-          >
-            {t.overlayTitle}
-          </p>
-          <p
-            style={{
-              color: "#fff",
-              fontSize: "16px",
-              opacity: 0.75,
-              margin: 0,
-              lineHeight: 1.5,
-            }}
-          >
-            {t.overlaySub}
-          </p>
-        </div>
       </div>
     </>
   )
