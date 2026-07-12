@@ -75,7 +75,7 @@ export default function Hero() {
 
       <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "100vh" }}>
         <img
-          src="/hero.jpg"
+          src="/screndomac.jpg"
           alt="Hero"
           style={{
             width: "100%",
