@@ -73,17 +73,17 @@ export default function Hero() {
         </div>
       </section>
 
-      <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "100vh" }}>
+      <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "auto", minHeight: "100vh" }}>
         <img
           src="/screndomac.png"
           alt="Hero"
           style={{
             width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            objectPosition: "center",
+            height: "auto",
+            minHeight: "100vh",
+            objectFit: "cover",
+            objectPosition: "center center",
             display: "block",
-            backgroundColor: "#ffffff",
           }}
         />
       </div>
