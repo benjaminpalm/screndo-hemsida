@@ -28,7 +28,7 @@ export default function Navbar() {
 
         {/* Produkter dropdown */}
         <div
-          style={{ position: "relative", paddingBottom: "8px", display: "flex", alignItems: "center", alignSelf: "center" }}
+          style={{ position: "relative", paddingBottom: "8px", display: "flex", alignItems: "center", height: "100%" }}
           onMouseEnter={() => setDropOpen(true)}
           onMouseLeave={() => setDropOpen(false)}
         >
