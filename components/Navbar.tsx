@@ -1,11 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
 export default function Navbar() {
   const { t, lang, setLanguage } = useLanguage()
   const [dropOpen, setDropOpen] = useState(false)
+  const dropRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    function handleOutside(e: MouseEvent) {
+      if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
+        setDropOpen(false)
+      }
+    }
+    document.addEventListener('click', handleOutside)
+    return () => document.removeEventListener('click', handleOutside)
+  }, [])
 
   return (
     <nav
@@ -28,9 +39,8 @@ export default function Navbar() {
 
         {/* Produkter dropdown */}
         <div
+          ref={dropRef}
           style={{ position: "relative" }}
-          onMouseEnter={() => setDropOpen(true)}
-          onMouseLeave={() => setDropOpen(false)}
         >
           <button
             onClick={() => setDropOpen((prev) => !prev)}
