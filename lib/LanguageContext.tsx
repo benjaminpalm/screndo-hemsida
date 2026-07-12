@@ -38,7 +38,7 @@ const translations = {
     login: 'Logga in',
     bookIntro: 'Boka intro',
     headline: 'Continuous people intelligence',
-    subline: 'Ärliga, dagliga signaler från dina medarbetare, omvandlade till ett tydligt underlag inför varje samtal.',
+    subline: 'Pulsundersökningar, problemrapportering och en AI som kan er policy. Allt på ett ställe.',
     getStarted: 'Kom igång',
     seeHow: 'Se hur det fungerar',
     overlayTitle: 'Ett system som lyssnar.',
