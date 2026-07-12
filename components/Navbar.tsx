@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
 export default function Navbar() {
   const { t, lang, setLanguage } = useLanguage()
+  const [dropOpen, setDropOpen] = useState(false)
 
   return (
     <nav
@@ -20,7 +22,83 @@ export default function Navbar() {
         justifyContent: "space-between",
       }}
     >
-      <a href="/"><img src="/logo2.png" alt="Screndo" className="navbar-logo" style={{ height: "46px", width: "auto" }} /></a>
+      {/* Left: logo + nav */}
+      <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+        <a href="/"><img src="/logo2.png" alt="Screndo" className="navbar-logo" style={{ height: "46px", width: "auto" }} /></a>
+
+        {/* Produkter dropdown */}
+        <div
+          style={{ position: "relative" }}
+          onMouseEnter={() => setDropOpen(true)}
+          onMouseLeave={() => setDropOpen(false)}
+        >
+          <button
+            onClick={() => setDropOpen((prev) => !prev)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "inherit",
+              fontSize: "15px",
+              color: "#000",
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+              padding: 0,
+            }}
+          >
+            Produkter
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{
+                transition: "transform 150ms",
+                transform: dropOpen ? "rotate(180deg)" : "rotate(0deg)",
+              }}
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+
+          {dropOpen && (
+            <div
+              style={{
+                position: "absolute",
+                top: "100%",
+                left: 0,
+                marginTop: "8px",
+                background: "#fff",
+                border: "1px solid #ECECEC",
+                borderRadius: "8px",
+                padding: "8px 0",
+                minWidth: "140px",
+                zIndex: 100,
+              }}
+            >
+              <a
+                href="/produkt"
+                style={{
+                  display: "block",
+                  padding: "8px 16px",
+                  fontSize: "15px",
+                  color: "#000",
+                  textDecoration: "none",
+                }}
+              >
+                Screndo
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Right: lang + login + CTA */}
       <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "13px" }}>
           <button
