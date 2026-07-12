@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className="footer-bar">
-      <img src="/logo.png" alt="Screndo" style={{ height: "28px", width: "auto" }} />
+      <img src="/logo2.png" alt="Screndo" style={{ height: "28px", width: "auto" }} />
 
       <nav style={{ display: "flex", gap: "32px", flexWrap: "wrap", justifyContent: "center" }}>
         {links.map((link) => (
