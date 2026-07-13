@@ -95,6 +95,27 @@ body {
   justify-content: space-between;
 }
 
+/* ── Product feature sections (responsive) ── */
+@media (max-width: 900px) {
+  .product-feature-section {
+    padding: 80px 24px !important;
+  }
+  .product-feature-inner {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  .product-feature-h2 {
+    font-size: 30px !important;
+  }
+  /* In InsightsSection the image comes first in DOM but text should be first visually */
+  .product-feature-image--left {
+    order: 1;
+  }
+  .product-feature-text--right {
+    order: 0;
+  }
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   /* Navbar */
