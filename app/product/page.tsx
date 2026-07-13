@@ -4,8 +4,7 @@ import WhatWeDo from "@/components/WhatWeDo";
 import PulseSection from "@/components/PulseSection";
 import InsightsSection from "@/components/InsightsSection";
 import AppSection from "@/components/AppSection";
-import GardenImage from "@/components/GardenImage";
-import CTA from "@/components/CTA";
+import ProductCTA from "@/components/ProductCTA";
 import Footer from "@/components/Footer";
 
 export default function Produkt() {
@@ -17,8 +16,7 @@ export default function Produkt() {
         <PulseSection />
         <InsightsSection />
         <AppSection />
-        <GardenImage />
-        <CTA />
+        <ProductCTA />
         <Footer />
       </div>
     </LanguageProvider>
