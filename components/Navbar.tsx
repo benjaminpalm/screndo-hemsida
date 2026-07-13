@@ -121,7 +121,7 @@ export default function Navbar() {
           >EN</button>
         </div>
         <a
-          href="#"
+          href="/login"
           style={{ color: "#6B6B6B", textDecoration: "none", fontSize: "15px" }}
         >
           {t.login}
