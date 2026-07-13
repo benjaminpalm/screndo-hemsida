@@ -40,10 +40,6 @@ function LoginForm() {
       }}
     >
       <div className="login-inner" style={{ maxWidth: "400px", width: "100%" }}>
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <img src="/logo2.png" alt="Screndo" style={{ height: "32px", width: "auto" }} />
-        </div>
-
         <h1
           className="login-h1"
           style={{
