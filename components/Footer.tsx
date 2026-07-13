@@ -6,9 +6,7 @@ export default function Footer() {
   const { t } = useLanguage()
 
   const links = [
-    { label: t.product, href: "#" },
-    { label: t.about, href: "#" },
-    { label: t.careers, href: "#" },
+    { label: t.product, href: "/product" },
     { label: t.privacy, href: "/privacy" },
   ]
 
