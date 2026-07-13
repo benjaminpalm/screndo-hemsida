@@ -6,6 +6,7 @@ type Lang = 'sv' | 'en'
 
 const translations = {
   sv: {
+    // Privacy
     privacyHeadline: 'Integritetspolicy',
     lastUpdated: 'Senast uppdaterad: juni 2026',
     collectTitle: 'Vad vi samlar in',
@@ -18,6 +19,7 @@ const translations = {
     rightsText: 'Enligt GDPR har du rätt att få tillgång till, korrigera eller radera dina personuppgifter. Kontakta oss på screndocom@gmail.com.',
     contactTitle: 'Kontakt',
     contactText: 'Screndo, screndocom@gmail.com',
+    // Book intro form
     pageHeadline: 'Boka intro',
     pageSubline: 'Vi hör av oss inom 24 timmar.',
     workEmail: 'Jobbmejl',
@@ -35,26 +37,62 @@ const translations = {
     submitButton: 'Skicka förfrågan',
     validationError: 'Fyll i det här obligatoriska fältet.',
     submittedMessage: 'Tack! Vi hör av oss snart.',
+    // Navbar
     login: 'Logga in',
     bookIntro: 'Boka intro',
+    produkterDropdown: 'Produkter',
+    // Hero
     headline: 'Continuous people intelligence',
     subline: 'Pulsundersökningar, problemrapportering och en AI som kan er policy. Allt på ett ställe.',
     getStarted: 'Testa gratis',
     seeHow: 'Se hur det fungerar',
-    overlayTitle: 'Ett system som lyssnar.',
-    overlaySub: 'Screndo översätter din organisation i realtid.',
+    // Feature section (home page)
+    featureHeadline1: 'En fråga i veckan',
+    featureHeadline2: 'Svar på en minut.',
+    featureParagraph: 'Medarbetare svarar direkt via mobilen. Inga inloggningar, inga långa formulär. Öppna frågor ger utrymme för den som vill berätta mer.',
+    // CTA (home page)
+    ctaHeadline: 'Hör vad din organisation faktiskt säger.',
+    ctaButton: 'Boka intro',
+    // Product page intro
     whatHeadline: 'De flesta organisationer är fulla av signaler. Nästan inga blir hörda.',
     whatPara1: 'Screndo är en plattform för kontinuerlig people intelligence. Den lyssnar på din organisation genom strukturerad och ostrukturerad data och översätter det till tydlig insikt för HR och ledning.',
     whatPara2: 'Inte ännu en årlig undersökning. Inte en dashboard som ingen öppnar. Ett system som faktiskt fungerar.',
-    gardenText: 'Organisationer är levande.',
-    ctaHeadline: 'Hör vad din organisation faktiskt säger.',
-    ctaButton: 'Boka intro',
+    // Pulse section
+    pulseLabel: 'PULSEN',
+    pulseHeadline: 'En fråga i veckan. Svar på en minut.',
+    pulseParagraph: 'Medarbetare svarar direkt i mobilen. Du ser svarsfrekvensen i realtid och vet exakt hur många som hunnit svara.',
+    // Insights section
+    insightsLabel: 'INSIKTER',
+    insightsHeadline: 'Mönster som annars hade passerat obemärkt.',
+    insightsParagraph: 'Screndo läser av vad som sägs över tid och lyfter fram det som faktiskt förändras. Inte fler siffror. Färre, men rätt.',
+    // App section
+    appLabel: 'APPEN',
+    appHeadline: 'Anonymt. Alltid.',
+    appParagraph: 'Medarbetare kan svara på veckans fråga eller rapportera något som inte fungerar. Ingen kan se vem som skrivit vad.',
+    // Product CTA
+    productCtaHeadline: 'Redo att testa?',
+    // Login page
+    loginHeadline: 'Logga in',
+    emailLabel: 'E-post',
+    passwordLabel: 'Lösenord',
+    loginButton: 'Logga in',
+    noAccount: 'Har du inget konto? Kontakta oss.',
+    // Footer
     product: 'Produkt',
+    privacy: 'Integritet',
+    // Cookie banner
+    cookieText: 'Vi använder cookies för att förbättra din upplevelse och mäta trafik.',
+    cookieAccept: 'Acceptera',
+    cookieDecline: 'Avböj',
+    // Unused legacy
+    overlayTitle: 'Ett system som lyssnar.',
+    overlaySub: 'Screndo översätter din organisation i realtid.',
+    gardenText: 'Organisationer är levande.',
     about: 'Om oss',
     careers: 'Karriär',
-    privacy: 'Integritet',
   },
   en: {
+    // Privacy
     privacyHeadline: 'Privacy Policy',
     lastUpdated: 'Last updated: June 2026',
     collectTitle: 'What we collect',
@@ -67,6 +105,7 @@ const translations = {
     rightsText: 'Under GDPR, you have the right to access, correct, or delete your personal data. Contact us at screndocom@gmail.com.',
     contactTitle: 'Contact',
     contactText: 'Screndo, screndocom@gmail.com',
+    // Book intro form
     pageHeadline: 'Book an intro',
     pageSubline: 'We will reach out within 24 hours.',
     workEmail: 'Work email',
@@ -74,34 +113,69 @@ const translations = {
     lastName: 'Last name',
     companyName: 'Company name',
     jobTitle: 'Job title',
-    companySize: 'Company size',
+    companySize: 'Roughly how many are you?',
     selectPlaceholder: 'Select...',
-    size1: '1-50 employees',
-    size2: '51-200 employees',
-    size3: '201-500 employees',
-    size4: '500+ employees',
+    size1: '0-19',
+    size2: '20-49',
+    size3: '50-149',
+    size4: '150+',
     textareaLabel: 'Anything you want us to know before we meet?',
     submitButton: 'Send request',
     validationError: 'Please complete this required field.',
     submittedMessage: 'Thanks! We will be in touch soon.',
+    // Navbar
     login: 'Log in',
     bookIntro: 'Book an intro',
+    produkterDropdown: 'Products',
+    // Hero
     headline: 'Continuous people intelligence',
-    subline: 'Honest, daily signals from your people, turned into clear context before every conversation.',
-    getStarted: 'Get started',
+    subline: 'Pulse surveys, issue reporting and an AI that knows your policy. All in one place.',
+    getStarted: 'Try for free',
     seeHow: 'See how it works',
-    overlayTitle: 'A system that listens.',
-    overlaySub: 'Screndo translates your organization in real time.',
+    // Feature section (home page)
+    featureHeadline1: 'One question a week',
+    featureHeadline2: 'Answered in a minute.',
+    featureParagraph: 'People answer straight from their phone. No logins, no long forms. Open questions leave room for those who want to say more.',
+    // CTA (home page)
+    ctaHeadline: 'Hear what your organization is actually saying.',
+    ctaButton: 'Book an intro',
+    // Product page intro
     whatHeadline: 'Most organizations are full of signal. Almost none of it gets heard.',
     whatPara1: 'Screndo is a continuous people intelligence platform. It listens to your organization through structured and unstructured data and translates that into clear insight for HR and leadership.',
     whatPara2: 'Not another annual survey. Not a dashboard nobody opens. A system that actually works.',
-    gardenText: 'Organizations are living things.',
-    ctaHeadline: 'See the whole picture. Not just the survey results.',
-    ctaButton: 'Book an intro',
+    // Pulse section
+    pulseLabel: 'THE PULSE',
+    pulseHeadline: 'One question a week. Answered in a minute.',
+    pulseParagraph: 'People answer straight from their phone. You see the response rate in real time and know exactly how many have replied.',
+    // Insights section
+    insightsLabel: 'INSIGHTS',
+    insightsHeadline: 'Patterns that would otherwise go unnoticed.',
+    insightsParagraph: 'Screndo reads what is said over time and surfaces what is actually changing. Not more numbers. Fewer, but the right ones.',
+    // App section
+    appLabel: 'THE APP',
+    appHeadline: 'Anonymous. Always.',
+    appParagraph: 'People can answer the weekly question or report something that is not working. No one can see who wrote what.',
+    // Product CTA
+    productCtaHeadline: 'Ready to try it?',
+    // Login page
+    loginHeadline: 'Log in',
+    emailLabel: 'Email',
+    passwordLabel: 'Password',
+    loginButton: 'Log in',
+    noAccount: 'No account? Get in touch.',
+    // Footer
     product: 'Product',
+    privacy: 'Privacy',
+    // Cookie banner
+    cookieText: 'We use cookies to improve your experience and measure traffic.',
+    cookieAccept: 'Accept',
+    cookieDecline: 'Decline',
+    // Unused legacy
+    overlayTitle: 'A system that listens.',
+    overlaySub: 'Screndo translates your organization in real time.',
+    gardenText: 'Organizations are living things.',
     about: 'About',
     careers: 'Careers',
-    privacy: 'Privacy',
   },
 }
 

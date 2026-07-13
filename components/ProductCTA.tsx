@@ -17,7 +17,7 @@ export default function ProductCTA() {
       }}
     >
       <h2 className="cta-h2">
-        Redo att testa?
+        {t.productCtaHeadline}
       </h2>
 
       <a

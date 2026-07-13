@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { LanguageProvider, useLanguage } from "@/lib/LanguageContext";
+import { useLanguage } from "@/lib/LanguageContext";
 import { useState, FormEvent } from "react";
 
 const inputStyle: React.CSSProperties = {
@@ -317,20 +317,18 @@ function BookIntroForm() {
 
 export default function BookIntro() {
   return (
-    <LanguageProvider>
-      <div style={{ background: "#fff", minHeight: "100vh" }}>
-        <Navbar />
-        <div
-          className="book-intro-wrap"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            padding: "80px 24px",
-          }}
-        >
-          <BookIntroForm />
-        </div>
+    <div style={{ background: "#fff", minHeight: "100vh" }}>
+      <Navbar />
+      <div
+        className="book-intro-wrap"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "80px 24px",
+        }}
+      >
+        <BookIntroForm />
       </div>
-    </LanguageProvider>
+    </div>
   );
 }

@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/lib/LanguageContext'
+
 export default function FeatureSection() {
+  const { t } = useLanguage()
+
   return (
     <section className="feature-section-wrap" style={{ background: "#fff", padding: "96px 48px" }}>
       <div
@@ -25,7 +31,7 @@ export default function FeatureSection() {
               lineHeight: 1.1,
             }}
           >
-            En fråga i veckan
+            {t.featureHeadline1}
           </h2>
           <h2
             className="feature-section-h2"
@@ -39,17 +45,10 @@ export default function FeatureSection() {
               lineHeight: 1.1,
             }}
           >
-            Svar på en minut.
+            {t.featureHeadline2}
           </h2>
-          <p
-            style={{
-              color: "#6B6B6B",
-              fontSize: "17px",
-              lineHeight: 1.8,
-              margin: 0,
-            }}
-          >
-            Medarbetare svarar direkt via mobilen. Inga inloggningar, inga långa formulär. Öppna frågor ger utrymme för den som vill berätta mer.
+          <p style={{ color: "#6B6B6B", fontSize: "17px", lineHeight: 1.8, margin: 0 }}>
+            {t.featureParagraph}
           </p>
         </div>
 

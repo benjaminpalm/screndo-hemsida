@@ -1,6 +1,6 @@
 'use client'
 
-import { LanguageProvider, useLanguage } from "@/lib/LanguageContext";
+import { useLanguage } from "@/lib/LanguageContext";
 import Navbar from "@/components/Navbar";
 
 function PrivacyContent() {
@@ -39,9 +39,5 @@ function PrivacyContent() {
 }
 
 export default function PrivacyPage() {
-  return (
-    <LanguageProvider>
-      <PrivacyContent />
-    </LanguageProvider>
-  )
+  return <PrivacyContent />
 }

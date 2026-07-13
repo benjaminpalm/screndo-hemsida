@@ -1,6 +1,6 @@
 'use client'
 
-import { LanguageProvider } from "@/lib/LanguageContext";
+import { useLanguage } from "@/lib/LanguageContext";
 import Navbar from "@/components/Navbar";
 
 const inputStyle: React.CSSProperties = {
@@ -30,6 +30,8 @@ const fieldStyle: React.CSSProperties = {
 };
 
 function LoginForm() {
+  const { t } = useLanguage()
+
   return (
     <div
       className="login-outer"
@@ -50,17 +52,17 @@ function LoginForm() {
             margin: "0 0 32px 0",
           }}
         >
-          Logga in
+          {t.loginHeadline}
         </h1>
 
         <form onSubmit={(e) => e.preventDefault()}>
           <div style={fieldStyle}>
-            <label style={labelStyle}>E-post</label>
+            <label style={labelStyle}>{t.emailLabel}</label>
             <input type="email" style={inputStyle} />
           </div>
 
           <div style={fieldStyle}>
-            <label style={labelStyle}>Lösenord</label>
+            <label style={labelStyle}>{t.passwordLabel}</label>
             <input type="password" style={inputStyle} />
           </div>
 
@@ -80,12 +82,12 @@ function LoginForm() {
               marginTop: "8px",
             }}
           >
-            Logga in
+            {t.loginButton}
           </button>
         </form>
 
         <p style={{ fontSize: "13px", color: "#6B6B6B", textAlign: "center", marginTop: "24px" }}>
-          Har du inget konto? Kontakta oss.
+          {t.noAccount}
         </p>
       </div>
     </div>
@@ -94,11 +96,9 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <LanguageProvider>
-      <div style={{ background: "#fff", minHeight: "100vh" }}>
-        <Navbar />
-        <LoginForm />
-      </div>
-    </LanguageProvider>
+    <div style={{ background: "#fff", minHeight: "100vh" }}>
+      <Navbar />
+      <LoginForm />
+    </div>
   );
 }

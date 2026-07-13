@@ -61,7 +61,7 @@ export default function Navbar() {
               padding: 0,
             }}
           >
-            Produkter
+            {t.produkterDropdown}
             <svg
               width="12"
               height="12"
@@ -196,8 +196,8 @@ export default function Navbar() {
             zIndex: 99,
           }}
         >
-          <a href="/product" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>Produkt</a>
-          <a href="/login" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>Logga in</a>
+          <a href="/product" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.product}</a>
+          <a href="/login" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.login}</a>
           <a
             href="/book-intro"
             style={{
@@ -212,7 +212,7 @@ export default function Navbar() {
               display: "block",
             }}
           >
-            Boka intro
+            {t.bookIntro}
           </a>
         </div>
       )}

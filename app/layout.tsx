@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { LanguageProvider } from "@/lib/LanguageContext";
 import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
@@ -33,8 +34,10 @@ export default function RootLayout({
   return (
     <html lang="sv" className="dark">
       <body className={`${inter.variable} ${inter.className}`} style={{ background: "#fff", color: "#000", margin: 0 }}>
-        {children}
-        <CookieConsent />
+        <LanguageProvider>
+          {children}
+          <CookieConsent />
+        </LanguageProvider>
       </body>
     </html>
   );

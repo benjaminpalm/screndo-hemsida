@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useLanguage } from '@/lib/LanguageContext'
 
 function loadAnalytics() {
   if (typeof window === 'undefined') return
@@ -17,6 +18,7 @@ function loadAnalytics() {
 }
 
 export default function CookieConsent() {
+  const { t } = useLanguage()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -59,7 +61,7 @@ export default function CookieConsent() {
       }}
     >
       <p style={{ color: "#6B6B6B", fontSize: "14px", margin: 0 }}>
-        Vi använder cookies för att förbättra din upplevelse och mäta trafik.
+        {t.cookieText}
       </p>
       <div className="cookie-buttons" style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
         <button
@@ -76,7 +78,7 @@ export default function CookieConsent() {
             fontFamily: "inherit",
           }}
         >
-          Acceptera
+          {t.cookieAccept}
         </button>
         <button
           onClick={decline}
@@ -91,7 +93,7 @@ export default function CookieConsent() {
             fontFamily: "inherit",
           }}
         >
-          Avböj
+          {t.cookieDecline}
         </button>
       </div>
     </div>
