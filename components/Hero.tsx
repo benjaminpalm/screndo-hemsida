@@ -54,7 +54,7 @@ export default function Hero() {
               {t.getStarted}
             </a>
             <a
-              href="/produkt"
+              href="/product"
               style={{
                 background: "transparent",
                 color: "#000",

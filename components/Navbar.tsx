@@ -91,7 +91,7 @@ export default function Navbar() {
               }}
             >
               <a
-                href="/produkt"
+                href="/product"
                 style={{
                   display: "block",
                   padding: "8px 16px",
