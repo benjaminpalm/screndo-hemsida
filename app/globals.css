@@ -30,11 +30,20 @@ html {
 
 body {
   font-optical-sizing: auto;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 /* ── Navbar ── */
 .navbar {
   padding: 0 32px;
+}
+
+.nav-hamburger {
+  display: none;
 }
 
 /* ── Hero ── */
@@ -95,29 +104,9 @@ body {
   justify-content: space-between;
 }
 
-/* ── Product feature sections (responsive) ── */
+/* ── Responsive: 900px ── */
 @media (max-width: 900px) {
-  .product-feature-section {
-    padding: 80px 24px !important;
-  }
-  .product-feature-inner {
-    flex-direction: column !important;
-    gap: 40px !important;
-  }
-  .product-feature-h2 {
-    font-size: 30px !important;
-  }
-  /* In InsightsSection the image comes first in DOM but text should be first visually */
-  .product-feature-image--left {
-    order: 1;
-  }
-  .product-feature-text--right {
-    order: 0;
-  }
-}
 
-/* ── Mobile ── */
-@media (max-width: 768px) {
   /* Navbar */
   .navbar {
     padding: 0 20px;
@@ -125,78 +114,186 @@ body {
   .navbar-logo {
     height: 28px !important;
   }
+  .nav-desktop-item {
+    display: none !important;
+  }
+  .nav-hamburger {
+    display: flex !important;
+  }
 
-  /* Hero text section */
+  /* Hero */
   .hero-section {
     padding-top: 64px !important;
+    padding-bottom: 48px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
   }
   .hero-h1 {
-    font-size: 36px;
-    letter-spacing: -1px;
-    white-space: normal;
+    font-size: 38px !important;
+    letter-spacing: -1.2px !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+  }
+  .hero-subline {
+    font-size: 16px !important;
+    max-width: 100% !important;
   }
   .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
   }
   .hero-buttons a {
-    text-align: center;
+    text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   /* Hero image */
   .hero-image-wrap {
-    height: 70vh !important;
+    min-height: 60vh !important;
   }
-  .hero-overlay {
-    padding: 24px;
-  }
-
-  /* Most organizations */
-  .what-we-do-section {
-    padding: 48px 24px !important;
-  }
-  .what-we-do-h2 {
-    font-size: 28px !important;
+  .hero-image-wrap img {
+    min-height: 60vh !important;
   }
 
-  /* Phone mockups */
-  .phone-side {
-    display: none;
+  /* Feature section (home page "En fråga i veckan") */
+  .feature-section-wrap {
+    padding: 72px 24px !important;
   }
-  .phone-center-wrap {
-    transform: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  .feature-section-inner {
+    flex-direction: column !important;
+    gap: 40px !important;
   }
-  .phone-center-wrap img {
-    max-height: 500px !important;
+  .feature-section-h2 {
+    font-size: 30px !important;
+  }
+  .feature-section-img {
+    max-width: 320px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
-  /* Garden image */
+  /* GardenImage (macscrendo2) */
   .garden-wrap {
-    height: 60vh !important;
+    height: auto !important;
+    min-height: 50vh !important;
   }
-  .garden-text-container {
-    padding: 24px !important;
-  }
-  .garden-text {
-    font-size: 22px !important;
+  .garden-wrap img {
+    min-height: 50vh !important;
+    height: auto !important;
   }
 
   /* CTA */
   .section-pad {
-    padding: 64px 24px;
+    padding: 72px 24px !important;
   }
   .cta-h2 {
-    font-size: 32px;
-    letter-spacing: -1px;
+    font-size: 30px !important;
+    letter-spacing: -1px !important;
+  }
+  .cta-button {
+    width: 100% !important;
+    max-width: 320px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* WhatWeDo (product page intro) */
+  .what-we-do-section {
+    padding: 64px 24px !important;
+    padding-bottom: 48px !important;
+  }
+  .what-we-do-h2 {
+    font-size: 30px !important;
+  }
+
+  /* Product feature sections (PULSEN, INSIKTER, APPEN) */
+  .product-feature-section {
+    padding: 72px 24px !important;
+  }
+  .product-feature-inner {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+  .product-feature-h2 {
+    font-size: 28px !important;
+    letter-spacing: -1px !important;
+  }
+  .product-feature-image--left {
+    order: 1 !important;
+  }
+  .product-feature-text--right {
+    order: 0 !important;
+  }
+  .product-feature-image img {
+    border-radius: 12px !important;
+    width: 100% !important;
+  }
+  .product-iphone-img {
+    max-width: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Book-intro */
+  .book-intro-wrap {
+    padding: 64px 20px !important;
+  }
+  .book-intro-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .book-intro-h1 {
+    font-size: 30px !important;
+  }
+
+  /* Login */
+  .login-outer {
+    padding: 64px 24px !important;
+  }
+  .login-inner {
+    max-width: 100% !important;
+  }
+  .login-h1 {
+    font-size: 26px !important;
+  }
+
+  /* Privacy */
+  .privacy-container {
+    padding: 64px 24px !important;
+  }
+  .privacy-h1 {
+    font-size: 28px !important;
+  }
+  .privacy-body {
+    font-size: 15px !important;
   }
 
   /* Footer */
   .footer-bar {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
-    padding: 32px 24px;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 32px 24px !important;
+    text-align: center !important;
+  }
+
+  /* Cookie banner */
+  .cookie-banner {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 20px 24px !important;
+    text-align: center !important;
+  }
+  .cookie-buttons button {
+    flex: 1 !important;
+    max-width: 160px !important;
+  }
+}
+
+/* ── Responsive: 640px ── */
+@media (max-width: 640px) {
+  .hero-h1 {
+    font-size: 32px !important;
   }
 }

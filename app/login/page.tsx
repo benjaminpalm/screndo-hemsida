@@ -32,18 +32,20 @@ const fieldStyle: React.CSSProperties = {
 function LoginForm() {
   return (
     <div
+      className="login-outer"
       style={{
         display: "flex",
         justifyContent: "center",
         padding: "80px 24px",
       }}
     >
-      <div style={{ maxWidth: "400px", width: "100%" }}>
+      <div className="login-inner" style={{ maxWidth: "400px", width: "100%" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <img src="/logo2.png" alt="Screndo" style={{ height: "32px", width: "auto" }} />
         </div>
 
         <h1
+          className="login-h1"
           style={{
             fontWeight: 700,
             fontSize: "28px",

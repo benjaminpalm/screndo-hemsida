@@ -105,6 +105,7 @@ function BookIntroForm() {
   return (
     <div style={{ maxWidth: "600px", width: "100%" }}>
       <h1
+        className="book-intro-h1"
         style={{
           fontWeight: 700,
           fontSize: "36px",
@@ -148,6 +149,7 @@ function BookIntroForm() {
 
           {/* First name + Last name */}
           <div
+            className="book-intro-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -187,6 +189,7 @@ function BookIntroForm() {
 
           {/* Company name + Job title */}
           <div
+            className="book-intro-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -318,6 +321,7 @@ export default function BookIntro() {
       <div style={{ background: "#fff", minHeight: "100vh" }}>
         <Navbar />
         <div
+          className="book-intro-wrap"
           style={{
             display: "flex",
             justifyContent: "center",

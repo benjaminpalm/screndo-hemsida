@@ -20,6 +20,7 @@ export default function AppSection() {
           <img
             src="/screndoiphone.png"
             alt=""
+            className="product-iphone-img"
             style={{ width: "100%", maxWidth: "420px", marginLeft: "auto", marginRight: "auto", display: "block" }}
           />
         </div>

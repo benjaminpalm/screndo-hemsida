@@ -26,6 +26,7 @@ export default function Hero() {
           </h1>
 
           <p
+            className="hero-subline"
             style={{
               color: "#6B6B6B",
               fontSize: "18px",

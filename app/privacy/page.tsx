@@ -18,8 +18,8 @@ function PrivacyContent() {
     <>
       <Navbar />
       <div style={{ background: "#fff", minHeight: "100vh" }}>
-        <div style={{ maxWidth: "680px", margin: "0 auto", padding: "80px 24px" }}>
-          <h1 style={{ fontSize: "36px", fontWeight: 700, letterSpacing: "-1px", margin: "0 0 8px 0", color: "#000" }}>
+        <div className="privacy-container" style={{ maxWidth: "680px", margin: "0 auto", padding: "80px 24px" }}>
+          <h1 className="privacy-h1" style={{ fontSize: "36px", fontWeight: 700, letterSpacing: "-1px", margin: "0 0 8px 0", color: "#000" }}>
             {t.privacyHeadline}
           </h1>
           <p style={{ fontSize: "13px", color: "#aaa", margin: "0 0 56px 0" }}>{t.lastUpdated}</p>
@@ -28,7 +28,7 @@ function PrivacyContent() {
             {sections.map((s) => (
               <div key={s.title}>
                 <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#000", margin: "0 0 8px 0" }}>{s.title}</h2>
-                <p style={{ fontSize: "16px", color: "#6B6B6B", lineHeight: 1.8, margin: 0 }}>{s.text}</p>
+                <p className="privacy-body" style={{ fontSize: "16px", color: "#6B6B6B", lineHeight: 1.8, margin: 0 }}>{s.text}</p>
               </div>
             ))}
           </div>

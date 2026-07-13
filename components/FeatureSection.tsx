@@ -1,7 +1,8 @@
 export default function FeatureSection() {
   return (
-    <section style={{ background: "#fff", padding: "96px 48px" }}>
+    <section className="feature-section-wrap" style={{ background: "#fff", padding: "96px 48px" }}>
       <div
+        className="feature-section-inner"
         style={{
           maxWidth: "1100px",
           margin: "0 auto",
@@ -13,6 +14,7 @@ export default function FeatureSection() {
         {/* Left column */}
         <div style={{ flex: 1 }}>
           <h2
+            className="feature-section-h2"
             style={{
               fontSize: "44px",
               fontWeight: 800,
@@ -26,6 +28,7 @@ export default function FeatureSection() {
             En fråga i veckan
           </h2>
           <h2
+            className="feature-section-h2"
             style={{
               fontSize: "44px",
               fontWeight: 800,
@@ -55,6 +58,7 @@ export default function FeatureSection() {
           <img
             src="/screndoiphone.png"
             alt=""
+            className="feature-section-img"
             style={{
               width: "100%",
               maxWidth: "520px",

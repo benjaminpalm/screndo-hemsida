@@ -22,6 +22,7 @@ export default function CTA() {
 
       <a
         href="/book-intro"
+        className="cta-button"
         style={{
           background: "#04D8B5",
           color: "#000",

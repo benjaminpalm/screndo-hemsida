@@ -42,71 +42,58 @@ export default function CookieConsent() {
   if (!visible) return null
 
   return (
-    <>
-      <style>{`
-        @media (max-width: 768px) {
-          .cookie-banner {
-            flex-direction: column !important;
-            align-items: center !important;
-            gap: 16px !important;
-            padding: 20px 24px !important;
-            text-align: center !important;
-          }
-        }
-      `}</style>
-      <div
-        className="cookie-banner"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 9999,
-          background: "#fff",
-          borderTop: "1px solid #ECECEC",
-          padding: "20px 48px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <p style={{ color: "#6B6B6B", fontSize: "14px", margin: 0 }}>
-          Vi använder cookies för att förbättra din upplevelse och mäta trafik.
-        </p>
-        <div style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
-          <button
-            onClick={accept}
-            style={{
-              background: "#04D8B5",
-              color: "#0A0A0A",
-              fontWeight: 600,
-              borderRadius: "100px",
-              padding: "10px 24px",
-              fontSize: "14px",
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-            }}
-          >
-            Acceptera
-          </button>
-          <button
-            onClick={decline}
-            style={{
-              background: "transparent",
-              border: "1.5px solid #ECECEC",
-              color: "#0A0A0A",
-              borderRadius: "100px",
-              padding: "10px 24px",
-              fontSize: "14px",
-              cursor: "pointer",
-              fontFamily: "inherit",
-            }}
-          >
-            Avböj
-          </button>
-        </div>
+    <div
+      className="cookie-banner"
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 9999,
+        background: "#fff",
+        borderTop: "1px solid #ECECEC",
+        padding: "20px 48px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <p style={{ color: "#6B6B6B", fontSize: "14px", margin: 0 }}>
+        Vi använder cookies för att förbättra din upplevelse och mäta trafik.
+      </p>
+      <div className="cookie-buttons" style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
+        <button
+          onClick={accept}
+          style={{
+            background: "#04D8B5",
+            color: "#0A0A0A",
+            fontWeight: 600,
+            borderRadius: "100px",
+            padding: "10px 24px",
+            fontSize: "14px",
+            border: "none",
+            cursor: "pointer",
+            fontFamily: "inherit",
+          }}
+        >
+          Acceptera
+        </button>
+        <button
+          onClick={decline}
+          style={{
+            background: "transparent",
+            border: "1.5px solid #ECECEC",
+            color: "#0A0A0A",
+            borderRadius: "100px",
+            padding: "10px 24px",
+            fontSize: "14px",
+            cursor: "pointer",
+            fontFamily: "inherit",
+          }}
+        >
+          Avböj
+        </button>
       </div>
-    </>
+    </div>
   )
 }
