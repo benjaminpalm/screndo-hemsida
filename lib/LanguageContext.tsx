@@ -39,7 +39,7 @@ const translations = {
     bookIntro: 'Boka intro',
     headline: 'Continuous people intelligence',
     subline: 'Pulsundersökningar, problemrapportering och en AI som kan er policy. Allt på ett ställe.',
-    getStarted: 'Kom igång',
+    getStarted: 'Testa gratis',
     seeHow: 'Se hur det fungerar',
     overlayTitle: 'Ett system som lyssnar.',
     overlaySub: 'Screndo översätter din organisation i realtid.',
