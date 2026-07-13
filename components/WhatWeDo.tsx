@@ -8,7 +8,7 @@ export default function WhatWeDo() {
   return (
     <section
       className="section-pad what-we-do-section"
-      style={{ background: "#fff", display: "flex", justifyContent: "center" }}
+      style={{ background: "#fff", display: "flex", justifyContent: "center", paddingBottom: "48px" }}
     >
       <div style={{ maxWidth: "860px", width: "100%" }}>
         <h2
