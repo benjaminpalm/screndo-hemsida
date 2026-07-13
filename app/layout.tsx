@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 const inter = Inter({
@@ -34,15 +34,7 @@ export default function RootLayout({
     <html lang="sv" className="dark">
       <body className={`${inter.variable} ${inter.className}`} style={{ background: "#fff", color: "#000", margin: 0 }}>
         {children}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-DKZ8FQJKZ6" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-DKZ8FQJKZ6');
-          `}
-        </Script>
+        <CookieConsent />
       </body>
     </html>
   );
