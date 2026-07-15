@@ -11,58 +11,100 @@ const PULSES = [
   { name: "Arbetsmiljö",      question: "Hur fungerar din arbetsmiljö för det du ska göra?" },
 ]
 
-// Column-based pre-animation offsets (3-column grid)
-function getInitialTransform(col: number) {
-  if (col === 0) return 'translateX(-40px)'
-  if (col === 1) return 'translateY(30px)'
-  return 'translateX(40px)'
+// Column offsets: left ← , middle ↓ , right →
+function colTransform(col: number, factor: number): string {
+  if (factor === 0) return 'none'
+  if (col === 0) return `translateX(${-60 * factor}px)`
+  if (col === 1) return `translateY(${40 * factor}px)`
+  return `translateX(${60 * factor}px)`
 }
 
-const STAGGER_MS       = 50
-const LAST_SETTLE_MS   = 600
+function getProgress(section: HTMLElement): number {
+  const rect    = section.getBoundingClientRect()
+  const viewH   = window.innerHeight
+  const sectH   = section.offsetHeight
+  // 0 = section just entering from bottom, 1 = section centered in viewport
+  return Math.min(Math.max((viewH - rect.top) / (viewH / 2 + sectH / 2), 0), 1)
+}
 
 export default function PulseCards() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [visible,       setVisible]       = useState(false)
-  const [settled,       setSettled]       = useState(false)
-  const [reducedMotion, setReducedMotion] = useState(false)
-  const [hovered,       setHovered]       = useState<number | null>(null)
+  const cardRefs   = useRef<(HTMLDivElement | null)[]>([])
+  const rafRef     = useRef<number | null>(null)
+  const hovRef     = useRef<number | null>(null)
+  const [hovered,  setHovered] = useState<number | null>(null)
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    setReducedMotion(reduced)
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-          const totalMs = (PULSES.length - 1) * STAGGER_MS + LAST_SETTLE_MS
-          setTimeout(() => setSettled(true), reduced ? 0 : totalMs)
-        }
-      },
-      { threshold: 0.12 }
-    )
+    if (reduced) {
+      cardRefs.current.forEach(el => {
+        if (el) { el.style.opacity = '1'; el.style.transform = 'none' }
+      })
+      return
+    }
 
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
+    // Apply initial offset before first paint
+    cardRefs.current.forEach((el, i) => {
+      if (!el) return
+      el.style.opacity   = '0.6'
+      el.style.transform = colTransform(i % 3, 1)
+    })
+
+    function update() {
+      rafRef.current = null
+      if (!sectionRef.current) return
+      const p = getProgress(sectionRef.current)
+
+      cardRefs.current.forEach((el, i) => {
+        if (!el) return
+        const isHov = hovRef.current === i && p >= 1
+        el.style.transform = isHov ? 'translateY(-2px)' : colTransform(i % 3, 1 - p)
+        el.style.opacity   = String(0.6 + 0.4 * p)
+      })
+    }
+
+    function onScroll() {
+      if (rafRef.current === null) rafRef.current = requestAnimationFrame(update)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    update() // seed on mount
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
+    }
   }, [])
 
-  const isReady = visible || reducedMotion
+  function handleEnter(i: number) {
+    hovRef.current = i
+    setHovered(i)
+    const el = sectionRef.current
+    if (el && getProgress(el) >= 1 && cardRefs.current[i]) {
+      cardRefs.current[i]!.style.transform = 'translateY(-2px)'
+    }
+  }
+
+  function handleLeave(i: number) {
+    hovRef.current = null
+    setHovered(null)
+    const sec = sectionRef.current
+    const el  = cardRefs.current[i]
+    if (sec && el && getProgress(sec) >= 1) {
+      el.style.transform = 'none'
+    }
+  }
 
   return (
     <section
       ref={sectionRef}
-      style={{
-        background: '#fff',
-        padding: '96px 48px',
-        overflow: 'hidden',
-      }}
+      style={{ background: '#fff', padding: '112px 64px', overflow: 'hidden' }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '56px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <h2
             className="pulse-cards-h2"
             style={{
@@ -81,61 +123,54 @@ export default function PulseCards() {
           </p>
         </div>
 
-        {/* Cards */}
+        {/* Cards grid */}
         <div
           className="pulse-cards-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '16px',
-          }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}
         >
-          {PULSES.map((pulse, i) => {
-            const col       = i % 3
-            const delay     = i * STAGGER_MS / 1000
-            const isHovered = hovered === i
-
-            let transform: string
-            if (!isReady) {
-              transform = getInitialTransform(col)
-            } else if (isHovered) {
-              transform = 'translateY(-2px)'
-            } else {
-              transform = 'none'
-            }
-
-            const transition = reducedMotion
-              ? 'none'
-              : settled
-              ? 'transform 0.18s ease, border-color 0.15s ease'
-              : `transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, opacity 0.4s ease ${delay}s`
-
-            return (
-              <div
-                key={pulse.name}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-                style={{
-                  background: '#fff',
-                  borderRadius: '999px',
-                  padding: '24px 32px',
-                  border: isHovered ? '1px solid #04D8B5' : '1px solid #1A1A1A',
-                  transform,
-                  opacity: isReady ? 1 : 0,
-                  transition,
-                  cursor: 'default',
-                  willChange: 'transform, opacity',
-                }}
-              >
-                <div style={{ fontSize: '14px', color: '#0A0A0A', marginBottom: '5px' }}>
-                  {pulse.name}
-                </div>
-                <p style={{ margin: 0, fontSize: '12px', color: '#6B6B6B', lineHeight: 1.6 }}>
-                  {pulse.question}
-                </p>
+          {PULSES.map((pulse, i) => (
+            <div
+              key={pulse.name}
+              ref={el => { cardRefs.current[i] = el }}
+              onMouseEnter={() => handleEnter(i)}
+              onMouseLeave={() => handleLeave(i)}
+              style={{
+                background: '#fff',
+                borderRadius: '999px',
+                padding: '24px 32px',
+                border: hovered === i ? '1px solid #04D8B5' : '1px solid #1A1A1A',
+                transition: 'border-color 0.15s ease',
+                cursor: 'default',
+                willChange: 'transform, opacity',
+              }}
+            >
+              <div style={{ fontSize: '14px', color: '#0A0A0A', marginBottom: '5px' }}>
+                {pulse.name}
               </div>
-            )
-          })}
+              <p style={{ margin: 0, fontSize: '12px', color: '#6B6B6B', lineHeight: 1.6 }}>
+                {pulse.question}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div style={{ textAlign: 'center', marginTop: '56px' }}>
+          <a
+            href="/book-intro"
+            style={{
+              background: '#04D8B5',
+              color: '#000',
+              textDecoration: 'none',
+              fontSize: '15px',
+              fontWeight: 600,
+              borderRadius: '100px',
+              padding: '12px 24px',
+              display: 'inline-block',
+            }}
+          >
+            Kom igång gratis
+          </a>
         </div>
 
       </div>
