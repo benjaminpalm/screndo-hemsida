@@ -1,8 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeatureSection from "@/components/FeatureSection";
-import GardenImage from "@/components/GardenImage";
-import CTA from "@/components/CTA";
+import PulseCards from "@/components/PulseCards";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -11,8 +10,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeatureSection />
-      <GardenImage />
-      <CTA />
+      <PulseCards />
       <Footer />
     </div>
   );

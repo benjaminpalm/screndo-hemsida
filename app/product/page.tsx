@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import ProductSearch from "@/components/ProductSearch";
 import WhatWeDo from "@/components/WhatWeDo";
 import PulseSection from "@/components/PulseSection";
 import InsightsSection from "@/components/InsightsSection";
@@ -10,6 +11,7 @@ export default function Produkt() {
   return (
     <div style={{ background: "#fff", minHeight: "100vh" }}>
       <Navbar />
+      <ProductSearch />
       <WhatWeDo />
       <PulseSection />
       <InsightsSection />

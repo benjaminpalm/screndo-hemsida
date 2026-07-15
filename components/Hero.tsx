@@ -1,9 +1,35 @@
 'use client'
 
+import { useRef, useEffect } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
 export default function Hero() {
   const { t } = useLanguage()
+  const imgRef = useRef<HTMLImageElement>(null)
+  const rafRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    function update() {
+      rafRef.current = null
+      if (!imgRef.current) return
+      const progress = Math.min(window.scrollY / (window.innerHeight * 1.2), 1)
+      imgRef.current.style.transform = `scale(${1 + 0.08 * progress})`
+    }
+
+    function onScroll() {
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(update)
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
+    }
+  }, [])
 
   return (
     <>
@@ -74,8 +100,9 @@ export default function Hero() {
         </div>
       </section>
 
-      <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "auto", minHeight: "100vh" }}>
+      <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "auto", minHeight: "100vh", overflow: "hidden" }}>
         <img
+          ref={imgRef}
           src="/screndomac.png"
           alt="Hero"
           style={{
@@ -85,6 +112,7 @@ export default function Hero() {
             objectFit: "cover",
             objectPosition: "center center",
             display: "block",
+            transformOrigin: "center center",
           }}
         />
       </div>

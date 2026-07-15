@@ -6,14 +6,20 @@ export default function PulseSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="product-feature-section" style={{ background: "#fff", padding: "120px 48px" }}>
-      <div className="product-feature-inner" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", gap: "80px" }}>
-        {/* Left column */}
+    <section className="product-feature-section" style={{ background: "#fff", padding: "100px 64px" }}>
+      <div
+        className="product-feature-inner"
+        style={{ maxWidth: "1100px", margin: "0 auto", display: "flex", alignItems: "center", gap: "72px" }}
+      >
+        {/* Text */}
         <div className="product-feature-text" style={{ flex: 1 }}>
-          <p style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "1.5px", color: "#04D8B5", textTransform: "uppercase", margin: "0 0 16px 0" }}>
+          <p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "2px", color: "#04D8B5", textTransform: "uppercase", margin: "0 0 14px 0" }}>
             {t.pulseLabel}
           </p>
-          <h2 className="product-feature-h2" style={{ fontSize: "40px", fontWeight: 700, letterSpacing: "-1.5px", color: "#0A0A0A", lineHeight: 1.15, margin: "0 0 20px 0" }}>
+          <h2
+            className="product-feature-h2"
+            style={{ fontSize: "38px", fontWeight: 700, letterSpacing: "-1px", color: "#0A0A0A", lineHeight: 1.15, margin: "0 0 20px 0" }}
+          >
             {t.pulseHeadline}
           </h2>
           <p style={{ color: "#6B6B6B", fontSize: "17px", lineHeight: 1.8, margin: 0 }}>
@@ -21,13 +27,15 @@ export default function PulseSection() {
           </p>
         </div>
 
-        {/* Right column */}
+        {/* Image */}
         <div className="product-feature-image" style={{ flex: 1 }}>
-          <img
-            src="/svarfrekvensscrendo.jpg"
-            alt=""
-            style={{ width: "100%", borderRadius: "16px", border: "1px solid #ECECEC", display: "block" }}
-          />
+          <div style={{ padding: "28px", background: "#F8F7F4", borderRadius: "20px" }}>
+            <img
+              src="/svarfrekvensscrendo.jpg"
+              alt=""
+              style={{ width: "100%", borderRadius: "12px", display: "block" }}
+            />
+          </div>
         </div>
       </div>
     </section>
