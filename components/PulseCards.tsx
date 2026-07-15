@@ -167,25 +167,6 @@ export default function PulseCards() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div style={{ textAlign: 'center', marginTop: '56px' }}>
-          <a
-            href="/book-intro"
-            style={{
-              background: '#04D8B5',
-              color: '#000',
-              textDecoration: 'none',
-              fontSize: '15px',
-              fontWeight: 600,
-              borderRadius: '100px',
-              padding: '12px 24px',
-              display: 'inline-block',
-            }}
-          >
-            Kom igång gratis
-          </a>
-        </div>
-
       </div>
     </section>
   )
