@@ -11,20 +11,33 @@ const PULSES = [
   { name: "Arbetsmiljö",      question: "Hur fungerar din arbetsmiljö för det du ska göra?" },
 ]
 
-// Column offsets: left ← , middle ↓ , right →
-function colTransform(col: number, factor: number): string {
+// Per-card start offsets (x, y in px). Factor 1 = start, 0 = end.
+const STARTS = [
+  { x: -120, y:  -60 }, // row 1 left
+  { x:    0, y: -100 }, // row 1 middle
+  { x:  120, y:  -60 }, // row 1 right
+  { x: -120, y:   60 }, // row 2 left
+  { x:    0, y:  100 }, // row 2 middle
+  { x:  120, y:   60 }, // row 2 right
+]
+
+function cardTransform(i: number, factor: number): string {
   if (factor === 0) return 'none'
-  if (col === 0) return `translateX(${-60 * factor}px)`
-  if (col === 1) return `translateY(${40 * factor}px)`
-  return `translateX(${60 * factor}px)`
+  const { x, y } = STARTS[i]
+  const parts: string[] = []
+  if (x !== 0) parts.push(`translateX(${x * factor}px)`)
+  if (y !== 0) parts.push(`translateY(${y * factor}px)`)
+  return parts.join(' ')
 }
 
+// progress 0: section center at viewport bottom
+// progress 1: section center at viewport center
 function getProgress(section: HTMLElement): number {
-  const rect    = section.getBoundingClientRect()
-  const viewH   = window.innerHeight
-  const sectH   = section.offsetHeight
-  // 0 = section just entering from bottom, 1 = section centered in viewport
-  return Math.min(Math.max((viewH - rect.top) / (viewH / 2 + sectH / 2), 0), 1)
+  const rect  = section.getBoundingClientRect()
+  const viewH = window.innerHeight
+  const sectH = section.offsetHeight
+  const sectionCenter = rect.top + sectH / 2
+  return Math.min(Math.max((viewH - sectionCenter) / (viewH / 2), 0), 1)
 }
 
 export default function PulseCards() {
@@ -47,8 +60,8 @@ export default function PulseCards() {
     // Apply initial offset before first paint
     cardRefs.current.forEach((el, i) => {
       if (!el) return
-      el.style.opacity   = '0.6'
-      el.style.transform = colTransform(i % 3, 1)
+      el.style.opacity   = '0'
+      el.style.transform = cardTransform(i, 1)
     })
 
     function update() {
@@ -59,8 +72,8 @@ export default function PulseCards() {
       cardRefs.current.forEach((el, i) => {
         if (!el) return
         const isHov = hovRef.current === i && p >= 1
-        el.style.transform = isHov ? 'translateY(-2px)' : colTransform(i % 3, 1 - p)
-        el.style.opacity   = String(0.6 + 0.4 * p)
+        el.style.transform = isHov ? 'translateY(-2px)' : cardTransform(i, 1 - p)
+        el.style.opacity   = String(p)
       })
     }
 
@@ -99,7 +112,7 @@ export default function PulseCards() {
   return (
     <section
       ref={sectionRef}
-      style={{ background: '#fff', padding: '112px 64px', overflow: 'hidden' }}
+      style={{ background: '#fff', padding: '56px 64px 112px', overflow: 'hidden' }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
