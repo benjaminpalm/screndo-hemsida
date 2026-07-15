@@ -21,8 +21,9 @@ const STARTS = [
   { x:  120, y:   60 }, // row 2 right
 ]
 
-function cardTransform(i: number, factor: number): string {
+function cardTransform(i: number, factor: number, mobile: boolean): string {
   if (factor === 0) return 'none'
+  if (mobile) return `translateY(${60 * factor}px)`
   const { x, y } = STARTS[i]
   const parts: string[] = []
   if (x !== 0) parts.push(`translateX(${x * factor}px)`)
@@ -58,21 +59,23 @@ export default function PulseCards() {
     }
 
     // Apply initial offset before first paint
+    const isMobileInit = window.innerWidth <= 768
     cardRefs.current.forEach((el, i) => {
       if (!el) return
       el.style.opacity   = '0'
-      el.style.transform = cardTransform(i, 1)
+      el.style.transform = cardTransform(i, 1, isMobileInit)
     })
 
     function update() {
       rafRef.current = null
       if (!sectionRef.current) return
-      const p = getProgress(sectionRef.current)
+      const p        = getProgress(sectionRef.current)
+      const isMobile = window.innerWidth <= 768
 
       cardRefs.current.forEach((el, i) => {
         if (!el) return
         const isHov = hovRef.current === i && p >= 1
-        el.style.transform = isHov ? 'translateY(-2px)' : cardTransform(i, 1 - p)
+        el.style.transform = isHov ? 'translateY(-2px)' : cardTransform(i, 1 - p, isMobile)
         el.style.opacity   = String(p)
       })
     }

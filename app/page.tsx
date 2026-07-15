@@ -9,9 +9,10 @@ export default function Home() {
       <Hero />
 
       {/* CTA → produktsidan */}
-      <div style={{ textAlign: "center", padding: "80px 48px 100px" }}>
+      <div className="home-cta-section" style={{ textAlign: "center", padding: "80px 48px 100px" }}>
         <a
           href="/product"
+          className="home-cta-btn"
           style={{
             display: "inline-block",
             background: "#fff",

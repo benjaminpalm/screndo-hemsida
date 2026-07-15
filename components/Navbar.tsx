@@ -200,6 +200,7 @@ export default function Navbar() {
           <a href="/login" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.login}</a>
           <a
             href="/book-intro"
+            className="nav-mobile-book"
             style={{
               background: "#04D8B5",
               color: "#0A0A0A",

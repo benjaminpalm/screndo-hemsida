@@ -297,3 +297,111 @@ img {
     font-size: 32px !important;
   }
 }
+
+/* ── Responsive: 768px (mobile) ── */
+@media (max-width: 768px) {
+
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  /* Navbar: Boka intro-knappen i mobilmenyn, inte full bredd */
+  .nav-mobile-book {
+    display: block !important;
+    width: 80% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hero: rubrik */
+  .hero-h1 {
+    font-size: 2.5rem !important;
+    letter-spacing: -1px !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* Hero: underrubrik */
+  .hero-subline {
+    text-align: center !important;
+    font-size: 16px !important;
+  }
+
+  /* Hero: knappar staplas vertikalt */
+  .hero-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .hero-buttons a {
+    display: block !important;
+    width: 80% !important;
+    max-width: 280px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hero-bild: full bredd minus margin, skalas proportionellt */
+  .hero-image-wrap {
+    width: calc(100% - 40px) !important;
+    margin: 0 auto !important;
+    min-height: auto !important;
+    border-radius: 16px !important;
+  }
+  .hero-image-wrap img {
+    min-height: auto !important;
+    height: auto !important;
+    border-radius: 16px !important;
+  }
+
+  /* CTA "Se mer om produkten" */
+  .home-cta-section {
+    padding: 40px 20px 64px !important;
+  }
+  .home-cta-btn {
+    display: block !important;
+    width: 80% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* FeatureSection: bild överst, text under, centrerat */
+  .feature-section-wrap {
+    padding: 64px 20px !important;
+  }
+  .feature-section-inner {
+    flex-direction: column-reverse !important;
+    gap: 32px !important;
+    align-items: center !important;
+  }
+  .feature-section-text {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .feature-section-text p {
+    text-align: center !important;
+  }
+  .feature-section-h2 {
+    font-size: 28px !important;
+    letter-spacing: -0.5px !important;
+    text-align: center !important;
+  }
+  .feature-section-img {
+    width: 80% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  /* PulseCards: ett kort per rad, centrerat */
+  .pulse-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pulse-cards-h2 {
+    font-size: 28px !important;
+    letter-spacing: -0.5px !important;
+  }
+}

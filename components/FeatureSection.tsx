@@ -18,7 +18,7 @@ export default function FeatureSection() {
         }}
       >
         {/* Left column */}
-        <div style={{ flex: 1 }}>
+        <div className="feature-section-text" style={{ flex: 1 }}>
           <h2
             className="feature-section-h2"
             style={{
