@@ -11,29 +11,25 @@ const PULSES = [
   { name: "Arbetsmiljö",      question: "Hur fungerar din arbetsmiljö för det du ska göra?" },
 ]
 
-// Pre-animation: scattered offsets and rotations per card
-const OFFSETS = [
-  { x: -32, y: -18, r: -5 },
-  { x:  22, y: -24, r:  4 },
-  { x: -16, y:  14, r: -3 },
-  { x:  28, y: -12, r:  6 },
-  { x: -26, y:  22, r: -4 },
-  { x:  30, y:  18, r:  5 },
-]
+// Column-based pre-animation offsets (3-column grid)
+function getInitialTransform(col: number) {
+  if (col === 0) return 'translateX(-40px)'
+  if (col === 1) return 'translateY(30px)'
+  return 'translateX(40px)'
+}
 
-const STAGGER_MS = 70
-const LAST_CARD_SETTLE_MS = 600 // duration after last card starts
+const STAGGER_MS       = 50
+const LAST_SETTLE_MS   = 600
 
 export default function PulseCards() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [visible, setVisible]           = useState(false)
-  const [settled, setSettled]           = useState(false) // true after all cards have landed
+  const [visible,       setVisible]       = useState(false)
+  const [settled,       setSettled]       = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
-  const [hovered, setHovered]           = useState<number | null>(null)
+  const [hovered,       setHovered]       = useState<number | null>(null)
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const reduced = mq.matches
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     setReducedMotion(reduced)
 
     const observer = new IntersectionObserver(
@@ -41,9 +37,7 @@ export default function PulseCards() {
         if (entry.isIntersecting) {
           setVisible(true)
           observer.disconnect()
-
-          // After last card has settled, switch to hover-only transitions
-          const totalMs = (PULSES.length - 1) * STAGGER_MS + LAST_CARD_SETTLE_MS
+          const totalMs = (PULSES.length - 1) * STAGGER_MS + LAST_SETTLE_MS
           setTimeout(() => setSettled(true), reduced ? 0 : totalMs)
         }
       },
@@ -60,7 +54,7 @@ export default function PulseCards() {
     <section
       ref={sectionRef}
       style={{
-        background: '#F8F7F4',
+        background: '#fff',
         padding: '96px 48px',
         overflow: 'hidden',
       }}
@@ -73,7 +67,7 @@ export default function PulseCards() {
             className="pulse-cards-h2"
             style={{
               fontSize: '44px',
-              fontWeight: 800,
+              fontWeight: 500,
               letterSpacing: '-1.5px',
               color: '#0A0A0A',
               margin: '0 0 14px',
@@ -97,26 +91,24 @@ export default function PulseCards() {
           }}
         >
           {PULSES.map((pulse, i) => {
-            const off   = OFFSETS[i]
-            const delay = i * STAGGER_MS / 1000
+            const col       = i % 3
+            const delay     = i * STAGGER_MS / 1000
             const isHovered = hovered === i
 
-            // Determine transform
             let transform: string
             if (!isReady) {
-              transform = `translate(${off.x}px, ${off.y}px) rotate(${off.r}deg)`
+              transform = getInitialTransform(col)
             } else if (isHovered) {
-              transform = 'translateY(-2px) rotate(0deg)'
+              transform = 'translateY(-2px)'
             } else {
-              transform = 'translateY(0px) rotate(0deg)'
+              transform = 'none'
             }
 
-            // After cards have settled, use a fast hover transition only
             const transition = reducedMotion
               ? 'none'
               : settled
               ? 'transform 0.18s ease, border-color 0.15s ease'
-              : `transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}s, opacity 0.36s ease ${delay}s`
+              : `transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, opacity 0.4s ease ${delay}s`
 
             return (
               <div
@@ -125,27 +117,27 @@ export default function PulseCards() {
                 onMouseLeave={() => setHovered(null)}
                 style={{
                   background: '#fff',
-                  borderRadius: '16px',
-                  padding: '22px 24px',
-                  boxShadow: '0 2px 14px rgba(0,0,0,0.06)',
-                  border: isHovered ? '1.5px solid #04D8B5' : '1.5px solid transparent',
+                  borderRadius: '999px',
+                  padding: '24px 32px',
+                  border: isHovered ? '1px solid #04D8B5' : '1px solid #1A1A1A',
                   transform,
-                  opacity: isReady ? 1 : 0.2,
+                  opacity: isReady ? 1 : 0,
                   transition,
                   cursor: 'default',
                   willChange: 'transform, opacity',
                 }}
               >
-                <div style={{ fontSize: '15px', color: '#0A0A0A', marginBottom: '7px' }}>
+                <div style={{ fontSize: '14px', color: '#0A0A0A', marginBottom: '5px' }}>
                   {pulse.name}
                 </div>
-                <p style={{ margin: 0, fontSize: '13px', color: '#6B6B6B', lineHeight: 1.65 }}>
+                <p style={{ margin: 0, fontSize: '12px', color: '#6B6B6B', lineHeight: 1.6 }}>
                   {pulse.question}
                 </p>
               </div>
             )
           })}
         </div>
+
       </div>
     </section>
   )
