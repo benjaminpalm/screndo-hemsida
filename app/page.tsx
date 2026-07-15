@@ -1,7 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import FeatureSection from "@/components/FeatureSection";
-import PulseCards from "@/components/PulseCards";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -9,8 +7,27 @@ export default function Home() {
     <div style={{ background: "#fff", minHeight: "100vh" }}>
       <Navbar />
       <Hero />
-      <FeatureSection />
-      <PulseCards />
+
+      {/* CTA → produktsidan */}
+      <div style={{ textAlign: "center", padding: "80px 48px 100px" }}>
+        <a
+          href="/product"
+          style={{
+            display: "inline-block",
+            background: "#fff",
+            color: "#0A0A0A",
+            textDecoration: "none",
+            fontSize: "15px",
+            fontWeight: 500,
+            borderRadius: "999px",
+            padding: "14px 32px",
+            border: "1px solid #1A1A1A",
+          }}
+        >
+          Se mer om produkten
+        </a>
+      </div>
+
       <Footer />
     </div>
   );
