@@ -165,8 +165,7 @@ export default function PulseCards() {
           ))}
 
           {/* More card — full width, dashed border */}
-          <a
-            href="#bibliotek"
+          <div
             ref={el => { cardRefs.current[6] = el }}
             onMouseEnter={() => handleEnter(6)}
             onMouseLeave={() => handleLeave(6)}
@@ -177,9 +176,7 @@ export default function PulseCards() {
               padding: '20px 32px',
               border: hovered === 6 ? '1px dashed #04D8B5' : '1px dashed #E4E3DF',
               transition: 'border-color 0.15s ease',
-              cursor: 'pointer',
               willChange: 'transform, opacity',
-              textDecoration: 'none',
               display: 'flex',
               alignItems: 'center',
               gap: '20px',
@@ -191,7 +188,7 @@ export default function PulseCards() {
             <p style={{ margin: 0, fontSize: '12px', color: '#6B6B6B', lineHeight: 1.6 }}>
               {t.moreCardSubline}
             </p>
-          </a>
+          </div>
         </div>
 
       </div>
