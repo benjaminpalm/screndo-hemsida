@@ -67,6 +67,39 @@ const translations = {
     // Product search
     productSearchQuestion: 'Vilka signaler missar vi just nu?',
     productSearchAnswer: 'Ljudnivån har nämnts tre veckor i rad. Trivseln på plan 3 ligger under snittet. Vill du att jag föreslår en åtgärd?',
+    // Pulse library (product page)
+    moreCardTitle: '+ 12 till',
+    moreCardSubline: 'Hela biblioteket täcker allt från mening och samarbete till förändringsvilja och fokusro.',
+    libraryLabel: 'ALLA PULSAR I BIBLIOTEKET',
+    libraryGroups: [
+      { group: 'Välmående', pulses: [
+        { name: 'Trivsel',          question: 'Hur bra trivs du, 1 till 10?' },
+        { name: 'Arbetsbelastning', question: 'Hur hanterbar känns din arbetsbörda?' },
+        { name: 'Balans',           question: 'Hur väl fungerar balansen mellan jobb och fritid?' },
+        { name: 'Energi',           question: 'Hur är din energinivå på jobbet just nu?' },
+      ]},
+      { group: 'Organisation', pulses: [
+        { name: 'Ledarskap',   question: 'Hur väl stöttar din närmaste chef dig?' },
+        { name: 'Teamkänsla', question: 'Hur väl fungerar samarbetet i teamet?' },
+        { name: 'Tydlighet',  question: 'Hur tydliga är dina mål och prioriteringar?' },
+        { name: 'Arbetsmiljö', question: 'Hur fungerar din arbetsmiljö för det du ska göra?' },
+      ]},
+      { group: 'Utveckling', pulses: [
+        { name: 'Utveckling', question: 'Hur mycket utvecklas du i din roll?' },
+        { name: 'Autonomi',   question: 'Hur mycket kontroll har du över hur du gör ditt jobb?' },
+      ]},
+      { group: 'Stående', pulses: [
+        { name: 'eNPS', question: 'Skulle du rekommendera oss som arbetsplats?' },
+      ]},
+      { group: 'Kompletterande', pulses: [
+        { name: 'Mening',           question: 'Hur meningsfullt känns ditt arbete just nu, 1 till 10?' },
+        { name: 'Samarbete',        question: 'Hur väl fungerar samarbetet mellan ditt team och andra team, 1 till 10?' },
+        { name: 'Erkännande',       question: 'Känner du att din insats uppmärksammas, 1 till 10?' },
+        { name: 'Förändringsvilja', question: 'Hur redo känner du dig för förändringarna som pågår just nu, 1 till 10?' },
+        { name: 'Kommunikation',    question: 'Hur tydligt känns det vad som händer i företaget just nu, 1 till 10?' },
+        { name: 'Fokusro',          question: 'Hur mycket ostörd fokustid får du under en vanlig arbetsdag, 1 till 10?' },
+      ]},
+    ],
     // CTA (home page)
     ctaHeadline: 'Hör vad din organisation faktiskt säger.',
     ctaButton: 'Boka intro',
@@ -170,6 +203,39 @@ const translations = {
     // Product search
     productSearchQuestion: 'What signals are we missing right now?',
     productSearchAnswer: 'The noise level has been mentioned three weeks in a row. Wellbeing on floor 3 is below average. Would you like me to suggest an action?',
+    // Pulse library (product page)
+    moreCardTitle: '+ 12 more',
+    moreCardSubline: 'The full library covers everything from meaning and collaboration to change readiness and focus time.',
+    libraryLabel: 'ALL PULSES IN THE LIBRARY',
+    libraryGroups: [
+      { group: 'Wellbeing', pulses: [
+        { name: 'Wellbeing',   question: 'How would you rate your wellbeing, 1 to 10?' },
+        { name: 'Workload',    question: 'How manageable is your workload right now?' },
+        { name: 'Balance',     question: 'How well is your work-life balance working?' },
+        { name: 'Energy',      question: 'How is your energy level at work right now?' },
+      ]},
+      { group: 'Organisation', pulses: [
+        { name: 'Leadership',       question: 'How well does your manager support you?' },
+        { name: 'Team spirit',      question: 'How well does collaboration work in the team?' },
+        { name: 'Clarity',          question: 'How clear are your goals and priorities?' },
+        { name: 'Work environment', question: 'How well does your work environment support your work?' },
+      ]},
+      { group: 'Growth', pulses: [
+        { name: 'Growth',   question: 'How much are you growing in your role?' },
+        { name: 'Autonomy', question: 'How much control do you have over how you do your job?' },
+      ]},
+      { group: 'Recurring', pulses: [
+        { name: 'eNPS', question: 'Would you recommend us as a workplace?' },
+      ]},
+      { group: 'Situational', pulses: [
+        { name: 'Meaning',          question: 'How meaningful does your work feel right now, 1 to 10?' },
+        { name: 'Collaboration',    question: 'How well does your team collaborate with other teams, 1 to 10?' },
+        { name: 'Recognition',      question: 'Do you feel your contributions are noticed, 1 to 10?' },
+        { name: 'Change readiness', question: 'How ready do you feel for the changes happening right now, 1 to 10?' },
+        { name: 'Communication',    question: 'How clear does it feel what is happening in the company right now, 1 to 10?' },
+        { name: 'Focus time',       question: 'How much uninterrupted focus time do you get during a typical workday, 1 to 10?' },
+      ]},
+    ],
     // CTA (home page)
     ctaHeadline: 'Hear what your organization is actually saying.',
     ctaButton: 'Book an intro',

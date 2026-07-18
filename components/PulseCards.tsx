@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
 // Per-card start offsets (x, y in px). Factor 1 = start, 0 = end.
+// Index 6 = "more" card (slides in from below)
 const STARTS = [
   { x: -120, y:  -60 }, // row 1 left
   { x:    0, y: -100 }, // row 1 middle
@@ -11,6 +12,7 @@ const STARTS = [
   { x: -120, y:   60 }, // row 2 left
   { x:    0, y:  100 }, // row 2 middle
   { x:  120, y:   60 }, // row 2 right
+  { x:    0, y:   80 }, // more card
 ]
 
 function cardTransform(i: number, factor: number, mobile: boolean): string {
@@ -36,7 +38,7 @@ function getProgress(section: HTMLElement): number {
 export default function PulseCards() {
   const { t } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
-  const cardRefs   = useRef<(HTMLDivElement | null)[]>([])
+  const cardRefs   = useRef<(HTMLElement | null)[]>([])
   const rafRef     = useRef<number | null>(null)
   const hovRef     = useRef<number | null>(null)
   const [hovered,  setHovered] = useState<number | null>(null)
@@ -161,6 +163,35 @@ export default function PulseCards() {
               </p>
             </div>
           ))}
+
+          {/* More card — full width, dashed border */}
+          <a
+            href="#bibliotek"
+            ref={el => { cardRefs.current[6] = el }}
+            onMouseEnter={() => handleEnter(6)}
+            onMouseLeave={() => handleLeave(6)}
+            style={{
+              gridColumn: '1 / -1',
+              background: '#F7F6F3',
+              borderRadius: '999px',
+              padding: '20px 32px',
+              border: hovered === 6 ? '1px dashed #04D8B5' : '1px dashed #E4E3DF',
+              transition: 'border-color 0.15s ease',
+              cursor: 'pointer',
+              willChange: 'transform, opacity',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '20px',
+            }}
+          >
+            <div style={{ fontSize: '14px', color: '#04D8B5', flexShrink: 0 }}>
+              {t.moreCardTitle}
+            </div>
+            <p style={{ margin: 0, fontSize: '12px', color: '#6B6B6B', lineHeight: 1.6 }}>
+              {t.moreCardSubline}
+            </p>
+          </a>
         </div>
 
       </div>
