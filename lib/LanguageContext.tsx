@@ -50,6 +50,23 @@ const translations = {
     featureHeadline1: 'En fråga i veckan',
     featureHeadline2: 'Svar på en minut.',
     featureParagraph: 'Medarbetare svarar direkt via mobilen. Inga inloggningar, inga långa formulär. Öppna frågor ger utrymme för den som vill berätta mer.',
+    // Home page CTA links
+    homeCta: 'Se mer om produkten',
+    getStartedFree: 'Kom igång gratis',
+    // Pulse cards section
+    pulseCardsHeadline: 'Mät det som spelar roll',
+    pulseCardsSubline: 'Rotera mellan färdiga pulsar eller låt Screndo föreslå nästa utifrån vad som händer.',
+    pulses: [
+      { name: "Trivsel",          question: "Hur bra trivs du, 1 till 10?" },
+      { name: "Arbetsbelastning", question: "Hur hanterbar känns din arbetsbörda?" },
+      { name: "Ledarskap",        question: "Hur väl stöttar din närmaste chef dig?" },
+      { name: "Teamkänsla",       question: "Hur väl fungerar samarbetet i teamet?" },
+      { name: "eNPS",             question: "Skulle du rekommendera oss som arbetsplats?" },
+      { name: "Arbetsmiljö",      question: "Hur fungerar din arbetsmiljö för det du ska göra?" },
+    ],
+    // Product search
+    productSearchQuestion: 'Vilka signaler missar vi just nu?',
+    productSearchAnswer: 'Ljudnivån har nämnts tre veckor i rad. Trivseln på plan 3 ligger under snittet. Vill du att jag föreslår en åtgärd?',
     // CTA (home page)
     ctaHeadline: 'Hör vad din organisation faktiskt säger.',
     ctaButton: 'Boka intro',
@@ -136,6 +153,23 @@ const translations = {
     featureHeadline1: 'One question a week',
     featureHeadline2: 'Answered in a minute.',
     featureParagraph: 'People answer straight from their phone. No logins, no long forms. Open questions leave room for those who want to say more.',
+    // Home page CTA links
+    homeCta: 'Learn more',
+    getStartedFree: 'Get started for free',
+    // Pulse cards section
+    pulseCardsHeadline: 'Measure what matters',
+    pulseCardsSubline: "Rotate between ready-made pulses or let Screndo suggest the next one based on what's happening.",
+    pulses: [
+      { name: "Wellbeing",        question: "How would you rate your wellbeing, 1 to 10?" },
+      { name: "Workload",         question: "How manageable is your workload right now?" },
+      { name: "Leadership",       question: "How well does your manager support you?" },
+      { name: "Team spirit",      question: "How well does collaboration work in the team?" },
+      { name: "eNPS",             question: "Would you recommend us as a workplace?" },
+      { name: "Work environment", question: "How well does your work environment support your work?" },
+    ],
+    // Product search
+    productSearchQuestion: 'What signals are we missing right now?',
+    productSearchAnswer: 'The noise level has been mentioned three weeks in a row. Wellbeing on floor 3 is below average. Would you like me to suggest an action?',
     // CTA (home page)
     ctaHeadline: 'Hear what your organization is actually saying.',
     ctaButton: 'Book an intro',

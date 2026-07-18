@@ -1,15 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-
-const PULSES = [
-  { name: "Trivsel",          question: "Hur bra trivs du, 1 till 10?" },
-  { name: "Arbetsbelastning", question: "Hur hanterbar känns din arbetsbörda?" },
-  { name: "Ledarskap",        question: "Hur väl stöttar din närmaste chef dig?" },
-  { name: "Teamkänsla",       question: "Hur väl fungerar samarbetet i teamet?" },
-  { name: "eNPS",             question: "Skulle du rekommendera oss som arbetsplats?" },
-  { name: "Arbetsmiljö",      question: "Hur fungerar din arbetsmiljö för det du ska göra?" },
-]
+import { useLanguage } from '@/lib/LanguageContext'
 
 // Per-card start offsets (x, y in px). Factor 1 = start, 0 = end.
 const STARTS = [
@@ -42,6 +34,7 @@ function getProgress(section: HTMLElement): number {
 }
 
 export default function PulseCards() {
+  const { t } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
   const cardRefs   = useRef<(HTMLDivElement | null)[]>([])
   const rafRef     = useRef<number | null>(null)
@@ -132,10 +125,10 @@ export default function PulseCards() {
               lineHeight: 1.1,
             }}
           >
-            Mät det som spelar roll
+            {t.pulseCardsHeadline}
           </h2>
           <p style={{ color: '#6B6B6B', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>
-            Rotera mellan färdiga pulsar eller låt Screndo föreslå nästa utifrån vad som händer.
+            {t.pulseCardsSubline}
           </p>
         </div>
 
@@ -144,7 +137,7 @@ export default function PulseCards() {
           className="pulse-cards-grid"
           style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}
         >
-          {PULSES.map((pulse, i) => (
+          {t.pulses.map((pulse, i) => (
             <div
               key={pulse.name}
               ref={el => { cardRefs.current[i] = el }}

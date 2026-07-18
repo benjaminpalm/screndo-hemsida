@@ -1,12 +1,15 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
+import { useLanguage } from '@/lib/LanguageContext'
 
-const QUESTION = "Vilka signaler missar vi just nu?"
-const ANSWER   = "Ljudnivån har nämnts tre veckor i rad. Trivseln på plan 3 ligger under snittet. Vill du att jag föreslår en åtgärd?"
-const CHAR_MS  = 50
+const CHAR_MS = 50
 
 export default function ProductSearch() {
+  const { t } = useLanguage()
+  const tRef = useRef(t)
+  tRef.current = t
+
   const ref           = useRef<HTMLDivElement>(null)
   const [typed,         setTyped]         = useState("")
   const [cursorOn,      setCursorOn]      = useState(false)
@@ -16,7 +19,7 @@ export default function ProductSearch() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reduced) {
-      setTyped(QUESTION)
+      setTyped(tRef.current.productSearchQuestion)
       setAnswerVisible(true)
       return
     }
@@ -24,12 +27,13 @@ export default function ProductSearch() {
     let started = false
 
     function startAnimation() {
+      const question = tRef.current.productSearchQuestion
       setCursorOn(true)
       let i = 0
       const typeTimer = setInterval(() => {
         i++
-        setTyped(QUESTION.slice(0, i))
-        if (i >= QUESTION.length) {
+        setTyped(question.slice(0, i))
+        if (i >= question.length) {
           clearInterval(typeTimer)
           setTimeout(() => {
             setCursorOn(false)
@@ -145,7 +149,7 @@ export default function ProductSearch() {
             willChange: "opacity",
           }}>
             <p style={{ margin: 0, fontSize: 14, color: "#6B6B6B", lineHeight: 1.7 }}>
-              {ANSWER}
+              {t.productSearchAnswer}
             </p>
           </div>
 
