@@ -16,6 +16,10 @@ export default function ProductSearch() {
   const [answerVisible, setAnswerVisible] = useState(false)
 
   useEffect(() => {
+    setTyped("")
+    setCursorOn(false)
+    setAnswerVisible(false)
+
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (reduced) {
@@ -57,7 +61,8 @@ export default function ProductSearch() {
 
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-  }, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t.productSearchQuestion])
 
   return (
     <>
