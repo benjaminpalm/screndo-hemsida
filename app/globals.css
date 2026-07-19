@@ -396,9 +396,9 @@ img {
     margin: 0 auto !important;
   }
 
-  /* PulseCards: ett kort per rad, centrerat */
+  /* PulseCards: två kolumner på mobil */
   .pulse-cards-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .pulse-cards-h2 {
     font-size: 28px !important;

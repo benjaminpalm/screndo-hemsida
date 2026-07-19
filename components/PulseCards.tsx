@@ -54,7 +54,7 @@ export default function PulseCards() {
     }
 
     // Apply initial offset before first paint
-    const isMobileInit = window.innerWidth <= 768
+    const isMobileInit = window.innerWidth <= 480
     cardRefs.current.forEach((el, i) => {
       if (!el) return
       el.style.opacity   = '0'
@@ -65,7 +65,7 @@ export default function PulseCards() {
       rafRef.current = null
       if (!sectionRef.current) return
       const p        = getProgress(sectionRef.current)
-      const isMobile = window.innerWidth <= 768
+      const isMobile = window.innerWidth <= 480
 
       cardRefs.current.forEach((el, i) => {
         if (!el) return
