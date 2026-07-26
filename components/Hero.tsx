@@ -103,7 +103,7 @@ export default function Hero() {
       <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "auto", minHeight: "100vh", overflow: "hidden" }}>
         <img
           ref={imgRef}
-          src="/screndomac.png"
+          src="/macdashboard.png"
           alt="Hero"
           style={{
             width: "100%",
