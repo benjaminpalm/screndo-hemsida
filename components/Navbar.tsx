@@ -5,7 +5,6 @@ import { useLanguage } from '@/lib/LanguageContext'
 
 export default function Navbar() {
   const { t, lang, setLanguage } = useLanguage()
-  const [dropOpen, setDropOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
 
@@ -40,72 +39,6 @@ export default function Navbar() {
       <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
         <a href="/"><img src="/logo2.png" alt="Screndo" className="navbar-logo" style={{ height: "46px", width: "auto" }} /></a>
 
-        {/* Produkter dropdown — desktop only */}
-        <div
-          className="nav-desktop-item"
-          style={{ position: "relative", display: "flex", alignItems: "center" }}
-          onMouseEnter={() => setDropOpen(true)}
-          onMouseLeave={() => setDropOpen(false)}
-        >
-          <button
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              fontSize: "15px",
-              color: "#000",
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-              padding: 0,
-            }}
-          >
-            {t.produkterDropdown}
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{
-                transition: "transform 150ms",
-                transform: dropOpen ? "rotate(180deg)" : "rotate(0deg)",
-              }}
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-
-          {dropOpen && (
-            <div style={{ position: "absolute", top: "100%", left: 0, right: 0, height: "8px" }} />
-          )}
-          {dropOpen && (
-            <div
-              style={{
-                position: "absolute",
-                top: "calc(100% + 8px)",
-                left: 0,
-                background: "#fff",
-                border: "1px solid #ECECEC",
-                borderRadius: "8px",
-                padding: "8px 0",
-                minWidth: "140px",
-                zIndex: 100,
-              }}
-            >
-              <a
-                href="/product"
-                style={{ display: "block", padding: "8px 16px", fontSize: "15px", color: "#000", textDecoration: "none" }}
-              >
-                Screndo
-              </a>
-            </div>
-          )}
-        </div>
       </div>
 
       {/* Right: lang + desktop links + hamburger */}
@@ -196,14 +129,13 @@ export default function Navbar() {
             zIndex: 99,
           }}
         >
-          <a href="/product" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.product}</a>
           <a href="/login" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.login}</a>
           <a
             href="/book-intro"
             className="nav-mobile-book"
             style={{
-              background: "#04D8B5",
-              color: "#0A0A0A",
+              background: "#000",
+              color: "#fff",
               fontSize: "15px",
               fontWeight: 600,
               textDecoration: "none",

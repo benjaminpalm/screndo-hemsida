@@ -25,12 +25,11 @@ html.dark {
 }
 
 html {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
   font-optical-sizing: auto;
-  overflow-x: hidden;
 }
 
 img {
@@ -48,12 +47,12 @@ img {
 
 /* ── Hero ── */
 .hero-h1 {
-  font-size: 64px;
+  font-size: clamp(18px, 6vw, 58px);
   font-weight: 700;
   white-space: nowrap;
-  letter-spacing: -2.5px;
+  letter-spacing: -0.04em;
   line-height: 1.05;
-  margin: 0 0 28px 0;
+  margin: 0 0 12px 0;
 }
 
 .hero-buttons {
@@ -61,6 +60,15 @@ img {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero-btn-primary,
+.hero-btn-secondary {
+  transition: transform 0.2s ease;
+}
+.hero-btn-primary:hover,
+.hero-btn-secondary:hover {
+  transform: scale(1.05);
 }
 
 .hero-overlay {
@@ -129,10 +137,8 @@ img {
     padding-right: 24px !important;
   }
   .hero-h1 {
-    font-size: 38px !important;
-    letter-spacing: -1.2px !important;
     line-height: 1.1 !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
   }
   .hero-subline {
     font-size: 16px !important;
@@ -148,13 +154,7 @@ img {
     box-sizing: border-box !important;
   }
 
-  /* Hero image */
-  .hero-image-wrap {
-    min-height: 60vh !important;
-  }
-  .hero-image-wrap img {
-    min-height: 60vh !important;
-  }
+  /* Hero image — flex: 1 handles height inside sticky unit, no min-height needed */
 
   /* Feature section (home page "En fråga i veckan") */
   .feature-section-wrap {
@@ -293,18 +293,23 @@ img {
 
 /* ── Responsive: 640px ── */
 @media (max-width: 640px) {
-  .hero-h1 {
-    font-size: 32px !important;
+}
+
+/* ── Two-column hero section: stack on mobile ── */
+@media (max-width: 768px) {
+  .hero-two-col {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+  .hero-two-col > div {
+    flex: none !important;
+    width: 100% !important;
   }
 }
 
 /* ── Responsive: 768px (mobile) ── */
 @media (max-width: 768px) {
 
-  /* Prevent horizontal overflow */
-  html, body {
-    overflow-x: hidden !important;
-  }
 
   /* Navbar: Boka intro-knappen i mobilmenyn, inte full bredd */
   .nav-mobile-book {
@@ -317,9 +322,7 @@ img {
 
   /* Hero: rubrik */
   .hero-h1 {
-    font-size: 2.5rem !important;
-    letter-spacing: -1px !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     text-align: center !important;
   }
 
@@ -347,12 +350,6 @@ img {
   .hero-image-wrap {
     width: calc(100% - 40px) !important;
     margin: 0 auto !important;
-    min-height: auto !important;
-    border-radius: 16px !important;
-  }
-  .hero-image-wrap img {
-    min-height: auto !important;
-    height: auto !important;
     border-radius: 16px !important;
   }
 

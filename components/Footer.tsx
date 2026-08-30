@@ -6,7 +6,6 @@ export default function Footer() {
   const { t } = useLanguage()
 
   const links = [
-    { label: t.product, href: "/product" },
     { label: t.privacy, href: "/privacy" },
   ]
 

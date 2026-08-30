@@ -244,10 +244,11 @@ function BookIntroForm() {
                 }}
               >
                 <option value="">{t.selectPlaceholder}</option>
-                <option value="1-50">{t.size1}</option>
-                <option value="51-200">{t.size2}</option>
-                <option value="201-500">{t.size3}</option>
-                <option value="500+">{t.size4}</option>
+                <option value="0-49">{t.size1}</option>
+                <option value="50-149">{t.size2}</option>
+                <option value="150-299">{t.size3}</option>
+                <option value="300-499">{t.size4}</option>
+                <option value="500+">{t.size5}</option>
               </select>
               <svg
                 width="16"

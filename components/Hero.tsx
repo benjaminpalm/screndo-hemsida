@@ -1,52 +1,26 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
 import { useLanguage } from '@/lib/LanguageContext'
 
 export default function Hero() {
   const { t } = useLanguage()
-  const imgRef = useRef<HTMLImageElement>(null)
-  const rafRef = useRef<number | null>(null)
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
-    function update() {
-      rafRef.current = null
-      if (!imgRef.current) return
-      const progress = Math.min(window.scrollY / (window.innerHeight * 1.2), 1)
-      imgRef.current.style.transform = `scale(${1 + 0.08 * progress})`
-    }
-
-    function onScroll() {
-      if (rafRef.current === null) {
-        rafRef.current = requestAnimationFrame(update)
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
 
   return (
     <>
       <section
         className="hero-section"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          paddingTop: "96px",
-          paddingBottom: "64px",
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          paddingTop: '96px',
+          paddingBottom: '64px',
+          paddingLeft: '24px',
+          paddingRight: '24px',
         }}
       >
-        <div style={{ maxWidth: "860px", width: "100%" }}>
+        <div style={{ maxWidth: '860px', width: '100%' }}>
           <h1 className="hero-h1">
             {t.headline}
           </h1>
@@ -54,10 +28,10 @@ export default function Hero() {
           <p
             className="hero-subline"
             style={{
-              color: "#6B6B6B",
-              fontSize: "18px",
-              fontWeight: 400,
-              margin: "0 0 40px 0",
+              color: '#3D3D3D',
+              fontSize: '18px',
+              fontWeight: 300,
+              margin: '0 0 40px 0',
               lineHeight: 1.5,
             }}
           >
@@ -67,31 +41,33 @@ export default function Hero() {
           <div className="hero-buttons">
             <a
               href="/book-intro"
+              className="hero-btn-primary"
               style={{
-                background: "#04D8B5",
-                color: "#000",
-                textDecoration: "none",
-                fontSize: "15px",
+                background: '#2563EB',
+                color: '#fff',
+                textDecoration: 'none',
+                fontSize: '15px',
                 fontWeight: 600,
-                borderRadius: "100px",
-                padding: "12px 24px",
-                display: "inline-block",
+                borderRadius: '100px',
+                padding: '14px 28px',
+                display: 'inline-block',
               }}
             >
               {t.getStarted}
             </a>
             <a
-              href="/product"
+              href="#video-demo"
+              className="hero-btn-secondary"
               style={{
-                background: "transparent",
-                color: "#000",
-                textDecoration: "none",
-                fontSize: "15px",
+                background: '#fff',
+                color: '#000',
+                textDecoration: 'none',
+                fontSize: '15px',
                 fontWeight: 500,
-                borderRadius: "100px",
-                padding: "12px 24px",
-                border: "1px solid #000",
-                display: "inline-block",
+                borderRadius: '100px',
+                padding: '14px 28px',
+                border: '1.5px solid #000',
+                display: 'inline-block',
               }}
             >
               {t.seeHow}
@@ -100,22 +76,61 @@ export default function Hero() {
         </div>
       </section>
 
-      <div className="hero-image-wrap" style={{ position: "relative", width: "100%", height: "auto", minHeight: "100vh", overflow: "hidden" }}>
+      <div style={{ width: '100%', lineHeight: 0 }}>
         <img
-          ref={imgRef}
-          src="/macdashboard.png"
-          alt="Hero"
-          style={{
-            width: "100%",
-            height: "auto",
-            minHeight: "100vh",
-            objectFit: "cover",
-            objectPosition: "center center",
-            display: "block",
-            transformOrigin: "center center",
-          }}
+          src="/hemsidawis.png"
+          alt=""
+          style={{ display: 'block', width: '100%', height: 'auto' }}
         />
       </div>
+
+      {/* Two-column section: text left, Mac mockup right */}
+      <section style={{ background: '#fff', padding: '100px 64px' }}>
+        <div className="hero-two-col" style={{ display: 'flex', gap: '6%', alignItems: 'stretch' }}>
+
+          {/* Left column: heading + body, with internal padding to breathe away from outer edge */}
+          <div style={{ flex: '0 0 42%', display: 'flex', flexDirection: 'column', paddingLeft: '6%', paddingTop: '10%' }}>
+            <h2 style={{
+              fontSize: 'clamp(16px, 3.5vw, 40px)',
+              fontWeight: 700,
+              letterSpacing: '-0.03em',
+              lineHeight: 1.2,
+              margin: '0 0 24px 0',
+              color: '#0A0A0A',
+              textAlign: 'left',
+            }}>
+              Få reda på vad som stör dina medarbetare innan det blir ett problem.
+            </h2>
+            <p style={{
+              fontSize: '15px',
+              fontWeight: 300,
+              lineHeight: 1.75,
+              color: '#3D3D3D',
+              margin: 0,
+              textAlign: 'left',
+              maxWidth: '460px',
+            }}>
+              Screndo förbereder kontinuerligt korta, anonyma pulsfrågor åt dina medarbetare, du väljer själv hur ofta de ska gå ut. Frågorna väljs ur ett forskningsbaserat bibliotek inom organisationspsykologi och anpassas efter vad som faktiskt behöver undersökas i just din organisation, du godkänner varje fråga innan den skickas. Svaren analyseras direkt, du behöver aldrig själv tolka rådata eller läsa hundratals fritextsvar. Istället får du konkreta åtgärder att agera på, grundade i vad medarbetarna faktiskt säger, innan det blir ett problem som är svårt att vända. Chatta direkt med Screndo för att diskutera hur du enkelt kan applicera insikterna i praktiken.
+            </p>
+          </div>
+
+          {/* Right column: Mac mockup, fills same height as text column */}
+          <div style={{ flex: 1, alignSelf: 'stretch', paddingTop: '8%' }}>
+            <img
+              src="/screndomacv3.png"
+              alt="Hero"
+              style={{
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                objectPosition: 'top center',
+              }}
+            />
+          </div>
+
+        </div>
+      </section>
     </>
   )
 }
