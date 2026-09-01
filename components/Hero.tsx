@@ -99,7 +99,7 @@ export default function Hero() {
               color: '#0A0A0A',
               textAlign: 'left',
             }}>
-              Få reda på vad som stör dina medarbetare innan det blir ett problem.
+              {t.heroFeatureHeadline}
             </h2>
             <p style={{
               fontSize: '15px',
@@ -110,7 +110,7 @@ export default function Hero() {
               textAlign: 'left',
               maxWidth: '460px',
             }}>
-              Screndo förbereder kontinuerligt korta, anonyma pulsfrågor åt dina medarbetare, du väljer själv hur ofta de ska gå ut. Frågorna väljs ur ett forskningsbaserat bibliotek inom organisationspsykologi och anpassas efter vad som faktiskt behöver undersökas i just din organisation, du godkänner varje fråga innan den skickas. Svaren analyseras direkt, du behöver aldrig själv tolka rådata eller läsa hundratals fritextsvar. Istället får du konkreta åtgärder att agera på, grundade i vad medarbetarna faktiskt säger, innan det blir ett problem som är svårt att vända. Chatta direkt med Screndo för att diskutera hur du enkelt kan applicera insikterna i praktiken.
+              {t.heroFeatureParagraph}
             </p>
           </div>
 
