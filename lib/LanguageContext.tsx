@@ -47,6 +47,7 @@ const translations = {
     subline: 'Vad dina anställda tänker, varför, och vad du kan göra åt det.',
     getStarted: 'Testa gratis',
     seeHow: 'Se hur det fungerar',
+    videoHeadline: 'Se hur Screndo fungerar',
     // Hero two-column section
     heroFeatureHeadline: 'Få reda på vad som stör dina medarbetare innan det blir ett problem.',
     heroFeatureParagraph: 'Screndo förbereder kontinuerligt korta, anonyma pulsfrågor åt dina medarbetare, du väljer själv hur ofta de ska gå ut. Frågorna väljs ur ett forskningsbaserat bibliotek inom organisationspsykologi och anpassas efter vad som faktiskt behöver undersökas i just din organisation, du godkänner varje fråga innan den skickas. Svaren analyseras direkt, du behöver aldrig själv tolka rådata eller läsa hundratals fritextsvar. Istället får du konkreta åtgärder att agera på, grundade i vad medarbetarna faktiskt säger, innan det blir ett problem som är svårt att vända. Chatta direkt med Screndo för att diskutera hur du enkelt kan applicera insikterna i praktiken.',
@@ -157,6 +158,7 @@ const translations = {
     subline: 'What your employees think, why, and what you can do about it.',
     getStarted: 'Try for free',
     seeHow: 'See how it works',
+    videoHeadline: 'See how Screndo works',
     // Hero two-column section
     heroFeatureHeadline: 'Find out what is bothering your employees before it becomes a problem.',
     heroFeatureParagraph: 'Screndo continuously prepares short, anonymous pulse questions for your employees — you decide how often they go out. Questions are selected from a research-based library in organizational psychology and tailored to what actually needs to be explored in your organization; you approve each question before it is sent. Answers are analyzed instantly — you never have to interpret raw data or read through hundreds of free-text responses. Instead, you get concrete actions to take, grounded in what employees are actually saying, before it becomes a problem that is hard to reverse. Chat directly with Screndo to discuss how you can easily put the insights into practice.',

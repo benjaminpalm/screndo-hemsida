@@ -1,8 +1,12 @@
+'use client'
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage()
   return (
     <div style={{ background: "#fff", minHeight: "100vh" }}>
       <Navbar />
@@ -26,7 +30,7 @@ export default function Home() {
             color: '#0A0A0A',
             margin: '0 0 48px 0',
           }}>
-            Se hur Screndo fungerar
+            {t.videoHeadline}
           </h2>
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
             <iframe
