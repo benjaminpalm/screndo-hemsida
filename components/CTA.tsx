@@ -24,8 +24,8 @@ export default function CTA() {
         href="/book-intro"
         className="cta-button"
         style={{
-          background: "#04D8B5",
-          color: "#000",
+          background: "#000",
+          color: "#fff",
           textDecoration: "none",
           fontSize: "16px",
           fontWeight: 600,

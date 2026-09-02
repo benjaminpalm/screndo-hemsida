@@ -109,7 +109,7 @@ function BookIntroForm() {
         style={{
           fontWeight: 700,
           fontSize: "36px",
-          letterSpacing: "-1px",
+          letterSpacing: "-0.01em",
           marginBottom: "8px",
           marginTop: 0,
         }}

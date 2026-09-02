@@ -462,7 +462,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
                 transform: 'translateY(-50%)',
                 width: '26px',
                 height: '26px',
-                background: '#04D8B5',
+                background: '#000',
                 borderRadius: '6px',
                 border: 'none',
                 cursor: 'pointer',

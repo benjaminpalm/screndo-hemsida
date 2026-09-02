@@ -1,6 +1,8 @@
 'use client'
 
 import { useLanguage } from '@/lib/LanguageContext'
+import AutoSection from '@/components/AutoSection'
+import ResearchSection from '@/components/ResearchSection'
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -84,6 +86,10 @@ export default function Hero() {
         />
       </div>
 
+      <AutoSection />
+
+      <ResearchSection />
+
       {/* Two-column section: text left, Mac mockup right */}
       <section style={{ background: '#fff', padding: '100px 64px' }}>
         <div className="hero-two-col" style={{ display: 'flex', gap: '6%', alignItems: 'stretch' }}>
@@ -93,8 +99,8 @@ export default function Hero() {
             <h2 style={{
               fontSize: 'clamp(16px, 3.5vw, 40px)',
               fontWeight: 700,
-              letterSpacing: '-0.03em',
-              lineHeight: 1.2,
+              letterSpacing: '-0.01em',
+              lineHeight: 1.05,
               margin: '0 0 24px 0',
               color: '#0A0A0A',
               textAlign: 'left',

@@ -23,8 +23,8 @@ export default function FeatureSection() {
             className="feature-section-h2"
             style={{
               fontSize: "44px",
-              fontWeight: 800,
-              letterSpacing: "-1.5px",
+              fontWeight: 700,
+              letterSpacing: "-0.01em",
               color: "#0A0A0A",
               margin: 0,
               marginBottom: "8px",
@@ -37,8 +37,8 @@ export default function FeatureSection() {
             className="feature-section-h2"
             style={{
               fontSize: "44px",
-              fontWeight: 800,
-              letterSpacing: "-1.5px",
+              fontWeight: 700,
+              letterSpacing: "-0.01em",
               color: "#0A0A0A",
               margin: 0,
               marginBottom: "32px",

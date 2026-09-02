@@ -113,7 +113,7 @@ export default function ProductSearch() {
                 width: 38,
                 height: 38,
                 borderRadius: "50%",
-                background: "#04D8B5",
+                background: "#000",
                 border: "none",
                 display: "flex",
                 alignItems: "center",
@@ -127,7 +127,7 @@ export default function ProductSearch() {
                 height="16"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#000"
+                stroke="#fff"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"

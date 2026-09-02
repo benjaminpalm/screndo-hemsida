@@ -48,12 +48,12 @@ export default function Navbar() {
         <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "13px" }}>
           <button
             onClick={() => setLanguage('sv')}
-            style={{ background: "none", border: "none", cursor: lang === 'sv' ? "default" : "pointer", fontFamily: "inherit", fontSize: "13px", padding: 0, color: lang === 'sv' ? "#0A0A0A" : "#6B6B6B", fontWeight: lang === 'sv' ? 600 : 400 }}
+            style={{ background: "none", border: "none", cursor: lang === 'sv' ? "default" : "pointer", fontFamily: "inherit", fontSize: "13px", padding: 0, letterSpacing: "-0.01em", color: lang === 'sv' ? "#0A0A0A" : "#6B6B6B", fontWeight: lang === 'sv' ? 500 : 400 }}
           >SV</button>
           <span style={{ color: "#6B6B6B" }}>/</span>
           <button
             onClick={() => setLanguage('en')}
-            style={{ background: "none", border: "none", cursor: lang === 'en' ? "default" : "pointer", fontFamily: "inherit", fontSize: "13px", padding: 0, color: lang === 'en' ? "#0A0A0A" : "#6B6B6B", fontWeight: lang === 'en' ? 600 : 400 }}
+            style={{ background: "none", border: "none", cursor: lang === 'en' ? "default" : "pointer", fontFamily: "inherit", fontSize: "13px", padding: 0, letterSpacing: "-0.01em", color: lang === 'en' ? "#0A0A0A" : "#6B6B6B", fontWeight: lang === 'en' ? 500 : 400 }}
           >EN</button>
         </div>
 
@@ -61,7 +61,7 @@ export default function Navbar() {
         <a
           className="nav-desktop-item"
           href="/login"
-          style={{ color: "#6B6B6B", textDecoration: "none", fontSize: "15px" }}
+          style={{ color: "#6B6B6B", textDecoration: "none", fontSize: "15px", fontWeight: 400, letterSpacing: "-0.01em" }}
         >
           {t.login}
         </a>
@@ -75,6 +75,8 @@ export default function Navbar() {
             color: "#fff",
             textDecoration: "none",
             fontSize: "15px",
+            fontWeight: 600,
+            letterSpacing: "-0.01em",
             borderRadius: "100px",
             padding: "9px 20px",
             display: "inline-block",

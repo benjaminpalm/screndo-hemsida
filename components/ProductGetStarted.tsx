@@ -10,8 +10,8 @@ export default function ProductGetStarted() {
         href="/book-intro"
         style={{
           display: "inline-block",
-          background: "#04D8B5",
-          color: "#000",
+          background: "#000",
+          color: "#fff",
           textDecoration: "none",
           fontSize: "15px",
           fontWeight: 600,

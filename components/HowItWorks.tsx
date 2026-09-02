@@ -39,8 +39,8 @@ export default function HowItWorks() {
         <h2
           style={{
             fontSize: "44px",
-            fontWeight: 800,
-            letterSpacing: "-1.5px",
+            fontWeight: 700,
+            letterSpacing: "-0.01em",
             lineHeight: 1.1,
             margin: "0 0 56px 0",
           }}
