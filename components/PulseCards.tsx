@@ -110,6 +110,7 @@ export default function PulseCards() {
   return (
     <section
       ref={sectionRef}
+      className="pulse-cards-section"
       style={{ background: '#fff', padding: '56px 64px 112px', overflow: 'hidden' }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -142,6 +143,7 @@ export default function PulseCards() {
           {t.pulses.map((pulse, i) => (
             <div
               key={pulse.name}
+              className="pulse-card"
               ref={el => { cardRefs.current[i] = el }}
               onMouseEnter={() => handleEnter(i)}
               onMouseLeave={() => handleLeave(i)}
@@ -149,6 +151,7 @@ export default function PulseCards() {
                 background: '#fff',
                 borderRadius: '999px',
                 padding: '24px 32px',
+                minWidth: 0,
                 border: hovered === i ? '1px solid #04D8B5' : '1px solid #1A1A1A',
                 transition: 'border-color 0.15s ease',
                 cursor: 'default',
@@ -166,6 +169,7 @@ export default function PulseCards() {
 
           {/* More card — full width, dashed border */}
           <div
+            className="pulse-card-more"
             ref={el => { cardRefs.current[6] = el }}
             onMouseEnter={() => handleEnter(6)}
             onMouseLeave={() => handleLeave(6)}
@@ -174,6 +178,7 @@ export default function PulseCards() {
               background: '#F7F6F3',
               borderRadius: '999px',
               padding: '20px 32px',
+              minWidth: 0,
               border: hovered === 6 ? '1px dashed #04D8B5' : '1px dashed #E4E3DF',
               transition: 'border-color 0.15s ease',
               willChange: 'transform, opacity',

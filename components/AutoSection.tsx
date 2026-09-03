@@ -9,6 +9,7 @@ export default function AutoSection() {
   const [shown, setShown] = useState([false, false, false])
   const [struck, setStruck] = useState([false, false, false])
   const [finalVisible, setFinalVisible] = useState(false)
+  const [cardVisible, setCardVisible] = useState(false)
 
   useEffect(() => {
     let started = false
@@ -41,7 +42,15 @@ export default function AutoSection() {
         if (entry.isIntersecting && !started) {
           started = true
           observer.disconnect()
-          setTimeout(startSequence, 300)
+
+          if (reduced) {
+            setCardVisible(true)
+            setTimeout(startSequence, 300)
+            return
+          }
+
+          setCardVisible(true)
+          setTimeout(startSequence, 900)
         }
       },
       { threshold: 0.25 }
@@ -111,6 +120,9 @@ export default function AutoSection() {
               boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
               borderRadius: '16px',
               padding: '52px 48px',
+              opacity: cardVisible ? 1 : 0,
+              transform: cardVisible ? 'translateX(0)' : 'translateX(100px)',
+              transition: 'opacity 0.85s ease-out, transform 0.85s ease-out',
             }}>
               {items.map((item, i) => (
                 <div
@@ -151,12 +163,22 @@ export default function AutoSection() {
                     )}
                   </span>
                   <span style={{
+                    position: 'relative',
+                    display: 'inline-block',
                     fontSize: '15px',
                     color: struck[i] ? '#B0B0B0' : '#0A0A0A',
-                    textDecoration: struck[i] ? 'line-through' : 'none',
-                    transition: 'color 0.25s ease',
+                    transition: 'color 0.5s ease',
                   }}>
                     {item}
+                    <span style={{
+                      position: 'absolute',
+                      left: 0,
+                      top: '50%',
+                      height: '1px',
+                      width: struck[i] ? '100%' : '0%',
+                      background: '#B0B0B0',
+                      transition: 'width 0.5s ease',
+                    }} />
                   </span>
                 </div>
               ))}

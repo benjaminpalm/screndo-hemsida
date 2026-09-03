@@ -114,42 +114,56 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu panel */}
+      {/* Mobile menu backdrop + panel */}
       {menuOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "64px",
-            left: 0,
-            right: 0,
-            background: "#fff",
-            borderBottom: "1px solid #ECECEC",
-            padding: "16px 20px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-            zIndex: 99,
-          }}
-        >
-          <a href="/login" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.login}</a>
-          <a
-            href="/book-intro"
-            className="nav-mobile-book"
+        <>
+          <div
+            onClick={() => setMenuOpen(false)}
             style={{
-              background: "#000",
-              color: "#fff",
-              fontSize: "15px",
-              fontWeight: 600,
-              textDecoration: "none",
-              borderRadius: "100px",
-              padding: "12px 20px",
-              textAlign: "center",
-              display: "block",
+              position: "fixed",
+              top: "64px",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "rgba(10,10,10,0.35)",
+              zIndex: 98,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "64px",
+              left: 0,
+              right: 0,
+              background: "#fff",
+              borderBottom: "1px solid #ECECEC",
+              padding: "16px 20px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px",
+              zIndex: 99,
             }}
           >
-            {t.bookIntro}
-          </a>
-        </div>
+            <a href="/login" style={{ color: "#0A0A0A", fontSize: "15px", textDecoration: "none" }}>{t.login}</a>
+            <a
+              href="/book-intro"
+              className="nav-mobile-book"
+              style={{
+                background: "#000",
+                color: "#fff",
+                fontSize: "15px",
+                fontWeight: 600,
+                textDecoration: "none",
+                borderRadius: "100px",
+                padding: "12px 20px",
+                textAlign: "center",
+                display: "block",
+              }}
+            >
+              {t.bookIntro}
+            </a>
+          </div>
+        </>
       )}
     </nav>
   )

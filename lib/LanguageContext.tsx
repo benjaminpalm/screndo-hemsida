@@ -48,18 +48,14 @@ const translations = {
     getStarted: 'Testa gratis',
     seeHow: 'Se hur det fungerar',
     videoHeadline: 'Se hur Screndo fungerar',
-    // Research section
-    researchHeadline: 'Byggd på forskning, inte på gissningar.',
-    researchParagraph: 'Varje fråga Screndo ställer är hämtad ur ett kvalitetssäkrat bibliotek förankrat i organisationspsykologi. Ingen AI som hittar på egna frågor, ingen generisk nöjdhetspoäng.',
-    researchCard1Title: 'Sex dimensioner',
-    researchCard1Body: 'Forskningen är tydlig med vad som faktiskt driver engagemang. Screndo mäter dessa, inte allt annat.',
-    researchDimensions: ['Upplevd rättvisa', 'Arbetsbelastning', 'Rolltydlighet', 'Erkännande', 'Trygghet att säga ifrån', 'Tillit till ledningen'],
-    researchCard2Title: 'Kontinuerligt, inte årligen',
-    researchCard2Body: 'En årlig enkät fångar ett ögonblick. Forskningen visar att det som faktiskt förändrar en organisation är kort, tät återkoppling över tid.',
-    researchCard3Title: 'Mönster, inte enskilda dåliga dagar',
-    researchCard3Body: 'Screndo räknar rullande snitt över flera mätningar, så en enskild tung vecka aldrig förväxlas med ett verkligt problem. Systemet flaggar inte i onödan, det förstår skillnaden mellan en tillfällig svacka och ett mönster värt att agera på.',
+    // AI-native CTA section
+    aiNativeHeadline: 'En AI-native plattform där användarvänligheten är i fokus',
+    watchDemo: 'Se demofilm',
+    // Founded section
+    foundedHeadline: 'Grundad där forskningen faktiskt görs.',
+    foundedBody: 'Screndo är antagen till HighFive Innovationsarena vid Högskolan i Halmstad, och har därigenom tillgång till forskningsresurser och rådgivning som säkerställer att produkten håller vetenskaplig grund och högsta kvalitet.',
     // Auto section
-    autoHeadline: 'Du gör ingenting. Det är hela poängen.',
+    autoHeadline: 'Lägg tiden där det faktiskt gör skillnad.',
     autoParagraph: 'Screndo sköter pulsmätningarna autonomt och levererar färdiga åtgärder. Ingen app, ingen inloggning, ingenting för dina medarbetare att installera.',
     autoItem1: 'Formulera frågor',
     autoItem2: 'Samla in och analysera svaren',
@@ -176,18 +172,14 @@ const translations = {
     getStarted: 'Try for free',
     seeHow: 'See how it works',
     videoHeadline: 'See how Screndo works',
-    // Research section
-    researchHeadline: 'Built on research, not guesswork.',
-    researchParagraph: 'Every question Screndo asks is drawn from a quality-assured library rooted in organizational psychology. No AI making up its own questions, no generic satisfaction score.',
-    researchCard1Title: 'Six dimensions',
-    researchCard1Body: 'Research is clear about what actually drives engagement. Screndo measures these, not everything else.',
-    researchDimensions: ['Perceived fairness', 'Workload', 'Role clarity', 'Recognition', 'Psychological safety', 'Trust in leadership'],
-    researchCard2Title: 'Continuous, not annual',
-    researchCard2Body: 'An annual survey captures a moment in time. Research shows that what actually changes an organization is short, frequent feedback over time.',
-    researchCard3Title: 'Patterns, not individual bad days',
-    researchCard3Body: 'Screndo calculates rolling averages across multiple measurements, so a single tough week is never mistaken for a real problem. The system does not flag unnecessarily — it understands the difference between a temporary dip and a pattern worth acting on.',
+    // AI-native CTA section
+    aiNativeHeadline: 'An AI-native platform built around ease of use',
+    watchDemo: 'Watch demo',
+    // Founded section
+    foundedHeadline: 'Founded where the research actually happens.',
+    foundedBody: 'Screndo has been admitted to HighFive Innovation Arena at Halmstad University, giving it access to research resources and advisory support that ensure the product rests on scientific grounding and the highest quality.',
     // Auto section
-    autoHeadline: 'You do nothing. That is the whole point.',
+    autoHeadline: 'Spend your time where it actually makes a difference.',
     autoParagraph: 'Screndo handles pulse measurements autonomously and delivers ready-made actions. No app, no login, nothing for your employees to install.',
     autoItem1: 'Formulate questions',
     autoItem2: 'Collect and analyze responses',
