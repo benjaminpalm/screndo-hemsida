@@ -16,9 +16,7 @@ const translations = {
     keepTitle: 'Hur länge vi sparar den',
     keepText: 'Vi sparar din information så länge det behövs för att upprätthålla vår affärsrelation. Du kan begära radering när som helst.',
     rightsTitle: 'Dina rättigheter',
-    rightsText: 'Enligt GDPR har du rätt att få tillgång till, korrigera eller radera dina personuppgifter. Kontakta oss på screndocom@gmail.com.',
-    contactTitle: 'Kontakt',
-    contactText: 'Screndo, screndocom@gmail.com',
+    rightsText: 'Enligt GDPR har du rätt att få tillgång till, korrigera eller radera dina personuppgifter. Kontakta oss via vår hemsida.',
     // Book intro form
     pageHeadline: 'Boka intro',
     pageSubline: 'Vi hör av oss inom 24 timmar.',
@@ -140,9 +138,7 @@ const translations = {
     keepTitle: 'How long we keep it',
     keepText: 'We retain your information for as long as necessary to maintain our business relationship. You can request deletion at any time.',
     rightsTitle: 'Your rights',
-    rightsText: 'Under GDPR, you have the right to access, correct, or delete your personal data. Contact us at screndocom@gmail.com.',
-    contactTitle: 'Contact',
-    contactText: 'Screndo, screndocom@gmail.com',
+    rightsText: 'Under GDPR, you have the right to access, correct, or delete your personal data. Contact us via our website.',
     // Book intro form
     pageHeadline: 'Book an intro',
     pageSubline: 'We will reach out within 24 hours.',

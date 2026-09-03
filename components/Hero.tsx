@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/lib/LanguageContext'
 import AutoSection from '@/components/AutoSection'
+import Reveal from '@/components/Reveal'
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -118,83 +119,90 @@ export default function Hero() {
           justifyContent: 'center',
           padding: '0 24px',
         }}>
-          <blockquote style={{ margin: 0, textAlign: 'center', maxWidth: '760px' }}>
-            <p style={{
-              fontSize: 'clamp(17px, 2.3vw, 27px)',
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-              lineHeight: 1.45,
-              color: '#0A0A0A',
-              margin: '0 0 16px 0',
-            }}>
-              &ldquo;Clients do not come first. Employees come first. If you take care of your employees, they will take care of the clients.&rdquo;
-            </p>
-            <cite style={{
-              fontStyle: 'normal',
-              fontSize: '14px',
-              fontWeight: 500,
-              letterSpacing: '0.02em',
-              color: '#0A0A0A',
-              opacity: 0.7,
-            }}>
-              — Richard Branson
-            </cite>
-          </blockquote>
+          <Reveal variant="up">
+            <blockquote style={{ margin: 0, textAlign: 'center', maxWidth: '760px' }}>
+              <p style={{
+                fontSize: 'clamp(17px, 2.3vw, 27px)',
+                fontWeight: 600,
+                letterSpacing: '-0.01em',
+                lineHeight: 1.45,
+                color: '#0A0A0A',
+                margin: '0 0 16px 0',
+              }}>
+                &ldquo;Clients do not come first. Employees come first. If you take care of your employees, they will take care of the clients.&rdquo;
+              </p>
+              <cite style={{
+                fontStyle: 'normal',
+                fontSize: '14px',
+                fontWeight: 500,
+                letterSpacing: '0.02em',
+                color: '#0A0A0A',
+                opacity: 0.7,
+              }}>
+                — Richard Branson
+              </cite>
+            </blockquote>
+          </Reveal>
         </div>
       </section>
 
       {/* AI-native CTA section */}
       <section className="ai-cta-section" style={{ background: '#fff', padding: '120px 24px 40px', textAlign: 'center' }}>
-        <h2 style={{
-          fontSize: 'clamp(28px, 5vw, 52px)',
-          fontWeight: 700,
-          letterSpacing: '-0.01em',
-          lineHeight: 1.1,
-          margin: '0 auto 36px',
-          maxWidth: '820px',
-          color: '#0A0A0A',
-        }}>
-          {t.aiNativeHeadline}
-        </h2>
-        <a
-          href="#video-demo"
-          className="hero-btn-primary"
-          style={{
-            background: '#2563EB',
-            color: '#fff',
-            textDecoration: 'none',
-            fontSize: '15px',
-            fontWeight: 600,
-            borderRadius: '100px',
-            padding: '14px 28px',
-            display: 'inline-block',
-          }}
-        >
-          {t.watchDemo}
-        </a>
+        <Reveal variant="up">
+          <h2 style={{
+            fontSize: 'clamp(28px, 5vw, 52px)',
+            fontWeight: 700,
+            letterSpacing: '-0.01em',
+            lineHeight: 1.1,
+            margin: '0 auto 36px',
+            maxWidth: '820px',
+            color: '#0A0A0A',
+          }}>
+            {t.aiNativeHeadline}
+          </h2>
+        </Reveal>
+        <Reveal variant="up" delay={150} style={{ display: 'inline-block' }}>
+          <a
+            href="#video-demo"
+            className="hero-btn-primary"
+            style={{
+              background: '#2563EB',
+              color: '#fff',
+              textDecoration: 'none',
+              fontSize: '15px',
+              fontWeight: 600,
+              borderRadius: '100px',
+              padding: '14px 28px',
+              display: 'inline-block',
+            }}
+          >
+            {t.watchDemo}
+          </a>
+        </Reveal>
       </section>
 
       {/* Standalone product screenshot */}
       <div className="product-shot-wrap" style={{ display: 'flex', justifyContent: 'center', padding: '24px 24px 80px' }}>
-        <img
-          src="/screndomacv3.png"
-          alt="Screndo"
-          style={{
-            display: 'block',
-            width: '100%',
-            maxWidth: '1500px',
-            height: 'auto',
-          }}
-        />
+        <Reveal variant="scale" style={{ width: '100%', maxWidth: '1500px' }}>
+          <img
+            src="/screndomacv3.png"
+            alt="Screndo"
+            style={{
+              display: 'block',
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </Reveal>
       </div>
 
       {/* Founded section: text left, university image right */}
-      <section className="founded-section" style={{ background: '#fff', padding: '120px 24px' }}>
+      <section className="founded-section" style={{ background: '#fff', padding: '120px 24px', overflow: 'hidden' }}>
         <div
           className="hero-two-col"
           style={{ display: 'flex', gap: '6%', alignItems: 'center', maxWidth: '1160px', margin: '0 auto' }}
         >
-          <div style={{ flex: '0 0 42%' }}>
+          <Reveal variant="left" style={{ flex: '0 0 42%' }}>
             <h2 style={{
               fontSize: 'clamp(22px, 3.5vw, 42px)',
               fontWeight: 700,
@@ -216,9 +224,9 @@ export default function Hero() {
             }}>
               {t.foundedBody}
             </p>
-          </div>
+          </Reveal>
 
-          <div style={{ flex: 1 }}>
+          <Reveal variant="right" style={{ flex: 1 }}>
             <img
               src="/hskolan.jpg"
               alt="Högskolan i Halmstad"
@@ -229,22 +237,16 @@ export default function Hero() {
                 borderRadius: '22px',
               }}
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Brand photo section */}
-      <div className="brand-photo-wrap" style={{ display: 'flex', justifyContent: 'center', padding: '0 24px 100px' }}>
+      {/* Brand photo section — full-bleed, static */}
+      <div style={{ width: '100%', lineHeight: 0 }}>
         <img
           src="/macscrendo2.jpg"
           alt="Screndo"
-          style={{
-            display: 'block',
-            width: '100%',
-            maxWidth: '1320px',
-            height: 'auto',
-            borderRadius: '22px',
-          }}
+          style={{ display: 'block', width: '100%', height: 'auto' }}
         />
       </div>
     </>

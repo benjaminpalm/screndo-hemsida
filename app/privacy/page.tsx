@@ -11,7 +11,6 @@ function PrivacyContent() {
     { title: t.whyTitle, text: t.whyText },
     { title: t.keepTitle, text: t.keepText },
     { title: t.rightsTitle, text: t.rightsText },
-    { title: t.contactTitle, text: t.contactText },
   ]
 
   return (

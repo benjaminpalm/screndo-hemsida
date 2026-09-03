@@ -82,7 +82,7 @@ export default function AutoSection() {
       <section
         ref={ref}
         className="auto-section"
-        style={{ background: '#fff', paddingTop: '150px' }}
+        style={{ background: '#fff', paddingTop: '150px', overflow: 'hidden' }}
       >
         <div
           className="hero-two-col"
@@ -113,8 +113,10 @@ export default function AutoSection() {
           </div>
 
           {/* Right: animated checklist card */}
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{
+              width: '100%',
+              boxSizing: 'border-box',
               background: '#ffffff',
               border: '1px solid #E4E3DF',
               boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
